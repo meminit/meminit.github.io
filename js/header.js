@@ -1,19 +1,19 @@
 // literally just checks if a header exists and if not it will add the header
 
-const header = document.querySelector('header')
+const header = document.querySelector("header");
 
 async function loadHeader() {
-    const newHeaderText = await fetch('/header.html', () => { 
-        method: 'GET'
-    });
+  const newHeaderText = await fetch("/header.html", () => {
+    method: "GET";
+  });
 
-    const res = await newHeaderText.text()
+  const res = await newHeaderText.text();
 
-    const div = document.createElement('div')
-   
-    const css = document.createElement('style')
+  const div = document.createElement("div");
 
-    css.innerHTML = `
+  const css = document.createElement("style");
+
+  css.innerHTML = `
         .testMobileHeader {
             display: none;
         }
@@ -73,25 +73,43 @@ async function loadHeader() {
             font-size: xx-large;
 
         }
-`
+`;
+
+  document.head.appendChild(css);
+
+  const mobileHeader = document.createElement("div");
+
+  mobileHeader.className = "testMobileHeader";
+
+  mobileHeader.innerHTML += `
+                <button title="Open Options" class="openButton">
+                =
+            </button>
     
-    document.head.appendChild(css)
-    
-    div.innerHTML += res
+    `;
 
-    document.prepend(div)
+  const mobilePanel = document.createElement("div");
 
-    const btnScriptFetch = await fetch('s/js/pages.js', { 
-        method: 'GET'
-    });
+  mobilePanel.className = "mobileMenu";
 
-    const btnScript = await btnScriptFetch.text()
+  mobilePanel.innerHTML =
+    '            <a href="/tools" class="defaultLink">Tools</a>';
 
-    const scriptInHTML = document.createElement('script')
+  div.innerHTML += res;
 
-    scriptInHTML.innerText = btnScript
+  document.prepend(div);
 
-    scriptInHTML.innerText += `
+  const btnScriptFetch = await fetch("s/js/pages.js", {
+    method: "GET",
+  });
+
+  const btnScript = await btnScriptFetch.text();
+
+  const scriptInHTML = document.createElement("script");
+
+  scriptInHTML.innerText = btnScript;
+
+  scriptInHTML.innerText += `
         let open = false
 
         document.querySelector('.openButton').addEventListener('click', () => {
@@ -112,10 +130,15 @@ async function loadHeader() {
                 console.log('Closed Now')
                 return
             }
-        });`
-
+        });`;
 }
 
-if (!header) {
-    loadHeader()
-}
+document.addEventListener("DOMContentLoaded", () => {
+  if (!header) {
+    loadHeader();
+    return;
+  }
+
+  if (!document.querySelector(".testMobileHeader")) {
+  }
+});
