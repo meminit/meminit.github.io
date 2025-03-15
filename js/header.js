@@ -101,7 +101,7 @@ async function loadHeader() {
 
   document.body.prepend(div);
 
-  const btnScriptFetch = await fetch("s/js/pages.js", {
+  const btnScriptFetch = await fetch("/js/pages.js", {
     method: "GET",
   });
 
