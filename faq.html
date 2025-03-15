@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Memin It!</title>
+    <link
+      rel="icon"
+      type="image/webp"
+      href="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247"
+    />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta charset="utf-8" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        margin: 0;
+        height: 100vh;
+      }
+
+      header {
+        width: 100%;
+
+        display: flex;
+        justify-content: left;
+        align-items: center;
+
+        flex-direction: row;
+
+        height: 10vh;
+        background-color: white;
+      }
+
+      .titlemoji {
+        width: 3vw;
+        height: 3vw;
+      }
+
+      .link {
+        margin: 0;
+        font-size: 1.5vw;
+        text-decoration: none;
+        color: black;
+      }
+
+      .faqlink {
+        margin: 0;
+        font-size: 1.5vw;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+      }
+
+      .bottomborder {
+        width: 0%;
+        transition: all 0.2s ease-out;
+        color: black;
+        background-color: black;
+        height: 0.1vw;
+      }
+
+      .linkbox {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .helpbox {
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .linkbox:hover,
+      .helpbox:hover {
+        cursor: pointer;
+      }
+
+      .separator {
+        width: 1px;
+        height: 70%;
+        background-color: black;
+        margin-left: 0.75vw;
+        margin-right: 0.75vw;
+      }
+
+      .linkbox:hover .bottomborder,
+      .helpbox:hover .bottomborder {
+        width: 100%;
+      }
+
+      .sitetitle {
+        margin: 0;
+
+        font-size: 2.5vw;
+
+        height: 100%;
+
+        margin-left: 1vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        color: black;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      .innerbody {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 90vh;
+      }
+
+      .textHeader {
+        font-size: 5vh;
+        margin: 0;
+      }
+
+      .columnseperators {
+        width: 30%;
+        height: 10px;
+        background-color: black;
+        color: black;
+        margin-top: 0.75vw;
+        margin-bottom: 0.75vw;
+      }
+
+      .faqtitle {
+        font-size: 7vh;
+        text-align: center;
+      }
+
+      @media (orientation: portrait) {
+        .faqtitle {
+          font-size: 3vh;
+        }
+
+        .faqlink {
+          font-size: 2vh;
+        }
+
+        .columnseperators {
+          height: 0.25vh;
+        }
+
+        .paragraph {
+          font-size: 2vh;
+          width: 80%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <header>
+    <div style="display: flex; flex-direction: row; align-items: center">
+      <h3 class="sitetitle">Memin It</h3>
+      <img
+        alt="Logo"
+        class="titlemoji"
+        src="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247"
+      />
+    </div>
+    <div class="separator"></div>
+    <div class="linkbox">
+      <a class="link" onclick="sendTo('home')">Home</a>
+      <div class="bottomborder"></div>
+    </div>
+    <div class="separator"></div>
+    <div class="linkbox">
+      <a class="link" onclick="sendTo('tools')">Tools</a>
+      <div class="bottomborder"></div>
+    </div>
+    <div class="separator"></div>
+    <div class="linkbox">
+      <a class="link" onclick="sendTo('faq')">FAQ</a>
+      <div class="bottomborder"></div>
+    </div>
+
+    <div class="separator"></div>
+    <div class="linkbox">
+      <a class="link" onclick="sendTo('aboutme')">About Me</a>
+      <div class="bottomborder"></div>
+    </div>
+    <div class="separator"></div>
+    <div class="linkbox">
+      <a class="link" onclick="sendTo('suggestions')">Suggestions</a>
+      <div class="bottomborder"></div>
+    </div>
+
+    <div class="separator"></div>
+    <div class="linkbox">
+      <a class="link" onclick="sendTo('discord')">Discord</a>
+      <div class="bottomborder"></div>
+    </div>
+
+    <div class="separator"></div>
+  </header>
+
+  <div class="innerbody">
+    <h1 class="faqtitle">Frequently Asked Questions</h1>
+
+    <div class="paragraph" id="mainquestions">
+      <div class="linkbox">
+        <a class="faqlink" href="#partnership"
+          >How can I partnership with you?</a
+        >
+        <div class="bottomborder"></div>
+      </div>
+    </div>
+
+    <div class="paragraph" id="mainquestions">
+      <div class="linkbox">
+        <a class="faqlink" href="#oldsite">What happened to the old site?</a>
+        <div class="bottomborder"></div>
+      </div>
+    </div>
+
+    <div class="columnseperators"></div>
+
+    <div class="paragraph" id="oldsite">
+      <h1 style="text-align: center">What happened to the old site design?</h1>
+      <h4 style="text-align: center">
+        The old site design got scratched because of problematics like the text
+        not being responsive (oversizing on smaller screens), dullness of the
+        site, and minimal navigation.
+      </h4>
+      <h4 style="text-align: center">
+        If you really want a copy of the old site just DM me
+      </h4>
+    </div>
+
+    <div class="paragraph" id="partnership">
+      <h1>How can I partnership with you?</h1>
+      <h4>
+        1. Join the
+        <a
+          href="https://discord.gg/b3r4TS9ukt"
+          target="_blank"
+          style="color: black; font-weight: bold"
+          >discord</a
+        >
+      </h4>
+      <h4>2. Start a post</h4>
+      <h3>Don't put an invite in the post as automod will delete it.</h3>
+      <h4>- List the server name</h4>
+      <h4>- List the servers target audience/community</h4>
+      <h4>- List the servers member count</h4>
+      <h4>- List why you want a partnership</h4>
+      <h5>
+        Once that is done, the owner will respond and discuss (make sure dms are
+        open)
+      </h5>
+    </div>
+  </div>
+</html>
+
+<script src="/js/pages.js"></script>

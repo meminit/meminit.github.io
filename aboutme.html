@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Memin It!</title>
+    <link
+      rel="icon"
+      type="image/webp"
+      href="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247"
+    />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta charset="utf-8" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        margin: 0;
+        height: 100vh;
+      }
+
+      header {
+        width: 100%;
+
+        display: flex;
+        justify-content: left;
+        align-items: center;
+
+        flex-direction: row;
+
+        height: 10vh;
+        background-color: white;
+      }
+
+      .titlemoji {
+        width: 3vw;
+        height: 3vw;
+      }
+
+      .link {
+        margin: 0;
+        font-size: 1.5vw;
+        text-decoration: none;
+        color: black;
+      }
+
+      .faqlink {
+        margin: 0;
+        font-size: 1.5vw;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+      }
+
+      .bottomborder {
+        width: 0%;
+        transition: all 0.2s ease-out;
+        color: black;
+        background-color: black;
+        height: 0.1vw;
+      }
+
+      .linkbox {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .helpbox {
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .linkbox:hover,
+      .helpbox:hover {
+        cursor: pointer;
+      }
+
+      .separator {
+        width: 1px;
+        height: 70%;
+        background-color: black;
+        margin-left: 0.75vw;
+        margin-right: 0.75vw;
+      }
+
+      .linkbox:hover .bottomborder,
+      .helpbox:hover .bottomborder {
+        width: 100%;
+      }
+
+      .sitetitle {
+        margin: 0;
+
+        font-size: 2.5vw;
+
+        height: 100%;
+
+        margin-left: 1vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        color: black;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      .innerbody {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 90vh;
+      }
+
+      .textHeader {
+        font-size: 5vh;
+        margin: 0;
+      }
+
+      .columnseperators {
+        width: 30%;
+        height: 10px;
+        background-color: black;
+        color: black;
+        margin-top: 0.75vw;
+        margin-bottom: 0.75vw;
+      }
+
+      .faqtitle {
+        font-size: 7vh;
+        text-align: center;
+      }
+
+      .pfp {
+        width: 10vw;
+        height: 10vw;
+        border-radius: 100px;
+        -webkit-box-shadow: 10px 10px 25px 10px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 10px 10px 25px 10px rgba(0, 0, 0, 0.75);
+        box-shadow: 10px 10px 25px 10px rgba(0, 0, 0, 0.75);
+      }
+
+      @media (orientation: portrait) {
+        .faqtitle {
+          font-size: 3vh;
+        }
+
+        .faqlink {
+          font-size: 2vh;
+        }
+
+        .columnseperators {
+          height: 0.25vh;
+        }
+
+        .paragraph {
+          font-size: 2vh;
+          width: 80%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <header>
+    <div style="display: flex; flex-direction: row; align-items: center">
+      <h3 class="sitetitle">Memin It</h3>
+      <img
+        alt="logo"
+        class="titlemoji"
+        src="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247"
+      />
+    </div>
+    <div class="separator"></div>
+    <div class="linkbox">
+      <a class="link" onclick="sendTo('home')">Home</a>
+      <div class="bottomborder"></div>
+    </div>
+    <div class="separator"></div>
+    <div class="linkbox">
+      <a class="link" onclick="sendTo('tools')">Tools</a>
+      <div class="bottomborder"></div>
+    </div>
+    <div class="separator"></div>
+    <div class="linkbox">
+      <a class="link" onclick="sendTo('faq')">FAQ</a>
+      <div class="bottomborder"></div>
+    </div>
+
+    <div class="separator"></div>
+    <div class="linkbox">
+      <a class="link" onclick="sendTo('aboutme')">About Me</a>
+      <div class="bottomborder"></div>
+    </div>
+    <div class="separator"></div>
+    <div class="linkbox">
+      <a class="link" onclick="sendTo('suggestions')">Suggestions</a>
+      <div class="bottomborder"></div>
+    </div>
+
+    <div class="separator"></div>
+    <div class="linkbox">
+      <a class="link" onclick="sendTo('discord')">Discord</a>
+      <div class="bottomborder"></div>
+    </div>
+
+    <div class="separator"></div>
+  </header>
+
+  <div class="innerbody">
+    <h1 class="faqtitle">About Me</h1>
+    <img
+      class="pfp"
+      alt="Profile Picture"
+      src="https://cdn.discordapp.com/avatars/872742807905910825/3909a16cacb1ba76bffb028f96896c5e.webp?size=1024"
+    />
+
+    <h2 style="margin: 0; margin-top: 10px">jacskon</h2>
+    <h4 style="margin: 0">@itsprobablyjackson</h4>
+
+    <h4 style="margin: 0; margin-top: 20px">
+      A passionate web developer creating fun and enjoyable sites using HTML5,
+      CSS and NodeJS
+    </h4>
+    <h4 style="margin: 0">Always looking for new projects to help with.</h4>
+    <h4 style="margin: 0">Happy to help along anybodies journey :)</h4>
+
+    <a
+      class="titlemoji"
+      href="https://discord.com/users/872742807905910825"
+      target="_blank"
+      style="
+        background-image: url(https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a6918e57475a843f59f_icon_clyde_black_RGB.svg);
+        background-repeat: no-repeat;
+        border-radius: 50px;
+        background-position-x: center;
+        background-position-y: center;
+        background-size: 80%;
+        margin-top: 20px;
+      "
+    ></a>
+  </div>
+</html>
+
+<script src="/js/pages.js"></script>

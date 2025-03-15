@@ -1,0 +1,393 @@
+<head>
+
+    <title>Memin It!</title>
+    <link rel="icon" type="image/webp" href="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247">
+    
+    <style>
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        margin: 0;
+        height: 100vh;
+      }
+  
+      header {
+        width: 100%;
+  
+        display: flex;
+        justify-content: left;
+        align-items: center;
+  
+        flex-direction: row;
+  
+        height: 10vh;
+        background-color: white;
+      }
+  
+      .mobiletitlemoji {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+        }
+  
+      .titlemoji  {
+        width: 3vw;
+        height: 3vw;
+      }
+  
+      .link {
+        margin: 0;
+        font-size: 1.5vw;
+      }
+  
+      .bottomborder {
+        width: 0%;
+        transition: all 0.2s ease-out;
+        color: black;
+        background-color: black;
+        height: 0.1vw;
+      }
+  
+      .linkbox {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+  
+      .helpbox {
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+  
+      .linkbox:hover, .helpbox:hover {
+        cursor: pointer;
+      }
+  
+      .separator {
+        width: 1px;
+        height: 70%;
+        background-color: black;
+        margin-left: 0.75vw;
+        margin-right: 0.75vw;
+      }
+  
+      .linkbox:hover .bottomborder, .helpbox:hover .bottomborder {
+        width: 100%;
+      }
+  
+      .sitetitle {
+        margin: 0;
+  
+        font-size: 2.5vw;
+  
+        height: 100%;
+  
+        margin-left: 1vw;
+  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+  
+        color: black;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+  
+      .innerbody {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 90vh;
+      }
+  
+      .textHeader {
+        font-size: 5vh;
+        margin: 0;
+        text-align: center;
+      }
+  
+      .columnseperators {
+        width: 30%;
+        height: 1px;
+        background-color: black;
+        margin-top: 0.75vw;
+        margin-bottom: 0.75vw;
+      }
+  
+      .mobiletitleheader {
+        display: none;
+      }
+  
+      @media (orientation: portrait) {
+  
+        .mobiletitleheader {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: center;
+              height: 5vh;
+              margin: 0;
+          }
+  
+          .mobilesitetitle {
+            font-size: 8vw;
+          }
+  
+          .tools {
+              width: 100%;
+          }
+  
+          .link {
+              font-size: 4vw;
+          }
+  
+          .sitetitle {
+              display: none;
+          }
+  
+          .titlemoji {
+              display: none;
+          }
+  
+          .tooltitle {
+              font-size: 3vw;
+          }
+  
+          .tooldescription {
+              font-size: 1.9vw;
+              width: 80%;
+              text-align: left;
+          }
+  }
+  
+    </style>
+  
+    <style>
+       .tool, .tool1 {
+        background-color: rgba(1, 1, 1, 0);
+        color: rgb(0, 0, 0);
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 10px;
+        border-color: rgb(0, 0, 0);
+        width: 100%;
+        height: 100%;
+        transition: all 0.2s ease-out;
+      }
+  
+      .tools {
+        margin-top: 10px;
+        margin-bottom: 10px;
+  
+        width: 80%;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, auto-fit);
+        grid-auto-rows: 200px;
+  
+        
+        justify-content: center;
+        align-content: start;
+  
+      }
+  
+  
+      .tool:hover, .tool1:hover {
+        transform: scale(1.05, 1.05);
+       
+  
+        cursor: pointer;
+      }
+  
+  
+  
+  
+      .tooltitle {
+          margin-left: 3%;
+      }
+  
+      .tooldescription {
+          margin-left: 3%;
+      }
+  
+      .disclaimer {
+        margin-left: 3%;
+      }
+  
+      .titlemoji {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+  
+      .footerinfo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .textInput {
+        width: 20%;
+        resize: none;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        border: solid;
+        border-width: 1px;
+        border-radius: 10px;
+        background-color: rgba(0,0,0,0);
+        height: 5vh;
+        text-align: center;
+        color: rgb(0, 0, 0);
+      }
+
+      .copyButton {
+        margin-top: 10px;
+        width: 20%;
+        height: 5vh;
+        resize: none;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        border: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        background-color: rgba(0,0,0,0);
+
+        text-align: center;
+        color: rgb(0, 0, 0);
+        
+        transition: all 0.2s ease-out;
+    
+    }
+
+    .copyButton:hover {
+        cursor: pointer;
+        transform: scale(1.1, 1.1);
+    }
+
+      .textInput:focus {
+        
+        outline: none;
+      }
+
+      @media (orientation: portrait) {
+        .copyButton {
+            width: 50%;
+            height: 10%;
+            font-size: 2.5vh;
+        }
+
+        .textInput {
+            width: 50%;
+            height: 10%;
+            font-size: 2.5vh;
+        }
+
+        label {
+            font-size: 2.5vh;
+        }
+
+        .innerbody {
+            justify-content: start;
+        }
+
+        h1 {
+            font-size: 4vh;
+        }
+      }
+    </style>
+  </head>
+  
+
+    <body>
+  
+      <header class="mobiletitleheader">
+        <h3 class="mobilesitetitle" style="text-align: center;">Memin It</h3>
+        <img class="mobiletitlemoji" src="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=173862970224">
+    </header>
+  
+      <header>
+        <div style="display: flex; flex-direction: row; align-items: center">
+          <h3 class="sitetitle">Memin It</h3>
+          <img
+            alt="Logo"
+            class="titlemoji"
+            src="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247"
+          />
+        </div>
+        <div class="separator"></div>
+        <div class="linkbox">
+          <a class="link" onclick="sendTo('home')">Home</a>
+          <div class="bottomborder"></div>
+        </div>
+        <div class="separator"></div>
+        <div class="linkbox">
+          <a class="link" onclick="sendTo('tools')">Tools</a>
+          <div class="bottomborder"></div>
+        </div>
+        <div class="separator"></div>
+        <div class="linkbox">
+          <a class="link" onclick="sendTo('faq')">FAQ</a>
+          <div class="bottomborder"></div>
+        </div>
+  
+        <div class="separator"></div>
+        <div class="linkbox">
+          <a class="link" onclick="sendTo('aboutme')">About Me</a>
+          <div class="bottomborder"></div>
+        </div>
+        <div class="separator"></div>
+        <div class="linkbox">
+          <a class="link" onclick="sendTo('suggestions')">Suggestions</a>
+          <div class="bottomborder"></div>
+        </div>
+  
+        <div class="separator"></div>
+        <div class="linkbox">
+          <a class="link" onclick="sendTo('discord')">Discord</a>
+          <div class="bottomborder"></div>
+        </div>
+  
+        <div class="separator"></div>
+      </header>
+
+      <div class="innerbody">
+
+        <h1 >Hidden Text Generator</h1>
+        <textarea class="textInput" id="coverMessage" placeholder="Cover Message"></textarea>
+        <label for="#coverMessage">Message to cover link mention etc</label>
+        <textarea class="textInput" id="hiddenMessage" placeholder="Hidden Message"></textarea>
+        <label for="#hiddenMessage">Hidden message like a discord.gg link etc.</label>
+        <textarea class="textInput" id="exportedMessage" placeholder="Message to copy."></textarea>
+        <label for="exportedMessage" style="color: green;" id="copied"></label>
+        <button class="copyButton" >Copy</button>
+      </div>
+
+      </body>
+
+      <script>
+        document.getElementById('coverMessage').addEventListener('input', () => {
+            document.getElementById('exportedMessage').value = ` ${document.getElementById('coverMessage').value} ||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​|| ${document.getElementById('hiddenMessage').value}`
+        });
+
+        document.getElementById('hiddenMessage').addEventListener('input', () => {
+            document.getElementById('exportedMessage').value = ` ${document.getElementById('coverMessage').value} ||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​|| ${document.getElementById('hiddenMessage').value}`
+        });
+
+        document.querySelector('.copyButton').addEventListener('click', () => {
+            document.getElementById('exportedMessage').select()
+            document.execCommand('copy')
+            setTimeout(() => {
+                document.getElementById('copied').innerText = ""
+            },3000);
+            document.getElementById('copied').innerText = "Copied!"
+        });
+      </script>
+
+      <script src="/js/pages.js"></script>
