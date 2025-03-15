@@ -113,7 +113,7 @@ async function loadHeader() {
 
   scriptInHTML.innerText = btnScript;
 
-  scriptInHTML.innerText += `
+  scriptInHTML.textContent += `
         let open = false
 
         document.querySelector('.openButton').addEventListener('click', () => {
