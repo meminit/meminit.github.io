@@ -19,6 +19,11 @@ async function loadHeader() {
         }
 
         @media (orientation: portrait) {
+
+            header {
+                display: none;
+            }
+
             .MainHeader {
                 display: none;
             }
@@ -119,7 +124,6 @@ async function loadHeader() {
         document.querySelector('.openButton').addEventListener('click', () => {
             if (!open) {
                 document.querySelector('.mobileMenu').style.display = 'flex'
-                document.querySelector('.mobileMenu').style.opacity = '1'
                 document.querySelector('.openButton').style.transform = 'rotateZ(90deg)'
                 open = true
                 console.log('Open Now')
@@ -128,7 +132,6 @@ async function loadHeader() {
 
             if (open) {
                 document.querySelector('.mobileMenu').style.display = 'none'
-                              document.querySelector('.mobileMenu').style.opacity = '0'
                 document.querySelector('.openButton').style.transform = 'rotateZ(0deg)'
                 open = false
                 console.log('Closed Now')
