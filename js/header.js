@@ -93,7 +93,9 @@ async function loadHeader() {
   mobilePanel.className = "mobileMenu";
 
   mobilePanel.innerHTML =
-    '            <a href="/tools" class="defaultLink">Tools</a>';
+        '            <a href="/tools" class="defaultLink">Tools</a>';
+    
+    document.body.prepend(mobilePanel)
 
   div.innerHTML += res;
 
