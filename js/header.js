@@ -19,8 +19,10 @@ async function loadHeader() {
 
     const btnScript = await btnScriptFetch.text()
 
-    // yeah yeah I really dont care what you say about eval I'm using it
-    eval(btnScript)
+    const scriptInHTML = document.createElement('script')
+
+    scriptInHTML.innerText = btnScript
+
 }
 
 if (!header) {
