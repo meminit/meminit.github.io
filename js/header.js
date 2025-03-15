@@ -88,12 +88,14 @@ async function loadHeader() {
     
     `;
 
+    document.body.prepend(mobileHeader)
+
   const mobilePanel = document.createElement("div");
 
   mobilePanel.className = "mobileMenu";
 
   mobilePanel.innerHTML =
-        '            <a href="/tools" class="defaultLink">Tools</a>';
+        '<a href="/tools" class="defaultLink">Tools</a>';
     
     document.body.prepend(mobilePanel)
 
@@ -133,6 +135,8 @@ async function loadHeader() {
                 return
             }
         });`;
+    
+    document.body.appendChild(scriptInHTML)
 }
 
 document.addEventListener("DOMContentLoaded", () => {
