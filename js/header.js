@@ -3,7 +3,7 @@
 const header = document.querySelector('header')
 
 async function loadHeader() {
-    const newHeaderText = await fetch('/header', () => { 
+    const newHeaderText = await fetch('./header.html', () => { 
         method: 'GET'
     });
 
@@ -13,7 +13,7 @@ async function loadHeader() {
    
     document.body.innerHTML += res
 
-    const btnScriptFetch = await fetch('/js/pages.js', { 
+    const btnScriptFetch = await fetch('./js/pages.js', { 
         method: 'GET'
     });
 
