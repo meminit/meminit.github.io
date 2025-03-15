@@ -3,9 +3,15 @@
 const header = document.querySelector("header");
 
 async function loadHeader() {
-  const newHeaderText = await fetch("/header.html", () => {
-    method: "GET";
-  });
+    const newHeaderText = await fetch("/header.html", {
+        method: "GET"
+    });
+    
+    const newHeaderCSS = await fetch('/css/header.css', {
+        method: "GET"
+    });
+
+  const css2output = await newHeaderCSS.text()  
 
   const res = await newHeaderText.text();
 
@@ -13,72 +19,10 @@ async function loadHeader() {
 
   const css = document.createElement("style");
 
-  css.innerHTML = `
-        .testMobileHeader {
-            display: none;
-        }
 
-        @media (orientation: portrait) {
-
-            header {
-                display: none;
-            }
-
-            .MainHeader {
-                display: none;
-            }
-            
-            .testMobileHeader {
-                display: flex;
-                flex-direction: row;
-                justify-content: end;
-                align-items: center;
-                height: 100px;
-            }
-
-            .openButton {
-                max-height: 100%;
-                max-width: 90px;
-                width: 90px;
-                margin-right: 20px;
-                height: 90px;
-                background-color: rgba(1,1, 1, 0);
-                border: none;
-                font-size: xx-large;
-                transition: all 0.2s ease;
-                z-index: 25;
-
-            }
-
-            .openButton:hover {
-                
-                /* transform: rotateZ(90deg); */
-            }
-
-
-        }
-
-        .mobileMenu {
-            background-color: white;
-            position: absolute;
-            z-index: 10;
-            width: 100%;
-            height: 0px;
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.2s ease;
-        }
-
-        .defaultLink {
-            color: black;
-            text-decoration: none;
-            font-size: xx-large;
-
-        }
-`;
+       
+    
+css.innerHTML += css2output
 
   document.head.appendChild(css);
 
