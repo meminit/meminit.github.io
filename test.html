@@ -1,132 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deep Fry Image & GIF</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gifuct-js@2.0.1/dist/gifuct-js.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gifuct-js/dist/gifuct-js.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <h2>Deep Fry an Image or GIF</h2>
-    <input type="file" id="upload" accept="image/*">
-    <br><br>
-    <img id="output" style="max-width: 300px; display: none;">
-    <br><br>
+    <input type="file" id="upload" accept="image/*" />
+    <br /><br />
+    <img id="output" style="max-width: 300px; display: none" />
+    <br /><br />
 
     <script>
-        function deepFryImage(imgElement, quality, passes, callback) {
-            const canvas = document.createElement("canvas");
-            const ctx = canvas.getContext("2d");
+      function deepFryImage(imgElement, quality, passes, callback) {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
 
-            canvas.width = imgElement.naturalWidth;
-            canvas.height = imgElement.naturalHeight;
+        canvas.width = imgElement.naturalWidth;
+        canvas.height = imgElement.naturalHeight;
 
-            ctx.drawImage(imgElement, 0, 0, canvas.width, canvas.height);
-            let dataUrl = canvas.toDataURL("image/jpeg", quality);
+        ctx.drawImage(imgElement, 0, 0, canvas.width, canvas.height);
+        let dataUrl = canvas.toDataURL("image/jpeg", quality);
 
-            function compressPass(pass) {
-                if (pass >= passes) {
-                    callback(dataUrl);
-                    return;
-                }
+        function compressPass(pass) {
+          if (pass >= passes) {
+            callback(dataUrl);
+            return;
+          }
 
-                const img = new Image();
-                img.src = dataUrl;
-                img.onload = function () {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                    dataUrl = canvas.toDataURL("image/jpeg", quality);
-                    compressPass(pass + 1);
-                };
-            }
-
-            compressPass(0);
+          const img = new Image();
+          img.src = dataUrl;
+          img.onload = function () {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            dataUrl = canvas.toDataURL("image/jpeg", quality);
+            compressPass(pass + 1);
+          };
         }
 
-        function extractGifFrames(arrayBuffer, callback) {
-            const gif = new GIFuct(arrayBuffer);
-            const frames = gif.decompressFrames(true);
-            callback(frames);
-        }
+        compressPass(0);
+      }
 
-        function deepFryGIF(frames, quality, passes, width, height, callback) {
-            const gif = new GIF({
-                workers: 2,
-                quality: 30,
-                workerScript: "https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js"
+      function extractGifFrames(arrayBuffer, callback) {
+        const gif = new gifuctjs.GIF(arrayBuffer);
+        const frames = gif.decompressFrames(true);
+        callback(frames);
+      }
+      function deepFryGIF(frames, quality, passes, width, height, callback) {
+        const gif = new GIF({
+          workers: 2,
+          quality: 30,
+          workerScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js",
+        });
+
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = width;
+        canvas.height = height;
+
+        function processFrame(index) {
+          if (index >= frames.length) {
+            gif.on("finished", function (blob) {
+              callback(URL.createObjectURL(blob));
             });
+            gif.render();
+            return;
+          }
 
-            const canvas = document.createElement("canvas");
-            const ctx = canvas.getContext("2d");
-            canvas.width = width;
-            canvas.height = height;
+          const frame = frames[index];
+          const imgData = new ImageData(
+            new Uint8ClampedArray(frame.patch),
+            frame.dims.width,
+            frame.dims.height
+          );
 
-            function processFrame(index) {
-                if (index >= frames.length) {
-                    gif.on("finished", function (blob) {
-                        callback(URL.createObjectURL(blob));
-                    });
-                    gif.render();
-                    return;
-                }
+          ctx.putImageData(imgData, 0, 0);
 
-                const frame = frames[index];
-                const imgData = new ImageData(new Uint8ClampedArray(frame.patch), frame.dims.width, frame.dims.height);
-
-                ctx.putImageData(imgData, 0, 0);
-
-                deepFryImage(canvas, quality, passes, function (friedSrc) {
-                    const friedImg = new Image();
-                    friedImg.src = friedSrc;
-                    friedImg.onload = function () {
-                        gif.addFrame(friedImg, { delay: frame.delay });
-                        processFrame(index + 1);
-                    };
-                });
-            }
-
-            processFrame(0);
+          deepFryImage(canvas, quality, passes, function (friedSrc) {
+            const friedImg = new Image();
+            friedImg.src = friedSrc;
+            friedImg.onload = function () {
+              gif.addFrame(friedImg, { delay: frame.delay });
+              processFrame(index + 1);
+            };
+          });
         }
 
-        document.getElementById("upload").addEventListener("change", function (event) {
-            const file = event.target.files[0];
-            if (!file) return;
+        processFrame(0);
+      }
 
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const arrayBuffer = e.target.result;
+      document
+        .getElementById("upload")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          if (!file) return;
 
-                if (file.type === "image/gif") {
-                    extractGifFrames(arrayBuffer, function (frames) {
-                        if (frames.length === 0) {
-                            alert("Failed to extract GIF frames.");
-                            return;
-                        }
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const arrayBuffer = e.target.result;
 
-                        deepFryGIF(frames, 0.1, 3, frames[0].dims.width, frames[0].dims.height, function (friedGIFSrc) {
-                            const outputImg = document.getElementById("output");
-                            outputImg.src = friedGIFSrc;
-                            outputImg.style.display = "block";
-                        });
-                    });
-                } else {
-                    const img = new Image();
-                    img.src = URL.createObjectURL(file);
-
-                    img.onload = function () {
-                        deepFryImage(img, 0.1, 3, function (friedImageSrc) {
-                            const outputImg = document.getElementById("output");
-                            outputImg.src = friedImageSrc;
-                            outputImg.style.display = "block";
-                        });
-                    };
+            if (file.type === "image/gif") {
+              extractGifFrames(arrayBuffer, function (frames) {
+                if (frames.length === 0) {
+                  alert("Failed to extract GIF frames.");
+                  return;
                 }
-            };
 
-            reader.readAsArrayBuffer(file);
+                deepFryGIF(
+                  frames,
+                  0.1,
+                  3,
+                  frames[0].dims.width,
+                  frames[0].dims.height,
+                  function (friedGIFSrc) {
+                    const outputImg = document.getElementById("output");
+                    outputImg.src = friedGIFSrc;
+                    outputImg.style.display = "block";
+                  }
+                );
+              });
+            } else {
+              const img = new Image();
+              img.src = URL.createObjectURL(file);
+
+              img.onload = function () {
+                deepFryImage(img, 0.1, 3, function (friedImageSrc) {
+                  const outputImg = document.getElementById("output");
+                  outputImg.src = friedImageSrc;
+                  outputImg.style.display = "block";
+                });
+              };
+            }
+          };
+
+          reader.readAsArrayBuffer(file);
         });
     </script>
-</body>
+  </body>
 </html>
