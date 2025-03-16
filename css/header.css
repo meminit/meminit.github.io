@@ -47,7 +47,6 @@
     position: absolute;
     z-index: 30;
     width: 100%;
-    height: 0px;
     display: none;
     flex-direction: column;
     align-items: center;
