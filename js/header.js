@@ -1,17 +1,17 @@
 // literally just checks if a header exists and if not it will add the header
 
-const header = document.querySelector("mainHeader");
+const header = document.querySelector("MainHeader");
 
 async function loadHeader() {
-    const newHeaderText = await fetch("/header.html", {
-        method: "GET"
-    });
-    
-    const newHeaderCSS = await fetch('/css/header.css', {
-        method: "GET"
-    });
+  const newHeaderText = await fetch("/header.html", {
+    method: "GET",
+  });
 
-  const css2output = await newHeaderCSS.text()  
+  const newHeaderCSS = await fetch("/css/header.css", {
+    method: "GET",
+  });
+
+  const css2output = await newHeaderCSS.text();
 
   const res = await newHeaderText.text();
 
@@ -19,10 +19,7 @@ async function loadHeader() {
 
   const css = document.createElement("style");
 
-
-       
-    
-css.innerHTML += css2output
+  css.innerHTML += css2output;
 
   document.head.appendChild(css);
 
@@ -37,14 +34,13 @@ css.innerHTML += css2output
     
     `;
 
-    document.body.prepend(mobileHeader)
+  document.body.prepend(mobileHeader);
 
   const mobilePanel = document.createElement("div");
 
   mobilePanel.className = "mobileMenu";
 
-  mobilePanel.innerHTML =
-        `
+  mobilePanel.innerHTML = `
         <a href="/home" class="defaultLink">Home</a>
         <a href="/tools" class="defaultLink">Tools</a>
         <a href="/faq" class="defaultLink">FAQ</a>
@@ -53,8 +49,8 @@ css.innerHTML += css2output
         <a href="/discord" class="defaultLink">Discord</a>
 
     `;
-    
-    document.body.prepend(mobilePanel)
+
+  document.body.prepend(mobilePanel);
 
   div.innerHTML += res;
 
@@ -90,8 +86,8 @@ css.innerHTML += css2output
                 return
             }
         });`;
-    
-    document.body.appendChild(scriptInHTML)
+
+  document.body.appendChild(scriptInHTML);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
