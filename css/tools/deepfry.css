@@ -1,0 +1,25 @@
+.outputImage {
+    background-color: rgba(1, 1, 1, 0.61);
+    border: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: rgb(0, 0, 0);
+}
+
+.uploadImage {
+    border: none;
+    background-color: rgb(202, 202, 202);
+    transition: all 0.2s ease;
+}
+
+.uploadImage:hover {
+    background-color: rgb(119, 119, 119);
+    cursor: pointer;
+    width: 100px;
+    height: 20px;
+    
+}
+
+.uploadImage:active {
+    transform: scale(0.9, 0.9);
+}
