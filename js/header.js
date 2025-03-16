@@ -27,6 +27,12 @@ async function loadHeader() {
 
     });
   }
+
+  try {
+    document.querySelector('.mobiletitleheader').remove()
+  } catch (err) {
+    console.log('No outdated header 👍')
+  }
   
 
   
