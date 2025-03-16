@@ -16,7 +16,7 @@ async function loadHeader() {
 
     document.querySelectorAll('header').forEach(element => {
 
-      if (element.className = '') {
+      if (!element.className) {
         element.remove()
         console.log('Removing classless header')
       } 
