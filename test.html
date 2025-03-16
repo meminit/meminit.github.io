@@ -45,7 +45,7 @@
       }
 
       function extractGifFrames(arrayBuffer, callback) {
-        const gif = new gifuctjs.GIF(arrayBuffer);
+        const gif = new GIF(arrayBuffer);
         const frames = gif.decompressFrames(true);
         callback(frames);
       }
