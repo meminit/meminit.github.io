@@ -31,6 +31,7 @@ async function loadHeader() {
   try {
     document.querySelector('.mobiletitleheader').remove()
   } catch (err) {
+    console.log(`error? ${err}`)
     console.log('No outdated header 👍')
   }
   
@@ -128,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (!document.querySelector(".testMobileHeader")) {
-    loadHeader()
+    loadHeader();
+    return
   }
 });
