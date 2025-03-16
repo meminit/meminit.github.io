@@ -89,9 +89,12 @@ async function loadHeader() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const header = document.querySelector(".MainHeader");
+  const headerLoaded = document.querySelector(".MainHeader");
 
-  if (!header) {
+  console.log(headerLoaded) 
+
+
+  if (!headerLoaded) {
     loadHeader();
     return;
   }
