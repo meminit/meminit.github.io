@@ -18,6 +18,7 @@
         justify-content: end;
         align-items: center;
         height: 100px;
+        z-index: 34;
     }
 
     .openButton {
