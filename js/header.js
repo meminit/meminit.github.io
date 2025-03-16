@@ -9,7 +9,25 @@ async function loadHeader() {
     method: "GET",
   });
 
-  document.querySelector('.MainHeader').remove()
+  try {
+    document.querySelector('.MainHeader').remove()
+  } catch (err) {
+    console.warn('Attempted to delete main header, may not have class name. Falling Back')
+
+    document.querySelectorAll('header').forEach(element => {
+
+      if (element.className = '') {
+        element.remove()
+        console.log('Removing classless header')
+      } 
+
+      
+      
+      
+
+    });
+  }
+  
 
   
 
