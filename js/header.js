@@ -1,7 +1,5 @@
 // literally just checks if a header exists and if not it will add the header
 
-const header = document.querySelector(".MainHeader");
-
 async function loadHeader() {
   const newHeaderText = await fetch("/header.html", {
     method: "GET",
@@ -91,6 +89,8 @@ async function loadHeader() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".MainHeader");
+
   if (!header) {
     loadHeader();
     return;
