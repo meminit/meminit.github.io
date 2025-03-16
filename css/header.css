@@ -45,8 +45,11 @@
 .mobileMenu {
     background-color: white;
     position: absolute;
+    justify-self: start;
+    align-self: flex-start;
     z-index: 30;
     width: 100%;
+    height: 100%;
     display: none;
     flex-direction: column;
     align-items: center;

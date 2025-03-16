@@ -44,7 +44,15 @@ css.innerHTML += css2output
   mobilePanel.className = "mobileMenu";
 
   mobilePanel.innerHTML =
-        '<a href="/tools" class="defaultLink">Tools</a>';
+        `
+        <a href="/home" class="defaultLink">Home</a>
+        <a href="/tools" class="defaultLink">Tools</a>
+        <a href="/faq" class="defaultLink">FAQ</a>
+        <a href="/aboutme" class="defaultLink">About Me</a>
+        <a href="/suggestions" class="defaultLink">Suggestions</a>
+        <a href="/discord" class="defaultLink">Discord</a>
+
+    `;
     
     document.body.prepend(mobilePanel)
 
