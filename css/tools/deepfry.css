@@ -11,13 +11,13 @@
     object-fit: contain;
 }
 
-.uploadImage .uploadButton {
+.uploadImage, .uploadButton {
     border: none;
     background-color: rgb(202, 202, 202);
     transition: all 0.2s ease;
 }
 
-.uploadImage:hover {
+.uploadImage:hover, .uploadButton:hover {
     background-color: rgb(119, 119, 119);
     cursor: pointer;
     width: 100px;
@@ -25,6 +25,6 @@
     
 }
 
-.uploadImage:active {
+.uploadImage:active, .uploadButton:active {
     transform: scale(0.9, 0.9);
 }

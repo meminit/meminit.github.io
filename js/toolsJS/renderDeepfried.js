@@ -1,4 +1,6 @@
-function deepFryImage(imgElement, quality, passes, callback) {
+function deepFryImage(imgElement, quality, passes, callback, saturation, contrast) {
+
+    
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
 
@@ -17,6 +19,7 @@ function deepFryImage(imgElement, quality, passes, callback) {
         const img = new Image();
         img.src = dataUrl;
         img.onload = function () {
+            ctx.filter = `contrast(${contrast}%) saturate(${saturation}%)`;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
             dataUrl = canvas.toDataURL("image/jpeg", quality);
@@ -27,7 +30,7 @@ function deepFryImage(imgElement, quality, passes, callback) {
     compressPass(0);
 }
 
-function deepFryGIF(imgElement, quality, passes, callback) {
+function deepFryGIF(imgElement, quality, passes, callback, sat, con) {
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
 
@@ -51,7 +54,7 @@ function deepFryGIF(imgElement, quality, passes, callback) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(imgElement, 0, 0, canvas.width, canvas.height);
 
-        deepFryImage(imgElement, quality, passes, function(friedSrc) {
+        deepFryImage(imgElement, quality, passes,sat, con, function(friedSrc) {
             const friedImg = new Image();
             friedImg.src = friedSrc;
             friedImg.onload = function () {
@@ -77,12 +80,12 @@ document.getElementById("upload").addEventListener("change", function(event) {
             const outputImg = document.getElementById("output");
 
             if (file.type === "image/gif") {
-                deepFryGIF(img, 0.01, 3, function(friedGIFSrc) {
+                deepFryGIF(img, 0.01, 3, 100, 200, function(friedGIFSrc) {
                     outputImg.src = friedGIFSrc;
                     outputImg.style.display = "block";
                 });
             } else {
-                deepFryImage(img, 0.1, 3, function(friedImageSrc) {
+                deepFryImage(img, 0.1, 3, 100, 200, function(friedImageSrc) {
                     outputImg.src = friedImageSrc;
                     outputImg.style.display = "block";
                 });
