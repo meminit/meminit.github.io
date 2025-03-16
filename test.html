@@ -44,18 +44,26 @@
         }
 
         function deepFryGIF(imgElement, quality, passes, callback) {
-            const gif = new GIF({
-                workers: 2,
-                quality: 30
-            });
-
             const canvas = document.createElement("canvas");
             const ctx = canvas.getContext("2d");
 
             canvas.width = imgElement.naturalWidth;
             canvas.height = imgElement.naturalHeight;
 
-            for (let i = 0; i < 5; i++) { // Simulated frame processing
+            const gif = new GIF({
+                workers: 2,
+                quality: 30
+            });
+
+            function processFrame(frame, totalFrames) {
+                if (frame >= totalFrames) {
+                    gif.on('finished', function(blob) {
+                        callback(URL.createObjectURL(blob));
+                    });
+                    gif.render();
+                    return;
+                }
+
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.drawImage(imgElement, 0, 0, canvas.width, canvas.height);
 
@@ -64,15 +72,12 @@
                     friedImg.src = friedSrc;
                     friedImg.onload = function () {
                         gif.addFrame(friedImg, { delay: 100 });
+                        processFrame(frame + 1, totalFrames);
                     };
                 });
             }
 
-            gif.on('finished', function(blob) {
-                callback(URL.createObjectURL(blob));
-            });
-
-            gif.render();
+            processFrame(0, 5); // Simulating 5 frames
         }
 
         document.getElementById("upload").addEventListener("change", function(event) {
