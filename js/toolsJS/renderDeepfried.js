@@ -77,7 +77,7 @@ document.getElementById("upload").addEventListener("change", function(event) {
             const outputImg = document.getElementById("output");
 
             if (file.type === "image/gif") {
-                deepFryGIF(img, 0.1, 3, function(friedGIFSrc) {
+                deepFryGIF(img, 0.01, 3, function(friedGIFSrc) {
                     outputImg.src = friedGIFSrc;
                     outputImg.style.display = "block";
                 });

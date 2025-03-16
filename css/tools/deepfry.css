@@ -4,9 +4,14 @@
     border-width: 1px;
     border-radius: 5px;
     border-color: rgb(0, 0, 0);
+    color: white;
+    min-width: 300px;
+    max-width: 100%;
+    min-height: 400px;
+    object-fit: contain;
 }
 
-.uploadImage {
+.uploadImage .uploadButton {
     border: none;
     background-color: rgb(202, 202, 202);
     transition: all 0.2s ease;

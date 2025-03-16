@@ -32,7 +32,8 @@
   <body>
     <div class="innerbody">
       <h2>Deep Fry an Image or GIF</h2>
-      <input title="Quality Image" type="file" id="upload" accept="image/*" class="uploadImage"/>
+      <input title="Quality Image" type="file" id="upload" accept="image/*" class="uploadImage" style="display: none;"/>
+      <button title="Upload" onclick="document.querySelector('.uploadImage').click()" class="uploadButton">Upload Image</button>
       <br /><br />
       <img id="output" class="outputImage" style="max-width: 300px;" alt="Deepfried"/>
       <br /><br />
