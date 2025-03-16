@@ -9,6 +9,10 @@ async function loadHeader() {
     method: "GET",
   });
 
+  document.querySelector('.MainHeader').remove()
+
+  
+
   const css2output = await newHeaderCSS.text();
 
   const res = await newHeaderText.text();
@@ -100,5 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (!document.querySelector(".testMobileHeader")) {
+    loadHeader()
   }
 });
