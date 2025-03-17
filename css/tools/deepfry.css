@@ -1,27 +1,52 @@
 .outputImage {
-    background-color: rgba(1, 1, 1, 0.61);
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
     border: solid;
-    border-width: 1px;
+    border-style: dashed;
+    border-width: 5px;
     border-radius: 5px;
-    border-color: rgb(0, 0, 0);
-    color: white;
+    transition: all 0.2s ease;
     min-width: 300px;
     max-width: 100%;
-    min-height: 400px;
-    object-fit: contain;
+    min-height: 30px;
+    margin-bottom: 20px;
 }
+
+
+
+input {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    border: solid;
+    border-style: dashed;
+    border-width: 5px;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    min-width: 300px;
+    max-width: 100%;
+    min-height: 30px;
+    margin-bottom: 20px;
+}
+
+
 
 .uploadImage, .uploadButton {
     border: none;
-    background-color: rgb(202, 202, 202);
+    background-color: rgba(255, 255, 255, 0);
+    border: solid;
+    border-style: dashed;
+    border-width: 5px;
+    border-radius: 5px;
     transition: all 0.2s ease;
+    min-width: 300px;
+    max-width: 100%;
+    min-height: 30px;
 }
 
 .uploadImage:hover, .uploadButton:hover {
-    background-color: rgb(119, 119, 119);
+    background-color: rgba(255, 255, 255, 0);
     cursor: pointer;
-    width: 100px;
-    height: 20px;
+    transform: scale(1.1, 1.1);
     
 }
 
