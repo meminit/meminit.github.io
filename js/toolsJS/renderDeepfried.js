@@ -2,6 +2,7 @@ function deepFryImage(imgElement, quality, passes, callback) {
 
     let con = document.getElementById("con").value
     let sat = document.getElementById("sat").value
+    let qualityval = document.getElementById("quality").value
 
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
@@ -24,7 +25,7 @@ function deepFryImage(imgElement, quality, passes, callback) {
             ctx.filter = `contrast(${con}%) saturate(${sat}%)`;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            dataUrl = canvas.toDataURL("image/jpeg", quality);
+            dataUrl = canvas.toDataURL("image/jpeg", qualityval);
             compressPass(pass + 1);
         };
     }
