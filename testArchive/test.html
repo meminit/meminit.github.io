@@ -11,12 +11,18 @@
     <input placeholder="Saturation" type="number" id="sat">
     <input placeholder="Contrast" type="number" id="con">
     <input title="Quality Image" type="file" id="upload" accept="image/*">
+
+    <button id="dfit">DEEPFRY IT</button>
     <br><br>
     <img id="output" style="max-width: 300px; display: none;">
     <br><br>
 
     <script>
-        function deepFryImage(imgElement, quality, passes, con, sat, callback) {
+        function deepFryImage(imgElement, quality, passes, callback) {
+
+            let con = document.getElementById("con").value
+            let sat = document.getElementById("sat").value
+
             const canvas = document.createElement("canvas");
             const ctx = canvas.getContext("2d");
 
@@ -83,11 +89,11 @@
             processFrame(0, 5); // Simulating 5 frames
         }
 
-        document.getElementById("upload").addEventListener("change", function(event) {
+        document.getElementById("dfit").addEventListener("click", function(event) {
 
-let contrast = document.getElementById("con").value
-let saturation = document.getElementById("sat").value
-            const file = event.target.files[0];
+            const target = document.getElementById("upload")
+
+            const file = target.files[0];
             if (!file) return;
 
             const reader = new FileReader();
@@ -104,7 +110,7 @@ let saturation = document.getElementById("sat").value
                             outputImg.style.display = "block";
                         });
                     } else {
-                        deepFryImage(img, 0.075, 3, contrast, saturation, function(friedImageSrc) {
+                        deepFryImage(img, 0.075, 3, function(friedImageSrc) {
                             outputImg.src = friedImageSrc;
                             outputImg.style.display = "block";
                         });
