@@ -21,7 +21,7 @@
     border-radius: 5px;
     transition: all 0.2s ease;
     min-width: 300px;
-    max-width: 100%;
+    max-width: 90%;
     object-fit: contain;
     margin-bottom: 20px;
 }
