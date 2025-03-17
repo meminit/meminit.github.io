@@ -2,14 +2,18 @@ function deepFryImage(imgElement, quality, passes, callback) {
     let con = document.getElementById("con").value;
     let sat = document.getElementById("sat").value;
 
-    console.log(`Quality is SUPPOSEDLY ${quality}, contrast is ${con}%, saturation is ${sat}%`);
+    console.log(`Initial Quality: ${quality}, Contrast: ${con}%, Saturation: ${sat}%`);
 
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
 
-    canvas.width = imgElement.naturalWidth;
-    canvas.height = imgElement.naturalHeight;
-    ctx.drawImage(imgElement, 0, 0, canvas.width, canvas.height);
+
+    let width = imgElement.naturalWidth;
+    let height = imgElement.naturalHeight;
+
+    canvas.width = width;
+    canvas.height = height;
+    ctx.drawImage(imgElement, 0, 0, width, height);
 
     let dataUrl = canvas.toDataURL("image/jpeg", quality);
 
@@ -22,20 +26,30 @@ function deepFryImage(imgElement, quality, passes, callback) {
         const img = new Image();
         img.src = dataUrl;
         img.onload = function () {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            width = Math.max(1, width * 0.9); 
+            height = Math.max(1, height * 0.9);
+            canvas.width = width;
+            canvas.height = height;
+
+            ctx.clearRect(0, 0, width, height);
             ctx.filter = `contrast(${con}%) saturate(${sat}%)`;
 
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-            dataUrl = canvas.toDataURL("image/jpeg", Math.max(quality - pass * 0.1, 0.1)); // Reduce quality progressively
-            console.log(`Pass ${pass + 1}: Quality set to ${Math.max(quality - pass * 0.1, 0.1)}`);
+            ctx.drawImage(img, 0, 0, width, height);
 
+
+            let newQuality = Math.max(quality - 0.1, 0.05); 
+            console.log(`Pass ${pass + 1}: Quality set to ${newQuality}, Size: ${width}x${height}`);
+            
+            dataUrl = canvas.toDataURL("image/jpeg", newQuality);
             compressPass(pass + 1);
         };
     }
 
     compressPass(0);
 }
+
     
     function deepFryGIF(imgElement, quality, passes, callback) {
     const canvas = document.createElement("canvas");
