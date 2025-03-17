@@ -8,15 +8,15 @@
 </head>
 <body>
     <h2>Deep Fry an Image or GIF</h2>
-    <input type="number" id="sat">
-    <input type="number" id="con">
+    <input placeholder="Saturation" type="number" id="sat">
+    <input placeholder="Contrast" type="number" id="con">
     <input title="Quality Image" type="file" id="upload" accept="image/*">
     <br><br>
     <img id="output" style="max-width: 300px; display: none;">
     <br><br>
 
     <script>
-        function deepFryImage(imgElement, quality, passes, callback, con, sat) {
+        function deepFryImage(imgElement, quality, passes, con, sat, callback) {
             const canvas = document.createElement("canvas");
             const ctx = canvas.getContext("2d");
 
@@ -104,7 +104,7 @@ let saturation = document.getElementById("sat").value
                             outputImg.style.display = "block";
                         });
                     } else {
-                        deepFryImage(img, 0.075, 3, function(friedImageSrc) {
+                        deepFryImage(img, 0.075, 3, contrast, saturation, function(friedImageSrc) {
                             outputImg.src = friedImageSrc;
                             outputImg.style.display = "block";
                         });
