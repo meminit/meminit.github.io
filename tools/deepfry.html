@@ -34,8 +34,8 @@
       <h2>Deep Fry an Image</h2>
       <input title="Quality Image" type="file" id="upload" accept="image/*" class="uploadImage" style="display: none;"/>
       <button title="Upload" onclick="document.querySelector('.uploadImage').click()" class="uploadButton">Upload Image</button>
-
-      <input placeholder="Saturation" type="number" id="sat">as
+      <img class="inputImage" id="inputImage" style="display: none;" alt="Input Image">
+      <input placeholder="Saturation" type="number" id="sat">
       <input placeholder="Contrast" type="number" id="con">
       <label for="quality" style="margin: 0;">Quality Recommended to go below 0.1 for funnier results</label>
       <input placeholder="Quality" type="number" id="quality">
@@ -44,7 +44,7 @@
 
 
 
-        <img class="inputImage" id="inputImage" style="display: none;" alt="Input Image">
+
  
 
       <button class="deepfryButton" id="dfit">Deepfry it!</button>
