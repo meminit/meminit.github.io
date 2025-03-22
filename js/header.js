@@ -1,11 +1,11 @@
 // literally just checks if a header exists and if not it will add the header
 
 async function loadHeader() {
-  const newHeaderText = await fetch("/header.html", {
+  const newHeaderText = await fetch("https://meminit.github.io/header.html", {
     method: "GET",
   });
 
-  const newHeaderCSS = await fetch("/css/header.css", {
+  const newHeaderCSS = await fetch("https://meminit.github.io/css/header.css", {
     method: "GET",
   });
 
@@ -83,7 +83,7 @@ async function loadHeader() {
 
   document.body.prepend(div);
 
-  const btnScriptFetch = await fetch("/js/pages.js", {
+  const btnScriptFetch = await fetch("https://meminit.github.io/js/pages.js", {
     method: "GET",
   });
 

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Emoji Search</title>
+    <link
+      rel="icon"
+      type="image/webp"
+      href="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247"
+    />
+
+    <meta property="og:title" content="Emoji Search" />
+    <meta
+      property="og:description"
+      content="Use Memin It's Emoji Search to find that ONE emoji you wanted but never got"
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247"
+    />
+    <meta property="og:url" content="https://meminit.github.io/emojisearch" />
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/tools/deepfry.css" />
+    <script src="./js/header.js"></script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+
+    <style>
+      .searchBar {
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        resize: none;
+        width: 5000px;
+        max-width: 80%;
+        line-height: 1;
+        padding-top: 17.5px;
+        text-align: center;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      .searchBar:focus {
+        outline: none;
+      }
+
+      .searchBar::placeholder {
+        color: black;
+      }
+
+      .seperator {
+        height: 1px;
+        width: 5000px;
+        max-width: 90%;
+        transition: all 0.2s;
+        background-color: black;
+        margin-bottom: 20px;
+      }
+
+      .emojiHolder {
+        width: 100px;
+        height: 120px;
+        border: solid;
+        border-width: 1px;
+        border-color: black;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .emojiHolder:hover {
+        transform: scale(1.1, 1.1);
+      }
+
+      .emoji {
+        width: 100%;
+        height: 70%;
+        font-size: 3rem;
+        text-align: center;
+        margin: 0;
+      }
+
+      .copyEmoji {
+        width: 90%;
+        border: none;
+        border-radius: 5px;
+        background-color: gray;
+        color: white;
+        height: 20%;
+        transition: all 0.2s ease;
+      }
+
+      .copyEmoji:hover {
+        background-color: lightgray;
+        cursor: pointer;
+      }
+
+      .emojiGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 120px));
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="innerbody">
+      <h1>Emoji Search</h1>
+      <textarea class="searchBar" placeholder="Search"></textarea>
+      <div class="seperator"></div>
+      <div class="emojiGrid">
+        <div class="emojiHolder">
+          <p class="emoji">😭</p>
+          <button class="copyEmoji" data-e="😭">Copy</button>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    let emojiList = {};
+
+    async function fetchEmojis() {
+      const res = await fetch(
+        "https://meminit.github.io/assets/data/emojis.json"
+      );
+
+      const emojis = await res.json();
+
+      emojiList = emojis;
+    }
+
+    fetchEmojis();
+
+    function search(value) {
+      const lowercaseValue = value.toLowerCase();
+
+      let responseEmojis = Object.keys(emojiList)
+        .filter((key) => key.includes(lowercaseValue))
+        .flatMap((key) => emojiList[key]);
+
+      console.log(responseEmojis);
+
+      document.querySelector(".emojiGrid").innerHTML = "";
+
+      responseEmojis.forEach((emoji) => {
+        console.log(`Making Emoji thing for ${emoji}`);
+
+        const emojiHolder = document.createElement("div");
+
+        emojiHolder.className = "emojiHolder";
+
+        emojiHolder.innerHTML += `
+         <p class="emoji">${emoji}</p>
+         <button class="copyEmoji" data-e="${emoji}">Copy</button>
+        `;
+
+        document.querySelector(".emojiGrid").append(emojiHolder);
+      });
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        if (document.activeElement === document.querySelector(".searchBar")) {
+          search(document.querySelector(".searchBar").value);
+        }
+      }
+    });
+
+    function arrayIT(str) {
+        const arrayed = str.replaceAll(" ", `","`)
+
+        console.log(arrayed)
+    }
+
+    
+  </script>
+</html>
