@@ -27,6 +27,11 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
 
     <style>
+
+      .innerbody {
+        
+      }
+
       .searchBar {
         background-color: rgba(0, 0, 0, 0);
         border: none;
@@ -34,10 +39,12 @@
         width: 5000px;
         max-width: 80%;
         line-height: 1;
+        height: fit-content;
         padding-top: 17.5px;
         text-align: center;
         font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
           "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+          flex-shrink: 0;
       }
 
       .searchBar:focus {
@@ -55,10 +62,11 @@
         transition: all 0.2s;
         background-color: black;
         margin-bottom: 20px;
+        margin-top: 5px;
       }
 
       .emojiHolder {
-        width: 100px;
+        
         height: 120px;
         border: solid;
         border-width: 1px;
@@ -105,20 +113,19 @@
         gap: 10px;
         justify-content: center;
         width: 100%;
+        overflow-y: auto;
       }
     </style>
   </head>
 
   <body>
     <div class="innerbody">
-      <h1>Emoji Search</h1>
+      <h1 style="margin: 0; text-align: center;">Emoji Search</h1>
+      <h4 style="margin: 0; margin-bottom: 10px; text-align: center;">Search by inputting into the search bar and hitting enter!</h4>
       <textarea class="searchBar" placeholder="Search"></textarea>
       <div class="seperator"></div>
       <div class="emojiGrid">
-        <div class="emojiHolder">
-          <p class="emoji">😭</p>
-          <button class="copyEmoji" data-e="😭">Copy</button>
-        </div>
+        
       </div>
     </div>
   </body>
@@ -162,8 +169,6 @@
 
         if (insertedEmojis.includes(emoji)) return;
 
-        console.log(`Making Emoji thing for ${emoji}`);
-
         const emojiHolder = document.createElement("div");
 
         emojiHolder.className = "emojiHolder";
@@ -171,7 +176,7 @@
         // I REALLY don't care that I do it via innerHTML I jst cbf to make 2 more elements (Im lazy 😔)
         emojiHolder.innerHTML += `
          <p class="emoji">${emoji}</p>
-         <button class="copyEmoji" data-e="${emoji}">Copy</button>
+         <button class="copyEmoji" data-e="${emoji}" onclick="window.copy('${emoji}'); alert('Emoji Copied!')">Copy</button>
         `;
 
         insertedEmojis.push(emoji);
@@ -179,17 +184,15 @@
         document.querySelector(".emojiGrid").append(emojiHolder);
       });
 
-      console.log(defaultEmojiList)
 
       let responseEmojis2 = Object.keys(defaultEmojiList)
         .filter((key) => key.includes(lowercaseValue))
         .flatMap((key) => defaultEmojiList[key]);
 
-        console.log(defaultEmojiList)
+        
 
       responseEmojis2.forEach((emoji) => {
         if (insertedEmojis.includes(emoji)) return;
-        console.log(`Making Emoji thing for ${emoji}`);
 
         const emojiHolder = document.createElement("div");
 
@@ -198,7 +201,7 @@
         // I REALLY don't care that I do it via innerHTML I jst cbf to make 2 more elements (Im lazy 😔)
         emojiHolder.innerHTML += `
  <p class="emoji">${emoji}</p>
- <button class="copyEmoji" data-e="${emoji}">Copy</button>
+ <button class="copyEmoji" data-e="${emoji}" onclick="window.copy('${emoji}'); alert('Emoji Copied!')">Copy</button>
 `;
 
         insertedEmojis.push(emoji);
@@ -221,5 +224,7 @@
 
       console.log(arrayed);
     }
+
+
   </script>
 </html>
