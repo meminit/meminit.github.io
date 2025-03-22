@@ -127,6 +127,11 @@
   </body>
 
   <script>
+
+    const params = new URLSearchParams(window.location.search)
+
+
+
     let emojiList = {};
     let defaultEmojiList = {};
 
@@ -219,6 +224,12 @@
       const arrayed = str.replaceAll(" ", `","`);
 
       console.log(arrayed);
+    }
+
+    if (params.get('search')) {
+        document.querySelector('.searchBar').value = params.get('search')
+
+        search(document.querySelector('.searchBar').value)
     }
 
 
