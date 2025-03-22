@@ -176,7 +176,7 @@
         // I REALLY don't care that I do it via innerHTML I jst cbf to make 2 more elements (Im lazy 😔)
         emojiHolder.innerHTML += `
          <p class="emoji">${emoji}</p>
-         <button class="copyEmoji" data-e="${emoji}" onclick="window.copy('${emoji}'); alert('Emoji Copied!')">Copy</button>
+         <button class="copyEmoji" data-e="${emoji}" onclick="navigator.clipboard.writeText('${emoji}'); alert('Copied Emoji!')">Copy</button>
         `;
 
         insertedEmojis.push(emoji);
@@ -201,7 +201,7 @@
         // I REALLY don't care that I do it via innerHTML I jst cbf to make 2 more elements (Im lazy 😔)
         emojiHolder.innerHTML += `
  <p class="emoji">${emoji}</p>
- <button class="copyEmoji" data-e="${emoji}" onclick="window.copy('${emoji}'); alert('Emoji Copied!')">Copy</button>
+ <button class="copyEmoji" data-e="${emoji}" onclick="navigator.clipboard.writeText('${emoji}'); alert('Copied Emoji!')">Copy</button>
 `;
 
         insertedEmojis.push(emoji);
