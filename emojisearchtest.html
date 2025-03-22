@@ -134,6 +134,10 @@
       const emojis = await res.json();
 
       emojiList = emojis;
+
+      const res2 = await fetch("https://meminit.github.io/assets/data/defaultemojis.json")
+      const emojis2 = await res.json();
+      emojiList += emojis2;
     }
 
     fetchEmojis();
