@@ -73,6 +73,7 @@ async function loadHeader() {
         <a href="/faq" class="defaultLink">FAQ</a>
         <a href="/aboutme" class="defaultLink">About Me</a>
         <a href="/suggestions" class="defaultLink">Suggestions</a>
+        <a href="/helpers" class="defaultLink">Helpers</a>
         <a href="/discord" class="defaultLink">Discord</a>
 
     `;
