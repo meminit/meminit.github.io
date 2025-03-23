@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Deepfry It 🔥</title>
+    <link
+      rel="icon"
+      type="image/webp"
+      href="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247"
+    />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+
+    <meta property="og:title" content="Our Helpers" />
+    <meta
+      property="og:description"
+      content="MeminIt's helpers and collaborators."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247"
+    />
+    <meta property="og:url" content="https://meminit.github.io/deepfry" />
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/tools/deepfry.css" />
+    <!-- I gotta normalize ts -->
+
+    <style>
+      /* just a copy from the emoji search bc it looks good */
+
+      .searchBar {
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        resize: none;
+        width: 5000px;
+        max-width: 80%;
+        line-height: 1;
+        height: fit-content;
+        padding-top: 17.5px;
+        text-align: center;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        flex-shrink: 0;
+      }
+
+      .searchBar:focus {
+        outline: none;
+      }
+
+      .searchBar::placeholder {
+        color: black;
+      }
+
+      .seperator {
+        height: 1px;
+        width: 5000px;
+        max-width: 90%;
+        transition: all 0.2s;
+        background-color: black;
+        margin-bottom: 20px;
+        margin-top: 5px;
+      }
+
+      .emojiHolder {
+        height: 300px;
+        border: solid;
+        border-width: 1px;
+        border-color: black;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        margin-top: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .emojiHolder:hover {
+        transform: scale(1.1, 1.1);
+      }
+
+      .emoji {
+
+        max-width: 100%;
+        max-height: 70%;
+        object-fit: contain;
+        border-radius: 50px;
+        font-size: 3rem;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .copyEmoji {
+        width: 90%;
+        border: none;
+        border-radius: 5px;
+        background-color: gray;
+        color: white;
+        height: 20%;
+        transition: all 0.2s ease;
+      }
+
+      .copyEmoji:hover {
+        background-color: lightgray;
+        cursor: pointer;
+      }
+
+      .emojiGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 200px));
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+        
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="innerbody">
+      <div class="emojiGrid">
+        <div class="emojiHolder">
+          <img
+            class="emoji"
+            alt="Jackson"
+            src="https://images-ext-1.discordapp.net/external/6lrQekPtXoTXRGguHsrK_6JeEAu-CmUq8dLYDVwC-L4/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/872742807905910825/3909a16cacb1ba76bffb028f96896c5e.png?format=webp&quality=lossless&width=80&height=80"
+          />
+          <h3 style="margin: 0; margin-top: 10px;">itsprobablyjackson</h3>
+          <h4 style="margin: 0;">Site Owner and Developer</h4>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="/js/header.js"></script>
+</html>
