@@ -116,6 +116,8 @@
         overflow-y: auto;
       }
     </style>
+
+    
   </head>
 
   <body>
@@ -210,6 +212,10 @@
       });
     }
 
+    document.querySelector('.searchBar').addEventListener('input', (event) => {
+      search(event.target.value)
+    });
+
     document.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
         event.preventDefault();
@@ -220,7 +226,7 @@
     });
 
     function arrayIT(str) {
-      const arrayed = str.replaceAll(" ", `","`);
+      const arrayed = str.replaceAll(",", `" "`);
 
       console.log(arrayed);
     }

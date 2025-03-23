@@ -112,6 +112,15 @@
         overflow-y: auto;
       }
     </style>
+
+      <!-- Cloudflare Web Analytics -->
+  <script
+  defer
+  src="https://static.cloudflareinsights.com/beacon.min.js"
+  data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'
+></script>
+<!-- End Cloudflare Web Analytics -->
+ 
   </head>
 
   <body>
@@ -125,6 +134,8 @@
       </div>
     </div>
   </body>
+
+
 
   <script>
 
@@ -162,7 +173,7 @@
 
       let insertedEmojis = [];
 
-      console.log(responseEmojis);
+
 
       document.querySelector(".emojiGrid").innerHTML = "";
 
@@ -232,6 +243,8 @@
         search(document.querySelector('.searchBar').value)
     }
 
-
+    document.querySelector('.searchBar').addEventListener('input', (event) => {
+      search(event.target.value)
+    });
   </script>
 </html>
