@@ -958,7 +958,7 @@
   
     ttsgbutton.addEventListener("click", () => {
   
-      fetch('/stats/update/gif_conversions') // just for stats for the upcoming discord bot :D
+
   
       console.log("Attemping to convert to gif.");
   
@@ -977,7 +977,7 @@
       var gif = new GIF({
         workers: 2,
         quality: 100,
-        workerScript: "/js/gifWorker.js",
+        workerScript: "/js/toolsJS/gifWorker.js",
         width: uploadedIMG.width,
         height: uploadedIMG.height,
       });
