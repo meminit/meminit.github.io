@@ -80,6 +80,8 @@ async function loadHeader() {
 
   document.body.prepend(mobilePanel);
 
+  div.className = "mainHeader"
+
   div.innerHTML += res;
 
   document.body.prepend(div);
