@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>Memin It!</title>
+    <link
+      rel="icon"
+      type="image/webp"
+      href="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247"
+    />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta charset="utf-8" />
+
+    <meta property="og:title" content="MeminIt" />
+    <meta
+      property="og:description"
+      content="Use MeminIt's AMAZING tools 🔥"
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247"
+    />
+    <meta property="og:url" content="https://meminit.github.io/" />
+
+
+    <style>
+      /* Default CSS styles, don't leave this in here though, set to external CSS file sooner or later */
+
+      :root {
+        --primary-color: rgb(20, 20, 20);
+        --secondary-color: rgba(3, 3, 3, 0.295);
+        --tertiary-color: rgba(0, 0, 0, 0.5);
+        
+        --header-height: 70px;
+
+        --blind-height: 80px;
+
+        --main-theme-color: #ffc800;
+
+    }
+
+      header {
+        background-color: var(--secondary-color);
+        width: 100%;
+        height: var(--header-height);
+        justify-self: start;
+        position: sticky;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      margin-left: 10px;
+    }
+
+      body {
+        background-color: var(--primary-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: white;
+    }
+
+    .titlemoji {
+      max-width: 80%;
+      max-height: 80%;
+      object-fit: contain;
+      margin-left: 10px;
+    }
+
+    .innerbody {
+        height: calc(100% - var(--header-height, 80px));
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+        
+    }
+
+
+    .blind {
+        width: 100%;
+        min-height: var(--blind-height);
+
+        background-color: var(--tertiary-color);
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
+
+        margin-top: 20px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .blind h1 {
+      color: white;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      margin: 0;
+    }
+
+    .blind h5 {
+      margin: 0;
+      font-weight: 200;
+    }
+
+
+
+
+    #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 90vh;
+            z-index: -1;
+
+          }
+
+    .blurbg {
+      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px);
+      
+    }      
+
+    .container {
+      margin-top: 20px;
+      width: 700px;
+      border-radius: 5px;
+      min-height: 500px;
+      border: solid;
+      border-width: 1px;
+      border-color: rgba(0, 0, 0, 0.459);
+      background-color: var(--tertiary-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .blindContainer {
+      margin-top: 20px;
+      width: 700px;
+      max-width: 100%;
+      border-radius: 5px;
+      min-height: 300px;
+      border: solid;
+      border-width: 1px;
+      border-color: rgba(0, 0, 0, 0.459);
+      background-color: var(--tertiary-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+
+    .container h2 {
+      height: 10%;
+      width: 100%;
+      text-align: center;
+    }
+
+
+
+    .grid {
+      width: 90%;
+      height: 80%;
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+    }
+
+    .gamecard {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.2s ease-in-out;
+      text-align: center;
+      width: 100%;
+      border: solid;
+      border-radius: 5px;
+      border-color: var(--primary-color);
+
+
+    }
+
+    .gamecard h3 {
+      margin: 10px;
+    }
+
+    .gamecard h5 {
+      margin: 0;
+      font-weight: 200;
+      margin-bottom: 10px;
+    }
+
+    @media (orientation: portrait) {
+      .container {
+        width: 90%;
+      }
+    }
+
+    .shortcuts {
+      justify-self: flex-end;
+      height: 100%;
+    }
+
+    .gameImage {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 5px;
+      object-fit: contain;
+      margin-top: 20px;
+      
+    }
+
+    .noy {
+      /* game icon that isn't out yet */
+
+      filter: sepia();
+    }
+
+    .gamecard:hover {
+      transform: scale(1.05, 1.05);
+      cursor: pointer;
+    
+    }
+
+    .playnow {
+      background-color: var(--main-theme-color);
+      color: white;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      border-radius: 5px;
+      border: none;
+      min-width: 120px;
+      min-height: 50px;
+      text-align: center;
+      transition: all 0.2s ease-in-out;
+      font-weight: 500;
+
+    }
+
+    .playnow:hover {
+      cursor: pointer;
+      transform: scale(1.1, 1.1);
+      
+    }
+
+    .playnow:active {
+      transform: scale(0.9, 0.9);
+    }
+
+    .mainthemecolor {
+      color: var(--main-theme-color);
+    }
+
+    .orangespan {
+      color: var(--main-theme-color)
+    }
+
+    </style>
+
+<script src="
+https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
+"></script>
+  </head>
+
+  <body>
+
+    <div id="particles-js"></div>
+
+    <script src="/assets/js/particlegen.js"></script>
+
+    <header class="mainheader">
+      <img alt="logo" src="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247" class="titlemoji">
+      <h1 class="sitetitle"><span class="orangespan">Memin</span> It</h1>
+      <div class="shortcuts">
+      </div>
+    </header>
+
+    <div class="innerbody">
+        <div class="blind">
+          <h1><span class="orangespan">Memin</span> It</h1>
+          <h5>Meming it all night long 😎</h5>
+        </div>
+
+        <div class="blindContainer blurbg">
+          <h1>Fun <span class="orangespan">anywhere</span>.</h1>
+
+          <button class="playnow" onclick="redirect('/tools')">Check out the tools</button>
+        </div>
+
+        <div class="container blurbg">
+
+          <h1>Memes <span class="orangespan">FOREVER</span> </h1>
+
+          <div class="grid">
+            <div class="gamecard" data-l="./tools/circumfrencecalculator">
+              <img class="gameImage" alt="game"  src="https://github.com/meminit/meminit.github.io/blob/main/assets/images/emojisearch.png?raw=true">
+              <h3>Emoji Search</h3>
+              <h5>Find that emoji you forgot the name of.</h5>
+
+            </div>
+        </div>
+        </div>
+    </div>
+  </body>
+
+  <script src="./assets/js/header.js"></script>
+
+  <script>
+    document.querySelectorAll('.gamecard').forEach(element => {
+        element.addEventListener('click', () => {
+      window.location.href = element.getAttribute('data-l')
+        });
+    });
+
+    function redirect(link) {
+      window.location.href = link
+    }
+  </script>
+</html>
