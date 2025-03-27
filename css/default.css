@@ -2,6 +2,7 @@ html,
 body {
   height: 100vh;
   margin: 0;
+  
 }
 
 /* Default CSS styles, don't leave this in here though, set to external CSS file sooner or later */
