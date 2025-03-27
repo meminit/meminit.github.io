@@ -6,7 +6,7 @@
   <title>Memin It!</title>
   <link rel="icon" type="image/webp"
     href="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247" />
-  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta charset="utf-8" />
 
   <meta property="og:title" content="MeminIt" />
@@ -17,6 +17,12 @@
 
 
   <style>
+
+html, body {
+    height: 100vh;
+    margin: 0;
+}
+
     /* Default CSS styles, don't leave this in here though, set to external CSS file sooner or later */
 
     :root {
@@ -25,6 +31,7 @@
       --tertiary-color: rgba(0, 0, 0, 0.5);
 
       --hover-color: white;
+      --transparent-hover-color: rgba(255, 255, 255, .5);
 
       --header-height: 70px;
 
@@ -32,16 +39,24 @@
 
       --main-theme-color: #ffc800;
 
+      --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      --txt-color: white;
+
+    }
+
+    @media (orientation: portrait) {
+      /* Mobile Style */
     }
 
     header {
+      top: 0;
       background-color: var(--secondary-color);
       width: 100%;
       height: var(--header-height);
       justify-self: start;
       position: sticky;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      color: white;
+      font-family: var(--font);
+      color: var(--txt-color);
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -60,8 +75,8 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      color: white;
+      font-family: var(--font);
+      color: var(--txt-color);
     }
 
     .titlemoji {
@@ -72,13 +87,12 @@
     }
 
     .innerbody {
-      height: calc(100% - var(--header-height, 80px));
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       overflow-y: auto;
-
+      
     }
 
 
@@ -99,8 +113,8 @@
     }
 
     .blind h1 {
-      color: white;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: var(--txt-color);
+      font-family: var(--font);
       margin: 0;
     }
 
@@ -203,8 +217,12 @@
     }
 
     .shortcuts {
-      justify-self: flex-end;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
       height: 100%;
+      margin-left: 20px;
     }
 
     .gameImage {
@@ -232,8 +250,8 @@
       --initial-width: 120px;
 
       background-color: rgba(0, 0, 0, 0);
-      color: white;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: var(--txt-color);
+      font-family: var(--font);
       border-radius: 5px;
       border: solid;
       border-color: var(--main-theme-color);
@@ -302,7 +320,7 @@
 
     .hozSeperator {
       width: 1px;
-      background-color: white;
+      background-color: var(--txt-color);
       height: 20px;
     }
 
@@ -312,8 +330,42 @@
       width: 300px;
     }
 
+    .shortcuts a {
+      height: 50%;
+      color: var(--hover-color);
+      text-decoration: none;
+      font-family: var(--font);
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      transition: all 0.2s ease;
+      margin: 2px;
+      border: dotted;
+      border-color: rgba(0, 0, 0, 0);
+      border-width: 2px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
 
+    .shortcuts a:hover {
+      background-color: var(--transparent-hover-color);
+      border-color: var(--transparent-hover-color);
+
+    }
+
+    .shortcutIcon {
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .href-icon {
+      margin-right: 10px;
+    }
   </style>
+
+  <script src="https://kit.fontawesome.com/4b3613c91f.js" crossorigin="anonymous"></script>
 
   <script src="
 https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
@@ -327,62 +379,64 @@ https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
   <script src="/assets/js/particlegen.js"></script>
 
   <header class="mainheader">
-    <img alt="logo"
-      src="./assets/images/assets_images_cooldude.webp"
-      class="titlemoji">
+    <img alt="logo" src="https://meminit.github.io/assets/images/assets_images_cooldude.webp" class="titlemoji">
     <h1 class="sitetitle"><span class="orangespan">Memin</span> It</h1>
     <div class="shortcuts">
+      <a href="/home"><i class="fa-solid fa-house href-icon"></i> <span>Home</span></a>
+      <a href="/tools"><i class="fa-solid fa-screwdriver-wrench href-icon"></i><span>Tools</span></a>
+      <a href="/faq"><i class="fa-solid fa-circle-question href-icon"></i> <span>FAQ</span> </a>
+      <a href="/discord" target="_blank"><i class="fa-brands fa-discord href-icon"></i><span>Discord</span></a>
     </div>
   </header>
 
   <div class="innerbody">
-    <div class="blind">
-      <h1><span class="orangespan">Memin</span> It</h1>
-      <h5>Meming it all night long 😎</h5>
-    </div>
 
-    <div class="blindContainer blurbg">
-      <h1>Fun <span class="orangespan">anywhere</span>.</h1>
+  <div class="blind">
+    <h1><span class="orangespan">Memin</span> It</h1>
+    <h5>Meming it all night long 😎</h5>
+  </div>
 
-      <button class="playnow" onclick="redirect('/tools')">Check out all the tools</button>
-    </div>
+  <div class="blindContainer blurbg">
+    <h1>Fun <span class="orangespan">anywhere</span>.</h1>
 
-    <div class="container blurbg">
+    <button class="playnow" onclick="redirect('/tools')">Check out all the tools</button>
+  </div>
 
-      <h1>Memes <span class="orangespan">FOREVER</span> </h1>
+  <div class="container blurbg">
 
-      <div class="grid">
-        <div class="gamecard" data-l="/tools/emojisearch">
-          <img class="gameImage" alt="game"
-            src="https://meminit.github.io/assets/images/emojisearch.png">
-          <h3>Emoji Search</h3>
-          <h5>Find that emoji you forgot the name of 🍕😎</h5>
+    <h1>Memes <span class="orangespan">FOREVER</span> </h1>
 
-        </div>
+    <div class="grid">
+      <div class="gamecard" data-l="/tools/emojisearch">
+        <img class="gameImage" alt="game" src="https://meminit.github.io/assets/images/emojisearch.png">
+        <h3>Emoji Search</h3>
+        <h5>Find that emoji you forgot the name of 🍕😎</h5>
 
-        <div class="gamecard" data-l="/tools/deepfry">
-          <img class="gameImage" alt="game"
-            src="https://meminit.github.io/assets/images/deepfry.png">
-          <h3>Deepfry 🍳🔥</h3>
-          <h5>Deepfry any image you want 🔥</h5>
+      </div>
 
-        </div>
+      <div class="gamecard" data-l="/tools/deepfry">
+        <img class="gameImage" alt="game" src="https://meminit.github.io/assets/images/deepfry.png">
+        <h3>Deepfry 🍳🔥</h3>
+        <h5>Deepfry any image you want 🔥</h5>
+
       </div>
     </div>
+  </div>
 
-    <div class="linfo">
-      <img alt="logo" class="linfoEmoji" src="./assets/images/assets_images_cooldude.webp">
-      <h4 class="linfoTitle">Meminit</h4>
-      <h5 class="linfoText">By <span class="orangespan">itsprobablyjackson</span></h5>
-
-    </div>
-    <div class="linksRow">
-      <a class="linfoText linfoHyperlink" href="mailto:alshield@gmail.com">Contact Us</a>
-      <div class="hozSeperator"></div>
-      <a class="linfoText linfoHyperlink" href="/discord" target="_blank">Our Discord</a>
-    </div>
+  <div class="linfo">
+    <img alt="logo" class="linfoEmoji" src="https://meminit.github.io/assets/images/assets_images_cooldude.webp">
+    <h4 class="linfoTitle">Meminit</h4>
+    <h5 class="linfoText">By <span class="orangespan">itsprobablyjackson</span></h5>
 
   </div>
+  <div class="linksRow">
+    <a class="linfoText linfoHyperlink" href="mailto:alshield@gmail.com">Contact Us</a>
+    <div class="hozSeperator"></div>
+    <a class="linfoText linfoHyperlink" href="/discord" target="_blank">Our Discord</a>
+  </div>
+
+</div>
+
 </body>
 
 <script src="./assets/js/header.js"></script>
