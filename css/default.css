@@ -1,0 +1,379 @@
+html,
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+/* Default CSS styles, don't leave this in here though, set to external CSS file sooner or later */
+
+:root {
+  --primary-color: rgb(20, 20, 20);
+  --secondary-color: rgba(3, 3, 3, 0.295);
+  --tertiary-color: rgba(0, 0, 0, 0.5);
+
+  --hover-color: white;
+  --transparent-hover-color: rgba(255, 255, 255, .5);
+
+  --header-height: 70px;
+
+  --blind-height: 80px;
+
+  --main-theme-color: #ffc800;
+
+  --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --txt-color: white;
+
+}
+
+
+header {
+  top: 0;
+  background-color: var(--secondary-color);
+  width: 100%;
+  height: var(--header-height);
+  justify-self: start;
+  position: sticky;
+  font-family: var(--font);
+  color: var(--txt-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  margin-left: 10px;
+}
+
+body {
+  background-color: var(--primary-color);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: var(--font);
+  color: var(--txt-color);
+}
+
+.titlemoji {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  margin-left: 10px;
+}
+
+.innerbody {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+
+}
+
+
+.blind {
+  width: 100%;
+  min-height: var(--blind-height);
+
+  background-color: var(--tertiary-color);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.blind h1 {
+  color: var(--txt-color);
+  font-family: var(--font);
+  margin: 0;
+}
+
+.blind h5 {
+  margin: 0;
+  font-weight: 200;
+}
+
+
+
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 90vh;
+  z-index: -1;
+
+}
+
+.blurbg {
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+
+}
+
+.container {
+  margin-top: 20px;
+  width: 700px;
+  border-radius: 5px;
+  border: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.459);
+  background-color: var(--tertiary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blindContainer {
+  margin-top: 20px;
+  width: 700px;
+  max-width: 100%;
+  border-radius: 5px;
+  border: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.459);
+  background-color: var(--tertiary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.container h2 {
+  height: 10%;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+.grid {
+  width: 90%;
+  height: 80%;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.gamecard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+  text-align: center;
+  width: 100%;
+  border: solid;
+  border-radius: 5px;
+  border-color: var(--primary-color);
+  margin-bottom: 20px;
+
+}
+
+.gamecard h3 {
+  margin: 10px;
+}
+
+.gamecard h5 {
+  margin: 0;
+  font-weight: 200;
+  margin-bottom: 10px;
+}
+
+@media (orientation: portrait) {
+  .container {
+    width: 90%;
+  }
+}
+
+.shortcuts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-left: 20px;
+}
+
+.gameImage {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 5px;
+  object-fit: contain;
+  margin-top: 20px;
+
+}
+
+.noy {
+  /* game icon that isn't out yet */
+
+  filter: sepia();
+}
+
+.gamecard:hover {
+  transform: scale(1.05, 1.05);
+  cursor: pointer;
+  border-color: var(--hover-color);
+}
+
+.playnow {
+  --initial-width: 120px;
+
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--txt-color);
+  font-family: var(--font);
+  border-radius: 5px;
+  border: solid;
+  border-color: var(--main-theme-color);
+  border-style: dotted;
+  min-width: 120px;
+  min-height: 50px;
+  text-align: center;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  margin-bottom: 20px;
+
+
+
+}
+
+.playnow:hover {
+  cursor: pointer;
+  border-color: var(--hover-color);
+  min-width: calc(var(--initial-width) + (var(--initial-width) * 0.5));
+
+}
+
+.playnow:active {
+  transform: scale(0.9, 0.9);
+}
+
+.mainthemecolor {
+  color: var(--main-theme-color);
+}
+
+.orangespan {
+  color: var(--main-theme-color)
+}
+
+.linfo {
+  max-width: 150px;
+  width: 150px;
+
+}
+
+.linfoText {
+  text-align: center;
+  width: 100%;
+  font-weight: 300;
+  margin: 0;
+  margin-bottom: 10px;
+  color: var(--hover-color);
+}
+
+.linfoTitle {
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+}
+
+.linfoEmoji {
+  max-width: 80vh;
+  width: 150px;
+  object-fit: contain;
+
+}
+
+.linfoHyperlink {
+  text-decoration: none;
+}
+
+.hozSeperator {
+  width: 1px;
+  background-color: var(--txt-color);
+  height: 20px;
+}
+
+.linksRow {
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+}
+
+.shortcuts a {
+  height: 50%;
+  color: var(--hover-color);
+  text-decoration: none;
+  font-family: var(--font);
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+  margin: 2px;
+  border: dotted;
+  border-color: rgba(0, 0, 0, 0);
+  border-width: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.shortcuts a:hover {
+  background-color: var(--transparent-hover-color);
+  border-color: var(--transparent-hover-color);
+
+}
+
+.shortcutIcon {
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.href-icon {
+  margin-right: 10px;
+}
+
+@media (orientation: portrait) {
+  /* Mobile Style */
+
+  .titlemoji {
+    margin: 0;
+    max-width: 100px;
+    object-fit: contain;
+  }
+
+  .shortcuts a span {
+    display: none;
+  }
+
+  header, .mainheader {
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    background-color: var(--primary-color);
+
+    
+  }
+
+
+
+}
+
+.titleHolder {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+  }
