@@ -17,6 +17,7 @@
     background-color: rgba(255, 255, 255, 0);
     border: solid;
     border-style: dashed;
+    border-color: var(--txt-color);
     border-width: 2px;
     border-radius: 5px;
     transition: all 0.2s ease;
@@ -32,6 +33,7 @@ input {
     background-color: rgba(255, 255, 255, 0);
     border: solid;
     border-style: dashed;
+    border-color: var(--txt-color);
     border-width: 2px;
     border-radius: 5px;
     transition: all 0.2s ease;
@@ -47,6 +49,7 @@ input {
     background-color: rgba(255, 255, 255, 0);
     border: solid;
     border-style: dashed;
+    border-color: var(--txt-color);
     border-width: 2px;
     border-radius: 5px;
     transition: all 0.2s ease;
