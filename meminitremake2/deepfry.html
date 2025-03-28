@@ -30,27 +30,52 @@
         });
     </script>
 
+
+
     <style>
         .innerbody {
             flex-grow: 1;
         }
 
-        input, button, .deepfryButton, .uploadButton {
+        input,
+        button,
+        .deepfryButton,
+        .uploadButton {
             color: var(--txt-color);
             border: solid;
             border-width: 1px;
-            background-color: rgba(0,0,0,0);
+            border-color: var(--txt-color);
+            background-color: rgba(0, 0, 0, 0);
             -webkit-backdrop-filter: blur(5px);
             backdrop-filter: blur(5px);
             transition: all 0.2s ease;
+            padding: 2px;
         }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        input:focus {
+
+            outline: none;
+            --clr: rgba(126, 126, 126, 0.295);
+            --shadow-height: -10px;
+            
+
+            -webkit-box-shadow: 0px var(--shadow-height) 0px -4px var(--clr) inset;
+            -moz-box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
+            box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
+        }
+
+
 
         label {
             text-align: center;
             font-family: var(--font);
+            margin-bottom: 10px;
         }
-
-        button:hover {}
     </style>
 </head>
 
@@ -75,18 +100,25 @@
 
         <div class="container">
             <h2>Deep Fry an Image</h2>
-            <input title="Quality Image" type="file" id="upload" accept="image/*" class="uploadImage" style="display: none;" />
+            <input title="Quality Image" type="file" id="upload" accept="image/*" class="uploadImage"
+                style="display: none;" />
             <button title="Upload" onclick="document.querySelector('.uploadImage').click()" class="uploadButton">Upload
-              Image</button>
+                Image</button>
             <img class="inputImage" id="inputImage" style="display: none;" alt="Input Image">
             <input placeholder="Saturation" type="number" id="sat">
             <input placeholder="Contrast" type="number" id="con">
+
             <label for="quality" style="margin: 0;">Quality Recommended to go below 0.1 for funnier results</label>
             <input placeholder="Quality" type="number" id="quality">
             <button class="deepfryButton" id="dfit">Deepfry it!</button>
             <img id="output" class="outputImage" style="max-width: 300px; display: none;" alt="Deepfried" />
+            <a class="download" href="" download=""></a>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
+    <script src="https://meminit.github.io/js/toolsJS/renderDeepfried.js"></script>
+    <script src="https://meminit.github.io/js/toolsJS/gifWorker.js"></script>
 </body>
 
 </html>
