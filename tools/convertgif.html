@@ -1,1004 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9758035810696915"
-       crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gif.js/dist/gif.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gif.js/dist/gif.worker.js"></script>
-    <!-- jst a library for gifs (OBV) -->
-  
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
+
+    <title>Memin It!</title>
+    <link rel="icon" type="image/webp"
+        href="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta charset="utf-8" />
+
+    <meta property="og:title" content="Emoji Search" />
+    <meta property="og:description"
+        content="Use Memin It's Emoji Search to find that ONE emoji you wanted but never got" />
+    <meta property="og:image" content="/assets/images/emojisearch.png" />
+
+    <meta property="og:width" content="1920">
+    <meta property="og:height" content="1080">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta property="og:url" content="https://meminit.github.io/emojisearch" />
+
+    <link rel="stylesheet" href="https://meminit.github.io/css/default.css">
+    <link rel="stylesheet" href="https://meminit.github.io/css/tools/deepfry.css">
+    <script src="https://kit.fontawesome.com/4b3613c91f.js" crossorigin="anonymous"></script>
+
+    <script src="
+      https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
+      "></script>
+
+    <script>
+        particlesJS.load('particles-js', 'https://meminit.github.io/particles.json', function () {
+            console.log('particles.js loaded - callback');
+        });
+    </script>
 
 
-    <script src="/js/header.js"></script>
-    <link rel="stylesheet" href="/main.css" />
-  
-    <meta property="og:title" content="Turn image to GIF">
-    <meta property="og:description" content="Use Memify to turn an image into a gif to favourite on discord!">
-    <meta property="og:image" content="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247">
-    <meta property="og:url" content="https://meminit.github.io">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9758035810696915"
-     crossorigin="anonymous"></script>
 
     <style>
-      header {
-        background-color: rgba(1, 1, 1, 0);
-        display: flex;
-        flex-direction: row;
-        justify-content: left;
-        align-items: center;
-        height: 7.5%;
-  
-        width: 100%;
-      }
-  
-      body {
-        background-color: rgb(255, 255, 255);
-      }
-  
-
-
-  
-      .innerbody {
-        width: 100%;
-        height: 92.5%;
-  
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-  
-      .panel {
-        width: 60%;
-        height: 40%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-      }
-  
-      .uploadimgicon {
-        max-width: 30%;
-        max-height: 30%;
-        object-fit: contain;
-      }
-  
-      .uploadimg {
-        width: 25%;
-        height: 50%;
-        object-fit: contain;
-        border: solid;
-        border-width: 1px;
-        border-radius: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-color: rgb(0, 0, 0);
-        transition: box-shadow 0.3s ease-out;
-      }
-  
-      .uploadimg:hover {
-        box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.8);
-        cursor: pointer;
-      }
-  
-      .turntogifbutton {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        margin-left: 10px;
-        margin-right: 10px;
-        height: 12%;
-        font-size: 100%;
-        background-color: rgba(1, 1, 1, 0);
-        color: rgb(0, 0, 0);
-        border: solid;
-        border-width: 1px;
-        border-radius: 5px;
-        transition: box-shadow 0.3s ease-out;
-      }
-  
-      .turntogifbutton:hover {
-        box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.8);
-        cursor: pointer;
-      }
-  
-      .minimoji {
-        width: 30%;
-        height: 30%;
-        object-fit: contain;
-      }
-  
-      .downloadimg {
-        color: rgb(0, 0, 0);
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        border: solid;
-        border-width: 1px;
-        border-radius: 5px;
-        text-decoration: none;
-        height: 12%;
-        
-        font-size: 100%;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-  
-      }
-  
-  
-  
-      .finishedgif {
-        width: 25%;
-        height: 50%;
-        object-fit: contain;
-        border: solid;
-        border-width: 1px;
-        border-radius: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 60%;
-        border-color: rgb(0, 0, 0);
-        color: rgb(0, 0, 0);
-        margin: 0;
-        transition: all 0.2s ease-out;
-      }
-  
-      .finishedgif:hover {
-        box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.8);
-        cursor: pointer;
-      }
-  
-  
-      .centerbuttons {
-        height: 25%;
-      }
-  
-      .imagequery {
-        width: 30px;
-        height: 30px;
-      }
-  
-      @media (orientation: portrait) {
-        .panel {
-          height: 60%;
-          width: 100%;
-          flex-direction: column;
+        .innerbody {
+            flex-grow: 1;
         }
-  
-        .uploadimg,
-        .finishedgif {
-          width: 50%;
-          height: 50%;
-        }
-  
-  
-  
-        .turntogifbutton {
-          margin-top: 30px;
-          margin-bottom: 30px;
-          height: 30%;
-          width: 30%;
-          font-size: x-large;
-        }
-      }
-    </style>
-  </head>
-  
-  <body>
 
-    <head>
-
-        <title>Memin It!</title>
-        <link rel="icon" type="image/webp" href="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247">
-        
-        <style>
-          body {
-            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-              "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-            margin: 0;
-            height: 100vh;
-          }
-      
-          header {
-            width: 100%;
-      
-            display: flex;
-            justify-content: left;
-            align-items: center;
-      
-            flex-direction: row;
-      
-            height: 10vh;
-            background-color: white;
-          }
-      
-          .mobiletitlemoji {
-              max-width: 100%;
-              max-height: 100%;
-              object-fit: contain;
-            }
-      
-          .titlemoji  {
-            width: 3vw;
-            height: 3vw;
-          }
-      
-          .link {
-            margin: 0;
-            font-size: 1.5vw;
-          }
-      
-          .bottomborder {
-            width: 0%;
-            transition: all 0.2s ease-out;
-            color: black;
-            background-color: black;
-            height: 0.1vw;
-          }
-      
-          .linkbox {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-          }
-      
-          .helpbox {
-            height: 10%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-          }
-      
-          .linkbox:hover, .helpbox:hover {
-            cursor: pointer;
-          }
-      
-          .separator {
-            width: 1px;
-            height: 70%;
-            background-color: black;
-            margin-left: 0.75vw;
-            margin-right: 0.75vw;
-          }
-      
-          .linkbox:hover .bottomborder, .helpbox:hover .bottomborder {
-            width: 100%;
-          }
-      
-          .sitetitle {
-            margin: 0;
-      
-            font-size: 2.5vw;
-      
-            height: 100%;
-      
-            margin-left: 1vw;
-      
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-      
-            color: black;
-            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-              "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-          }
-      
-          .innerbody {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 90vh;
-          }
-      
-          .textHeader {
-            font-size: 5vh;
-            margin: 0;
-            text-align: center;
-          }
-      
-          .columnseperators {
-            width: 30%;
-            height: 1px;
-            background-color: black;
-            margin-top: 0.75vw;
-            margin-bottom: 0.75vw;
-          }
-      
-          .mobiletitleheader {
-            display: none;
-          }
-      
-          @media (orientation: portrait) {
-      
-            .mobiletitleheader {
-                  display: flex;
-                  flex-direction: row;
-                  align-items: center;
-                  justify-content: center;
-                  height: 5vh;
-                  margin: 0;
-              }
-      
-              .mobilesitetitle {
-                font-size: 8vw;
-              }
-      
-              .tools {
-                  width: 100%;
-              }
-      
-              .link {
-                  font-size: 4vw;
-              }
-      
-              .sitetitle {
-                  display: none;
-              }
-      
-              .titlemoji {
-                  display: none;
-              }
-      
-              .tooltitle {
-                  font-size: 3vw;
-              }
-      
-              .tooldescription {
-                  font-size: 1.9vw;
-                  width: 80%;
-                  text-align: left;
-              }
-      }
-      
-        </style>
-      
-        <style>
-           .tool, .tool1 {
-            background-color: rgba(1, 1, 1, 0);
-            color: rgb(0, 0, 0);
-            border-style: solid;
-            border-width: 1px;
-            border-radius: 10px;
-            border-color: rgb(0, 0, 0);
-            width: 100%;
-            height: 100%;
-            transition: all 0.2s ease-out;
-          }
-      
-          .tools {
-            margin-top: 10px;
-            margin-bottom: 10px;
-      
-            width: 80%;
-            display: grid;
-            gap: 20px;
-            grid-template-columns: repeat(auto-fit, auto-fit);
-            grid-auto-rows: 200px;
-      
-            
-            justify-content: center;
-            align-content: start;
-      
-          }
-      
-      
-          .tool:hover, .tool1:hover {
-            transform: scale(1.05, 1.05);
-           
-      
-            cursor: pointer;
-          }
-      
-      
-      
-      
-          .tooltitle {
-              margin-left: 3%;
-          }
-      
-          .tooldescription {
-              margin-left: 3%;
-          }
-      
-          .disclaimer {
-            margin-left: 3%;
-          }
-      
-          .titlemoji {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-          }
-      
-          .footerinfo {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-    
-          .textInput {
-            width: 20%;
-            resize: none;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        input,
+        button,
+        .deepfryButton,
+        .uploadButton {
+            color: var(--txt-color);
             border: solid;
             border-width: 1px;
-            border-radius: 10px;
-            background-color: rgba(0,0,0,0);
-            height: 5vh;
-            text-align: center;
-            color: rgb(0, 0, 0);
-          }
-    
-          .copyButton {
-            margin-top: 10px;
-            width: 20%;
-            height: 5vh;
-            resize: none;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border-color: var(--txt-color);
+            background-color: rgba(0, 0, 0, 0);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            transition: all 0.2s ease;
+            padding: 2px;
+            text-decoration: none;
+        }
+
+        .downloadimg {
+            background-color: rgba(255, 255, 255, 0);
             border: solid;
+            border-color: var(--txt-color);
             border-width: 1px;
             border-radius: 5px;
-            background-color: rgba(0,0,0,0);
-    
+            transition: all 0.2s ease;
+            min-width: 300px;
+            max-width: 100%;
+            min-height: 30px;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: white;
             text-align: center;
-            color: rgb(0, 0, 0);
-            
-            transition: all 0.2s ease-out;
-        
+            display: none;
+            justify-content: center;
+            align-items: center;
         }
-    
-        .copyButton:hover {
-            cursor: pointer;
-            transform: scale(1.1, 1.1);
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
         }
-    
-          .textInput:focus {
-            
+
+        input:focus {
+
             outline: none;
-          }
-    
-          @media (orientation: portrait) {
-            .copyButton {
-                width: 50%;
-                height: 10%;
-                font-size: 2.5vh;
-            }
-    
-            .textInput {
-                width: 50%;
-                height: 10%;
-                font-size: 2.5vh;
-            }
-    
-            label {
-                font-size: 2.5vh;
-            }
-    
-            .innerbody {
-                justify-content: start;
-            }
-    
-            h1 {
-                font-size: 4vh;
-            }
-          }
-        </style>
+            --clr: rgba(126, 126, 126, 0.295);
+            --shadow-height: -10px;
 
-        <style>
-                  body {
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-        margin: 0;
-        height: 100vh;
-      }
-  
-      header {
-        width: 100%;
-  
-        display: flex;
-        justify-content: left;
-        align-items: center;
-  
-        flex-direction: row;
-  
-        height: 10vh;
-        background-color: white;
-      }
-  
-      .mobiletitlemoji {
-          max-width: 100%;
-          max-height: 100%;
-          object-fit: contain;
-        }
-  
-      .titlemoji  {
-        width: 3vw;
-        height: 3vw;
-      }
-  
-      .link {
-        margin: 0;
-        font-size: 1.5vw;
-      }
-  
-      .bottomborder {
-        width: 0%;
-        transition: all 0.2s ease-out;
-        color: black;
-        background-color: black;
-        height: 0.1vw;
-      }
-  
-      .linkbox {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-  
-      .helpbox {
-        height: 10%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-  
-      .linkbox:hover, .helpbox:hover {
-        cursor: pointer;
-      }
-  
-      .separator {
-        width: 1px;
-        height: 70%;
-        background-color: black;
-        margin-left: 0.75vw;
-        margin-right: 0.75vw;
-      }
-  
-      .linkbox:hover .bottomborder, .helpbox:hover .bottomborder {
-        width: 100%;
-      }
-  
-      .sitetitle {
-        margin: 0;
-  
-        font-size: 2.5vw;
-  
-        height: 100%;
-  
-        margin-left: 1vw;
-  
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-  
-        color: black;
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-      }
-  
-      .innerbody {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 90vh;
-      }
-  
-      .textHeader {
-        font-size: 5vh;
-        margin: 0;
-        text-align: center;
-      }
-  
-      .columnseperators {
-        width: 30%;
-        height: 1px;
-        background-color: black;
-        margin-top: 0.75vw;
-        margin-bottom: 0.75vw;
-      }
-  
-      .mobiletitleheader {
-        display: none;
-      }
-  
-      @media (orientation: portrait) {
-  
-        .mobiletitleheader {
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              justify-content: center;
-              height: 5vh;
-              margin: 0;
-          }
-  
-          .mobilesitetitle {
-            font-size: 8vw;
-          }
-  
-          .tools {
-              width: 100%;
-          }
-  
-          .link {
-              font-size: 4vw;
-          }
-  
-          .sitetitle {
-              display: none;
-          }
-  
-          .titlemoji {
-              display: none;
-          }
-  
-          .tooltitle {
-              font-size: 3vw;
-          }
-  
-          .tooldescription {
-              font-size: 1.9vw;
-              width: 80%;
-              text-align: left;
-          }
-  }
-  
-    </style>
-  
-    <style>
-       .tool, .tool1 {
-        background-color: rgba(1, 1, 1, 0);
-        color: rgb(0, 0, 0);
-        border-style: solid;
-        border-width: 1px;
-        border-radius: 10px;
-        border-color: rgb(0, 0, 0);
-        width: 100%;
-        height: 100%;
-        transition: all 0.2s ease-out;
-      }
-  
-      .tools {
-        margin-top: 10px;
-        margin-bottom: 10px;
-  
-        width: 80%;
-        display: grid;
-        gap: 20px;
-        grid-template-columns: repeat(auto-fit, auto-fit);
-        grid-auto-rows: 200px;
-  
-        
-        justify-content: center;
-        align-content: start;
-  
-      }
-  
-  
-      .tool:hover, .tool1:hover {
-        transform: scale(1.05, 1.05);
-       
-  
-        cursor: pointer;
-      }
-  
-  
-  
-  
-      .tooltitle {
-          margin-left: 3%;
-      }
-  
-      .tooldescription {
-          margin-left: 3%;
-      }
-  
-      .disclaimer {
-        margin-left: 3%;
-      }
-  
-      .titlemoji {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-      }
-  
-      .footerinfo {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
 
-      .textInput {
-        width: 20%;
-        resize: none;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        border: solid;
-        border-width: 1px;
-        border-radius: 10px;
-        background-color: rgba(0,0,0,0);
-        height: 5vh;
-        text-align: center;
-        color: rgb(0, 0, 0);
-      }
-
-      .copyButton {
-        margin-top: 10px;
-        width: 20%;
-        height: 5vh;
-        resize: none;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        border: solid;
-        border-width: 1px;
-        border-radius: 5px;
-        background-color: rgba(0,0,0,0);
-
-        text-align: center;
-        color: rgb(0, 0, 0);
-        
-        transition: all 0.2s ease-out;
-    
-    }
-
-    .copyButton:hover {
-        cursor: pointer;
-        transform: scale(1.1, 1.1);
-    }
-
-      .textInput:focus {
-        
-        outline: none;
-      }
-
-      @media (orientation: portrait) {
-        .copyButton {
-            width: 50%;
-            height: 10%;
-            font-size: 2.5vh;
+            -webkit-box-shadow: 0px var(--shadow-height) 0px -4px var(--clr) inset;
+            -moz-box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
+            box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
         }
 
-        .textInput {
-            width: 50%;
-            height: 10%;
-            font-size: 2.5vh;
-        }
+
 
         label {
-            font-size: 2.5vh;
+            text-align: center;
+            font-family: var(--font);
+            margin-bottom: 10px;
         }
 
-        .innerbody {
-            justify-content: start;
-        }
+    </style>
+</head>
 
-        h1 {
-            font-size: 4vh;
-        }
-      }
-        </style>
-      </head>
-      
-    
-        <body>
-      
-          <header class="mobiletitleheader">
-            <h3 class="mobilesitetitle" style="text-align: center;">Memin It</h3>
-            <img class="mobiletitlemoji" src="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=173862970224">
-        </header>
-      
-          <header>
-            <div style="display: flex; flex-direction: row; align-items: center">
-              <h3 class="sitetitle">Memin It</h3>
-              <img
-                alt="Logo"
-                class="titlemoji"
-                src="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247"
-              />
-            </div>
-            <div class="separator"></div>
-            <div class="linkbox">
-              <a class="link" onclick="sendTo('home')">Home</a>
-              <div class="bottomborder"></div>
-            </div>
-            <div class="separator"></div>
-            <div class="linkbox">
-              <a class="link" onclick="sendTo('tools')">Tools</a>
-              <div class="bottomborder"></div>
-            </div>
-            <div class="separator"></div>
-            <div class="linkbox">
-              <a class="link" onclick="sendTo('faq')">FAQ</a>
-              <div class="bottomborder"></div>
-            </div>
-      
-            <div class="separator"></div>
-            <div class="linkbox">
-              <a class="link" onclick="sendTo('aboutme')">About Me</a>
-              <div class="bottomborder"></div>
-            </div>
-            <div class="separator"></div>
-            <div class="linkbox">
-              <a class="link" onclick="sendTo('suggestions')">Suggestions</a>
-              <div class="bottomborder"></div>
-            </div>
-      
-            <div class="separator"></div>
-            <div class="linkbox">
-              <a class="link" onclick="sendTo('discord')">Discord</a>
-              <div class="bottomborder"></div>
-            </div>
-      
-            <div class="separator"></div>
-          </header>
-    
+<body>
+    <header class="mainheader">
+        <div class="titleHolder">
+            <img alt="logo" src="https://meminit.github.io/assets/images/assets_images_cooldude.webp" class="titlemoji">
+            <h1 class="sitetitle"><span class="orangespan">Memin</span> It</h1>
+        </div>
+        <div class="shortcuts">
+            <a href="/home"><i class="fa-solid fa-house href-icon"></i> <span>Home</span></a>
+            <a href="/tools"><i class="fa-solid fa-screwdriver-wrench href-icon"></i><span>Tools</span></a>
+            <a href="/faq"><i class="fa-solid fa-circle-question href-icon"></i> <span>FAQ</span> </a>
+            <a href="/suggestions"><i class="fa-regular fa-lightbulb href-icon"></i> <span>Suggestions</span> </a>
+            <a href="/discord" target="_blank"><i class="fa-brands fa-discord href-icon"></i><span>Discord</span></a>
+        </div>
+    </header>
 
-  
+    <div id="particles-js"></div>
+
     <div class="innerbody">
-      <div class="panel">
-        <input
-          type="file"
-          class="imagequery"
-          style="display: none"
-          accept="image/png, image/jpg, image/jpeg"
-        />
-        <div class="uploadimg">
-          <img alt="Upload Image" class="uploadimgicon" src="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/image-regular.svg?v=1739856693220">
-          <img
-            class="uploadedimg"
-            style="
-              display: none;
-              max-width: 100%;
-              max-height: 100%;
-              object-fit: contain;
-            "
-          />
-        </div>
-    
-        <button class="turntogifbutton">Turn To Static Gif 🔁</button>
-  
-        <a href="" class="downloadimg" download="memify_imgtogif.gif" style="display: none;">Download 🔽</a>
-        
-       
-        <div class="finishedgif">
-          <h1 class="outputText" style="margin: 0">Output</h1>
-          <img alt="Logo" class="minimoji" src="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fhooraydude.webp?v=1738629703117"> 
-          <img
-            class="fg"
-            style="
-              display: none;
-              max-width: 100%;
-              max-height: 100%;
-              object-fit: contain;
-            "
-          />
-  
-        </div>
-        
-      
-      
-      </div>
-    </div>
-  </body>
-  
-  <script>
-    const uploadimgbutton = document.querySelector(".uploadimg");
-  
-    const imageButton = document.querySelector(".imagequery");
-  
-    const ttsgbutton = document.querySelector(".turntogifbutton");
-  
-    const finishedFrame = document.querySelector(".finishedgif");
-  
-    const minimoji = document.querySelector(".minimoji");
-  
-    const outputText = document.querySelector(".outputText");
-  
-    const finishedGifHolder = document.querySelector(".fg");
-  
-    const uploadedIMG = document.querySelector(`.uploadedimg`);
-  
-    
-  
-    let currentFile;
-  
-    uploadimgbutton.addEventListener("click", () => {
-  
-      
-  
-      console.log("stuff got clicked");
-  
-      document.querySelector(".imagequery").click();
-    });
-  
-    imageButton.addEventListener("change", () => {
-      const file = imageButton.files[0];
-  
-      if (!file) return;
-  
-      currentFile = file;
-  
-      const imgPlaceholder = document.querySelector(`.uploadimgicon`);
-      console.log(`Selected ${file.name}`);
-  
-      const reader = new FileReader();
-  
-      reader.onload = (e) => {
-        console.log("Reader Loaded.");
-        imgPlaceholder.style.display = "none";
-        uploadedIMG.src = e.target.result;
-        uploadedIMG.style.display = "block";
-      };
-  
-      reader.readAsDataURL(file);
-    });
-  
-    finishedFrame.addEventListener('click', () => {
-      const downloadA = document.querySelector('.downloadimg')
-  
-      if (!currentFile) return
-  
-      downloadA.click()
-    });
-  
-    ttsgbutton.addEventListener("click", () => {
-  
+        <h1><span class="orangespan">GIF</span> convertor</h1>
 
-  
-      console.log("Attemping to convert to gif.");
-  
-      const canvas = document.createElement("canvas");
-  
-      const ctx = canvas.getContext("2d");
-  
-      canvas.width = uploadedIMG.width
-      canvas.height = uploadedIMG.height
-  
-      if (!currentFile) {
-        alert("No file!");
-        return;
-      }
-  
-      var gif = new GIF({
-        workers: 2,
-        quality: 100,
-        workerScript: "/js/toolsJS/gifWorker.js",
-        width: uploadedIMG.width,
-        height: uploadedIMG.height,
-      });
-  
-      ctx.drawImage(uploadedIMG, 0, 0, uploadedIMG.width, uploadedIMG.height);
-  
-    
-  
-      gif.addFrame(canvas);
-  
-      gif.on("finished", function (blob) {
-        minimoji.style.display = "none";
-        outputText.style.display = "none";
-  
-        finishedGifHolder.src = URL.createObjectURL(blob);
-        finishedGifHolder.style.display = "block";
-        document.querySelector('.downloadimg').href = URL.createObjectURL(blob);
-      });
-  
-      gif.render();
-    });
-  </script>
-  
-  <script src="/js/pages.js"></script>
+        <div class="container">
+            <h2>Deep Fry an Image</h2>
+            <input title="Quality Image" type="file" id="upload" accept="image/*" class="uploadImage imagequery "
+                style="display: none;" />
+            <button title="Upload" class="uploadButton uploadimg">Upload
+                Image</button>
+            <img class="inputImage uploadedimg" id="inputImage" style="display: none;" alt="Input Image">
+            <button class="deepfryButton turntogifbutton uploadButton" id="turntogifbutton">Convert To Gif 🔁</button>
+            <img id="output" class="outputImage finishedgif fg" style="max-width: 300px; display: none;" alt="Gif" />
+            <a class="downloadimg" href="" download="">Download</a>
+        </div>
+
+        <div class="linfo">
+            <img alt="logo" class="linfoEmoji" src="https://meminit.github.io/assets/images/assets_images_cooldude.webp">
+            <h4 class="linfoTitle">Meminit</h4>
+            <h5 class="linfoText">By <span class="orangespan">itsprobablyjackson</span></h5>
+      
+          </div>
+          <div class="linksRow">
+            <a class="linfoText linfoHyperlink" href="mailto:alshield@gmail.com?subject=To%20MeminIt" target="_blank">Contact Us</a>
+            <div class="hozSeperator"></div>
+            <a class="linfoText linfoHyperlink" href="/discord" target="_blank">Our Discord</a>
+          </div>
+      
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
+
+    <script>
+        const uploadimgbutton = document.querySelector(".uploadimg");
+
+        const imageButton = document.querySelector(".imagequery");
+
+        const ttsgbutton = document.querySelector(".turntogifbutton");
+
+        const finishedFrame = document.querySelector(".finishedgif");
+
+        const minimoji = document.querySelector(".minimoji");
+
+        const finishedGifHolder = document.querySelector(".fg");
+
+        const uploadedIMG = document.querySelector(`.uploadedimg`);
+
+
+
+        let currentFile;
+
+        uploadimgbutton.addEventListener("click", () => {
+
+
+
+            console.log("stuff got clicked");
+
+            document.querySelector(".imagequery").click();
+        });
+
+        imageButton.addEventListener("change", () => {
+            const file = imageButton.files[0];
+
+            if (!file) return;
+
+            currentFile = file;
+
+            console.log(`Selected ${file.name}`);
+
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                console.log("Reader Loaded.");
+                uploadedIMG.src = e.target.result;
+                uploadedIMG.style.display = "block";
+            };
+
+            reader.readAsDataURL(file);
+        });
+
+        finishedFrame.addEventListener('click', () => {
+            const downloadA = document.querySelector('.downloadimg')
+
+            if (!currentFile) return
+
+            downloadA.click()
+        });
+
+        ttsgbutton.addEventListener("click", () => {
+
+
+
+            console.log("Attemping to convert to gif.");
+
+            const canvas = document.createElement("canvas");
+
+            const ctx = canvas.getContext("2d");
+
+            canvas.width = uploadedIMG.width
+            canvas.height = uploadedIMG.height
+
+            if (!currentFile) {
+                alert("No file!");
+                return;
+            }
+
+            var gif = new GIF({
+                workers: 2,
+                quality: 100,
+                workerScript: "https://meminit.github.io/js/toolsJS/gifWorker.js",
+                width: uploadedIMG.width,
+                height: uploadedIMG.height,
+            });
+
+            ctx.drawImage(uploadedIMG, 0, 0, uploadedIMG.width, uploadedIMG.height);
+
+
+
+            gif.addFrame(canvas);
+
+            gif.on("finished", function (blob) {
+
+                document.querySelector('.outputImage').style.display = 'block'
+
+                finishedGifHolder.src = URL.createObjectURL(blob);
+                finishedGifHolder.style.display = "block";
+                document.querySelector('.downloadimg').href = URL.createObjectURL(blob);
+            });
+
+            gif.render();
+        });
+    </script>
+
+    <script src="https://meminit.github.io/js/toolsJS/gifWorker.js"></script>
+</body>
+
+</html>
