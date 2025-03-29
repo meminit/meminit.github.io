@@ -210,8 +210,8 @@
             gif.addFrame(canvas);
 
             gif.on("finished", function (blob) {
-                minimoji.style.display = "none";
-                outputText.style.display = "none";
+
+                document.querySelector('.outputImage').style.display = 'block'
 
                 finishedGifHolder.src = URL.createObjectURL(blob);
                 finishedGifHolder.style.display = "block";
