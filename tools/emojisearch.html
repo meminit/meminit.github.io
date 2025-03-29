@@ -1,42 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
 
-      <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
+<head>
 
-    <title>Emoji Search</title>
-    <link
-      rel="icon"
-      type="image/webp"
-      href="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247"
-    />
-
-    <meta property="og:title" content="Emoji Search" />
-    <meta
-      property="og:description"
-      content="Use Memin It's Emoji Search to find that ONE emoji you wanted but never got"
-    />
-    <meta
-      property="og:image"
-      content="/assets/images/emojisearch.png"
-    />
-
-    <meta property="og:width" content="1920">
-    <meta property="og:height" content="1080">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <meta property="og:url" content="https://meminit.github.io/emojisearch" />
-
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/tools/deepfry.css" />
-    <script src="/js/header.js"></script>
-
-    <meta charset="utf-8" />
+    <title>Memin It!</title>
+    <link rel="icon" type="image/webp"
+        href="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247" />
     <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta charset="utf-8" />
+
+    <!--tags-->
+    <meta property="og:image" content="/assets/images/deepfry.png" />
+    <meta property="og:width" content="1920" />
+    <meta property="og:height" content="1080" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta property="og:url" content="https://meminit.github.io/tools/deepfry" />
+  <!--end of tags-->
+
+
+    <link rel="stylesheet" href="https://meminit.github.io/css/default.css">
+    <link rel="stylesheet" href="https://meminit.github.io/css/tools/emojisearch.css">
+    <script src="https://kit.fontawesome.com/4b3613c91f.js" crossorigin="anonymous"></script>
+
+    <script src="
+      https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
+      "></script>
+
+    <script>
+        particlesJS.load('particles-js', 'https://meminit.github.io/particles.json', function () {
+            console.log('particles.js loaded - callback');
+        });
+    </script>
+
+
 
     <style>
+        .innerbody {
+            flex-grow: 1;
+        }
 
-      .searchBar {
+        input,
+        button,
+        .deepfryButton,
+        .uploadButton {
+            color: var(--txt-color);
+            border: solid;
+            border-width: 1px;
+            border-color: var(--txt-color);
+            background-color: rgba(0, 0, 0, 0);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            transition: all 0.2s ease;
+            padding: 2px;
+        }
+
+        input {
+            border: none;
+            width: 90%;
+            text-align: center;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0);
+            height: 50px;
+            border-radius: 5px;
+        }
+
+        input::placeholder {
+            color: white;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        input:focus {
+
+            outline: none;
+            --clr: rgb(255, 255, 255);
+            --shadow-height: -5px;
+
+
+            -webkit-box-shadow: 0px var(--shadow-height) 0px -4px var(--clr) inset;
+            -moz-box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
+            box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
+        }
+
+
+
+        label {
+            text-align: center;
+            font-family: var(--font);
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <style>
+              .searchBar {
         background-color: rgba(0, 0, 0, 0);
         border: none;
         resize: none;
@@ -56,7 +117,7 @@
       }
 
       .searchBar::placeholder {
-        color: black;
+        color: var(--txt-color);
       }
 
       .seperator {
@@ -74,7 +135,7 @@
         height: 120px;
         border: solid;
         border-width: 1px;
-        border-color: black;
+        border-color: rgb(255, 255, 255);
         border-radius: 5px;
         display: flex;
         flex-direction: column;
@@ -82,10 +143,11 @@
         justify-content: center;
         margin-top: 10px;
         transition: all 0.3s ease;
+        color: white;
       }
 
       .emojiHolder:hover {
-        transform: scale(1.1, 1.1);
+        background-color: rgba(255, 255, 255, 0.438);
       }
 
       .emoji {
@@ -100,14 +162,16 @@
         width: 90%;
         border: none;
         border-radius: 5px;
-        background-color: gray;
         color: white;
         height: 20%;
         transition: all 0.2s ease;
+        background-color: var(--main-theme-color);
+        border-color: var(--main-theme-color);
+
       }
 
       .copyEmoji:hover {
-        background-color: lightgray;
+
         cursor: pointer;
       }
 
@@ -120,139 +184,141 @@
         overflow-y: auto;
       }
     </style>
+</head>
 
-      <!-- Cloudflare Web Analytics -->
-  <script
-  defer
-  src="https://static.cloudflareinsights.com/beacon.min.js"
-  data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'
-></script>
-<!-- End Cloudflare Web Analytics -->
+<body>
+    <header class="mainheader">
+        <div class="titleHolder">
+            <img alt="logo" src="https://meminit.github.io/assets/images/assets_images_cooldude.webp" class="titlemoji">
+            <h1 class="sitetitle"><span class="orangespan">Memin</span> It</h1>
+        </div>
+        <div class="shortcuts">
+            <a href="/home"><i class="fa-solid fa-house href-icon"></i> <span>Home</span></a>
+            <a href="/tools"><i class="fa-solid fa-screwdriver-wrench href-icon"></i><span>Tools</span></a>
+            <a href="/faq"><i class="fa-solid fa-circle-question href-icon"></i> <span>FAQ</span> </a>
+            <a href="/suggestions"><i class="fa-regular fa-lightbulb href-icon"></i> <span>Suggestions</span> </a>
+            <a href="/discord" target="_blank"><i class="fa-brands fa-discord href-icon"></i><span>Discord</span></a>
+        </div>
+    </header>
 
-  </head>
+    <div id="particles-js"></div>
 
-  <body>
     <div class="innerbody">
-      <h1 style="margin: 0; text-align: center;">Emoji Search</h1>
-      <h4 style="margin: 0; margin-bottom: 10px; text-align: center;">Search by inputting into the search bar and hitting enter!</h4>
-      <textarea class="searchBar" placeholder="Search"></textarea>
-      <div class="seperator"></div>
-      <div class="emojiGrid">
-        
-      </div>
+        <h1><span class="orangespan">Emoji</span> search</h1>
+        <input class="searchBar" placeholder="Search for emoji...">
+        <div class="emojiGrid"></div>
     </div>
-  </body>
+
+    <script>
+        const params = new URLSearchParams(window.location.search)
 
 
 
-  <script>
+        let emojiList = {};
+        let defaultEmojiList = {};
 
-    const params = new URLSearchParams(window.location.search)
+        async function fetchEmojis() {
+            const res = await fetch(
+                "https://meminit.github.io/assets/data/emojis.json"
+            );
 
+            const emojis = await res.json();
 
+            emojiList = emojis;
 
-    let emojiList = {};
-    let defaultEmojiList = {};
+            const res2 = await fetch(
+                "https://meminit.github.io/assets/data/defaultemojis.json"
+            );
+            const emojis2 = await res2.json();
+            defaultEmojiList = emojis2;
+        }
 
-    async function fetchEmojis() {
-      const res = await fetch(
-        "https://meminit.github.io/assets/data/emojis.json"
-      );
+        fetchEmojis();
 
-      const emojis = await res.json();
+        function search(value) {
+            const lowercaseValue = value.toLowerCase();
 
-      emojiList = emojis;
+            let responseEmojis = Object.keys(emojiList)
+                .filter((key) => key.includes(lowercaseValue))
+                .flatMap((key) => emojiList[key]);
 
-      const res2 = await fetch(
-        "https://meminit.github.io/assets/data/defaultemojis.json"
-      );
-      const emojis2 = await res2.json();
-      defaultEmojiList = emojis2;
-    }
-
-    fetchEmojis();
-
-    function search(value) {
-      const lowercaseValue = value.toLowerCase();
-
-      let responseEmojis = Object.keys(emojiList)
-        .filter((key) => key.includes(lowercaseValue))
-        .flatMap((key) => emojiList[key]);
-
-      let insertedEmojis = [];
+            let insertedEmojis = [];
 
 
 
-      document.querySelector(".emojiGrid").innerHTML = "";
+            document.querySelector(".emojiGrid").innerHTML = "";
 
-      responseEmojis.forEach((emoji) => {
+            responseEmojis.forEach((emoji) => {
 
-        if (insertedEmojis.includes(emoji)) return;
+                if (insertedEmojis.includes(emoji)) return;
 
-        const emojiHolder = document.createElement("div");
+                const emojiHolder = document.createElement("div");
 
-        emojiHolder.className = "emojiHolder";
+                emojiHolder.className = "emojiHolder";
 
-        // I REALLY don't care that I do it via innerHTML I jst cbf to make 2 more elements (Im lazy 😔)
-        emojiHolder.innerHTML += `
-         <p class="emoji">${emoji}</p>
-         <button class="copyEmoji" data-e="${emoji}" onclick="navigator.clipboard.writeText('${emoji}'); alert('Copied Emoji!')">Copy</button>
-        `;
+                // I REALLY don't care that I do it via innerHTML I jst cbf to make 2 more elements (Im lazy 😔)
+                emojiHolder.innerHTML += `
+     <p class="emoji">${emoji}</p>
+     <button class="copyEmoji" data-e="${emoji}" onclick="navigator.clipboard.writeText('${emoji}'); alert('Copied Emoji!')">Copy</button>
+    `;
 
-        insertedEmojis.push(emoji);
+                insertedEmojis.push(emoji);
 
-        document.querySelector(".emojiGrid").append(emojiHolder);
-      });
+                document.querySelector(".emojiGrid").append(emojiHolder);
+            });
 
 
-      let responseEmojis2 = Object.keys(defaultEmojiList)
-        .filter((key) => key.includes(lowercaseValue))
-        .flatMap((key) => defaultEmojiList[key]);
+            let responseEmojis2 = Object.keys(defaultEmojiList)
+                .filter((key) => key.includes(lowercaseValue))
+                .flatMap((key) => defaultEmojiList[key]);
 
-        
 
-      responseEmojis2.forEach((emoji) => {
-        if (insertedEmojis.includes(emoji)) return;
 
-        const emojiHolder = document.createElement("div");
+            responseEmojis2.forEach((emoji) => {
+                if (insertedEmojis.includes(emoji)) return;
 
-        emojiHolder.className = "emojiHolder";
+                const emojiHolder = document.createElement("div");
 
-        // I REALLY don't care that I do it via innerHTML I jst cbf to make 2 more elements (Im lazy 😔)
-        emojiHolder.innerHTML += `
- <p class="emoji">${emoji}</p>
- <button class="copyEmoji" data-e="${emoji}" onclick="navigator.clipboard.writeText('${emoji}'); alert('Copied Emoji!')">Copy</button>
+                emojiHolder.className = "emojiHolder";
+
+                emojiHolder.innerHTML += `
+<p class="emoji">${emoji}</p>
+<button class="copyEmoji" data-e="${emoji}" onclick="navigator.clipboard.writeText('${emoji}'); alert('Copied Emoji!')">Copy</button>
 `;
 
-        insertedEmojis.push(emoji);
+                insertedEmojis.push(emoji);
 
-        document.querySelector(".emojiGrid").append(emojiHolder);
-      });
-    }
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        if (document.activeElement === document.querySelector(".searchBar")) {
-          search(document.querySelector(".searchBar").value);
+                document.querySelector(".emojiGrid").append(emojiHolder);
+            });
         }
-      }
-    });
 
-    function arrayIT(str) {
-      const arrayed = str.replaceAll(" ", `","`);
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                if (document.activeElement === document.querySelector(".searchBar")) {
+                    search(document.querySelector(".searchBar").value);
+                }
+            }
+        });
 
-      console.log(arrayed);
-    }
+        function arrayIT(str) {
+            const arrayed = str.replaceAll(" ", `","`);
 
-    if (params.get('search')) {
-        document.querySelector('.searchBar').value = params.get('search')
+            console.log(arrayed);
+        }
 
-        search(document.querySelector('.searchBar').value)
-    }
+        if (params.get('search')) {
+            document.querySelector('.searchBar').value = params.get('search')
 
-    document.querySelector('.searchBar').addEventListener('input', (event) => {
-      search(event.target.value)
-    });
-  </script>
+            search(document.querySelector('.searchBar').value)
+        } else {
+            search("")
+        }
+
+        document.querySelector('.searchBar').addEventListener('input', (event) => {
+            search(event.target.value)
+        });
+    </script>
+</body>
+
 </html>
