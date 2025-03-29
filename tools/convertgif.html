@@ -125,7 +125,7 @@
         <h1><span class="orangespan">GIF</span> convertor</h1>
 
         <div class="container">
-            <h2>Deep Fry an Image</h2>
+            <h2>Convert your image to a <span class="orangespan">GIF</span></h2>
             <input title="Quality Image" type="file" id="upload" accept="image/*" class="uploadImage imagequery "
                 style="display: none;" />
             <button title="Upload" class="uploadButton uploadimg">Upload
@@ -244,7 +244,7 @@
             gif.on("finished", function (blob) {
 
                 document.querySelector('.outputImage').style.display = 'block'
-
+             document.querySelector('.downloadimg').style.display = 'flex'
                 finishedGifHolder.src = URL.createObjectURL(blob);
                 finishedGifHolder.style.display = "block";
                 document.querySelector('.downloadimg').href = URL.createObjectURL(blob);
