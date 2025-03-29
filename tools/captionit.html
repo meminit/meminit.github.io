@@ -1,0 +1,278 @@
+<script src="https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.js"></script>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Memin It!</title>
+    <link rel="icon" type="image/webp"
+        href="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta charset="utf-8" />
+
+    <meta property="og:title" content="Emoji Search" />
+    <meta property="og:description"
+        content="Caption those funny images 🔥😎🥶" />
+    <meta property="og:image" content="/assets/images/meminit247.png" />
+
+    <meta property="og:width" content="1920">
+    <meta property="og:height" content="1080">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta property="og:url" content="https://meminit.github.io/captionit" />
+
+    <link rel="stylesheet" href="https://meminit.github.io/css/default.css">
+    <link rel="stylesheet" href="https://meminit.github.io/css/tools/deepfry.css">
+    <script src="https://kit.fontawesome.com/4b3613c91f.js" crossorigin="anonymous"></script>
+
+    <script src="
+      https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
+      "></script>
+
+    <script>
+        particlesJS.load('particles-js', 'https://meminit.github.io/particles.json', function () {
+            console.log('particles.js loaded - callback');
+        });
+    </script>
+
+
+
+    <style>
+        .innerbody {
+            flex-grow: 1;
+        }
+
+        input,
+        button,
+        .deepfryButton,
+        .uploadButton {
+            color: var(--txt-color);
+            border: solid;
+            border-width: 1px;
+            border-color: var(--txt-color);
+            background-color: rgba(0, 0, 0, 0);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            transition: all 0.2s ease;
+            padding: 2px;
+            text-decoration: none;
+        }
+
+        .downloadimg {
+            background-color: rgba(255, 255, 255, 0);
+            border: solid;
+            border-color: var(--txt-color);
+            border-width: 1px;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+            min-width: 300px;
+            max-width: 100%;
+            min-height: 30px;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        input:focus {
+
+            outline: none;
+            --clr: rgba(126, 126, 126, 0.295);
+            --shadow-height: -10px;
+
+
+            -webkit-box-shadow: 0px var(--shadow-height) 0px -4px var(--clr) inset;
+            -moz-box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
+            box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
+        }
+
+
+
+        label {
+            text-align: center;
+            font-family: var(--font);
+            margin-bottom: 10px;
+        }
+
+        .captionHolder {
+            background-color: white;
+            color: black;
+            text-align: center;
+            font-weight: 800;
+            width: 100%;
+            margin: 0;
+            min-height: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .caption {
+            margin: 0;
+        }
+
+        .modifiedImage {
+            max-width: 90%;
+            object-fit: contain;
+            display: none;
+        }
+
+        .img2cap {
+            max-width: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mainheader">
+        <div class="titleHolder">
+            <img alt="logo" src="https://meminit.github.io/assets/images/assets_images_cooldude.webp" class="titlemoji">
+            <h1 class="sitetitle"><span class="orangespan">Memin</span> It</h1>
+        </div>
+        <div class="shortcuts">
+            <a href="/home"><i class="fa-solid fa-house href-icon"></i> <span>Home</span></a>
+            <a href="/tools"><i class="fa-solid fa-screwdriver-wrench href-icon"></i><span>Tools</span></a>
+            <a href="/faq"><i class="fa-solid fa-circle-question href-icon"></i> <span>FAQ</span> </a>
+            <a href="/suggestions"><i class="fa-regular fa-lightbulb href-icon"></i> <span>Suggestions</span> </a>
+            <a href="/discord" target="_blank"><i class="fa-brands fa-discord href-icon"></i><span>Discord</span></a>
+        </div>
+    </header>
+
+    <div id="particles-js"></div>
+
+    <div class="innerbody">
+        <h1>Image <span class="orangespan">captioner</span></h1>
+
+        <div class="container">
+            <h2><span class="orangespan">Caption</span> an Image</h2>
+            <input title="Quality Image" type="file" id="upload" accept="image/*" class="uploadImage imagequery "
+                style="display: none;" />
+            <button title="Upload" class="uploadButton uploadimg">Upload
+                Image</button>
+            <img class="inputImage uploadedimg" id="inputImage" style="display: none;" alt="Input Image">
+            <input type="text" placeholder="Caption" class="captionInput">
+            <button class="deepfryButton turntogifbutton uploadButton" id="turntogifbutton">Caption It</button>
+            <div class="modifiedImage">
+                <div class="captionHolder">
+                    <h1 class="caption">Default Caption</h1>
+                </div>
+                <img src="https://meminit.github.io/assets/images/deepfry.png" class="img2cap" alt="Input Image">
+            </div>
+            <button class="downloadimg" onclick="download()">Download</button>
+        </div>
+
+        <div class="linfo">
+            <img alt="logo" class="linfoEmoji"
+                src="https://meminit.github.io/assets/images/assets_images_cooldude.webp">
+            <h4 class="linfoTitle">Meminit</h4>
+            <h5 class="linfoText">By <span class="orangespan">itsprobablyjackson</span></h5>
+
+        </div>
+        <div class="linksRow">
+            <a class="linfoText linfoHyperlink" href="mailto:alshield@gmail.com?subject=To%20MeminIt"
+                target="_blank">Contact Us</a>
+            <div class="hozSeperator"></div>
+            <a class="linfoText linfoHyperlink" href="/discord" target="_blank">Our Discord</a>
+        </div>
+
+    </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
+
+    <script>
+        const uploadimgbutton = document.querySelector(".uploadimg");
+
+        const imageButton = document.querySelector(".imagequery");
+
+        const ttsgbutton = document.querySelector(".turntogifbutton");
+
+        const finishedFrame = document.querySelector(".finishedgif");
+
+        const minimoji = document.querySelector(".minimoji");
+
+        const finishedGifHolder = document.querySelector(".fg");
+
+        const uploadedIMG = document.querySelector(`.uploadedimg`);
+
+
+
+        let currentFile;
+
+        uploadimgbutton.addEventListener("click", () => {
+
+
+
+            console.log("stuff got clicked");
+
+            document.querySelector(".imagequery").click();
+        });
+
+        imageButton.addEventListener("change", () => {
+            const file = imageButton.files[0];
+
+            if (!file) return;
+
+            currentFile = file;
+
+            console.log(`Selected ${file.name}`);
+
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                console.log("Reader Loaded.");
+                uploadedIMG.src = e.target.result;
+                document.querySelector('.img2cap').src = e.target.result
+                uploadedIMG.style.display = "block";
+            };
+
+            reader.readAsDataURL(file);
+        });
+
+        document.querySelector('.turntogifbutton').addEventListener('click', () => {
+            document.querySelector('.caption').textContent = document.querySelector('.captionInput').value
+            document.querySelector('.modifiedImage').style.display = 'block'
+            document.querySelector('.downloadimg').style.display = 'flex'
+        });
+
+        finishedFrame.addEventListener('click', () => {
+            const downloadA = document.querySelector('.downloadimg')
+
+            if (!currentFile) return
+
+            downloadA.click()
+        });
+
+        ttsgbutton.addEventListener("click", () => {
+
+        });
+
+        function download() {
+            html2canvas(document.querySelector('.modifiedImage')).then(function (canvas) {
+                canvas.style.display = 'none'
+                let img = canvas.toDataURL("image/png")
+                let link = document.createElement("a")
+                link.href = img
+                link.download = "meminitcaption.png"
+                link.click()
+            });
+        }
+    </script>
+
+    <script src="https://meminit.github.io/js/toolsJS/gifWorker.js"></script>
+</body>
+
+</html>
