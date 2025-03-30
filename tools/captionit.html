@@ -1,3 +1,7 @@
+<script src="https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.js"></script>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,17 +13,19 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta charset="utf-8" />
 
-    <meta property="og:image" content="/assets/images/deepfry.png" />
-    <meta property="og:width" content="1920" />
-    <meta property="og:height" content="1080" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:title" content="Emoji Search" />
+    <meta property="og:description"
+        content="Use Memin It's Emoji Search to find that ONE emoji you wanted but never got" />
+    <meta property="og:image" content="/assets/images/emojisearch.png" />
 
-    <meta property="og:url" content="https://meminit.github.io/tools/deepfry" />
+    <meta property="og:width" content="1920">
+    <meta property="og:height" content="1080">
+    <meta name="twitter:card" content="summary_large_image">
 
-
+    <meta property="og:url" content="https://meminit.github.io/emojisearch" />
 
     <link rel="stylesheet" href="https://meminit.github.io/css/default.css">
-    <link rel="stylesheet" href="https://meminit.github.io/css/tools/emojisearch.css">
+    <link rel="stylesheet" href="https://meminit.github.io/css/tools/deepfry.css">
     <script src="https://kit.fontawesome.com/4b3613c91f.js" crossorigin="anonymous"></script>
 
     <script src="
@@ -52,21 +58,26 @@
             backdrop-filter: blur(5px);
             transition: all 0.2s ease;
             padding: 2px;
+            text-decoration: none;
         }
 
-        input {
-            border: none;
-            width: 90%;
-            text-align: center;
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            background-color: rgba(0, 0, 0, 0);
-            height: 50px;
+        .downloadimg {
+            background-color: rgba(255, 255, 255, 0);
+            border: solid;
+            border-color: var(--txt-color);
+            border-width: 1px;
             border-radius: 5px;
-        }
-
-        input::placeholder {
+            transition: all 0.2s ease;
+            min-width: 300px;
+            max-width: 100%;
+            min-height: 30px;
+            margin-bottom: 20px;
+            text-decoration: none;
             color: white;
+            text-align: center;
+            display: none;
+            justify-content: center;
+            align-items: center;
         }
 
         input::-webkit-outer-spin-button,
@@ -77,8 +88,8 @@
         input:focus {
 
             outline: none;
-            --clr: rgb(255, 255, 255);
-            --shadow-height: -5px;
+            --clr: rgba(126, 126, 126, 0.295);
+            --shadow-height: -10px;
 
 
             -webkit-box-shadow: 0px var(--shadow-height) 0px -4px var(--clr) inset;
@@ -93,95 +104,35 @@
             font-family: var(--font);
             margin-bottom: 10px;
         }
-    </style>
 
-    <style>
-              .searchBar {
-        background-color: rgba(0, 0, 0, 0);
-        border: none;
-        resize: none;
-        width: 5000px;
-        max-width: 80%;
-        line-height: 1;
-        height: fit-content;
-        padding-top: 17.5px;
-        text-align: center;
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-          flex-shrink: 0;
-      }
+        .captionHolder {
+            background-color: white;
+            color: black;
+            text-align: center;
+            font-weight: 800;
+            width: 100%;
+            margin: 0;
+            min-height: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-      .searchBar:focus {
-        outline: none;
-      }
+        .caption {
+            margin: 0;
+        }
 
-      .searchBar::placeholder {
-        color: var(--txt-color);
-      }
+        .modifiedImage {
+            max-width: 90%;
+            object-fit: contain;
+            display: none;
+        }
 
-      .seperator {
-        height: 1px;
-        width: 5000px;
-        max-width: 90%;
-        transition: all 0.2s;
-        background-color: black;
-        margin-bottom: 20px;
-        margin-top: 5px;
-      }
-
-      .emojiHolder {
-        
-        height: 120px;
-        border: solid;
-        border-width: 1px;
-        border-color: rgb(255, 255, 255);
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 10px;
-        transition: all 0.3s ease;
-        color: white;
-      }
-
-      .emojiHolder:hover {
-        background-color: rgba(255, 255, 255, 0.438);
-      }
-
-      .emoji {
-        width: 100%;
-        height: 70%;
-        font-size: 3rem;
-        text-align: center;
-        margin: 0;
-      }
-
-      .copyEmoji {
-        width: 90%;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        height: 20%;
-        transition: all 0.2s ease;
-        background-color: var(--main-theme-color);
-        border-color: var(--main-theme-color);
-
-      }
-
-      .copyEmoji:hover {
-
-        cursor: pointer;
-      }
-
-      .emojiGrid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 120px));
-        gap: 10px;
-        justify-content: center;
-        width: 100%;
-        overflow-y: auto;
-      }
+        .img2cap {
+            max-width: 100%;
+            object-fit: contain;
+        }
     </style>
 </head>
 
@@ -203,121 +154,125 @@
     <div id="particles-js"></div>
 
     <div class="innerbody">
-        <h1><span class="orangespan">Emoji</span> search</h1>
-        <input class="searchBar" placeholder="Search for emoji...">
-        <div class="emojiGrid"></div>
+        <h1>Image <span class="orangespan">captioner</span></h1>
+
+        <div class="container">
+            <h2><span class="orangespan">Caption</span> an Image</h2>
+            <input title="Quality Image" type="file" id="upload" accept="image/*" class="uploadImage imagequery "
+                style="display: none;" />
+            <button title="Upload" class="uploadButton uploadimg">Upload
+                Image</button>
+            <img class="inputImage uploadedimg" id="inputImage" style="display: none;" alt="Input Image">
+            <input type="text" placeholder="Caption" class="captionInput">
+            <button class="deepfryButton turntogifbutton uploadButton" id="turntogifbutton">Caption It</button>
+            <div class="modifiedImage">
+                <div class="captionHolder">
+                    <h1 class="caption">Default Caption</h1>
+                </div>
+                <img src="https://meminit.github.io/assets/images/deepfry.png" class="img2cap" alt="Input Image">
+            </div>
+            <button class="downloadimg" onclick="download()">Download</button>
+        </div>
+
+        <div class="linfo">
+            <img alt="logo" class="linfoEmoji"
+                src="https://meminit.github.io/assets/images/assets_images_cooldude.webp">
+            <h4 class="linfoTitle">Meminit</h4>
+            <h5 class="linfoText">By <span class="orangespan">itsprobablyjackson</span></h5>
+
+        </div>
+        <div class="linksRow">
+            <a class="linfoText linfoHyperlink" href="mailto:alshield@gmail.com?subject=To%20MeminIt"
+                target="_blank">Contact Us</a>
+            <div class="hozSeperator"></div>
+            <a class="linfoText linfoHyperlink" href="/discord" target="_blank">Our Discord</a>
+        </div>
+
+    </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
+
     <script>
-        const params = new URLSearchParams(window.location.search)
+        const uploadimgbutton = document.querySelector(".uploadimg");
+
+        const imageButton = document.querySelector(".imagequery");
+
+        const ttsgbutton = document.querySelector(".turntogifbutton");
+
+        const finishedFrame = document.querySelector(".finishedgif");
+
+        const minimoji = document.querySelector(".minimoji");
+
+        const finishedGifHolder = document.querySelector(".fg");
+
+        const uploadedIMG = document.querySelector(`.uploadedimg`);
 
 
 
-        let emojiList = {};
-        let defaultEmojiList = {};
+        let currentFile;
 
-        async function fetchEmojis() {
-            const res = await fetch(
-                "https://meminit.github.io/assets/data/emojis.json"
-            );
-
-            const emojis = await res.json();
-
-            emojiList = emojis;
-
-            const res2 = await fetch(
-                "https://meminit.github.io/assets/data/defaultemojis.json"
-            );
-            const emojis2 = await res2.json();
-            defaultEmojiList = emojis2;
-        }
-
-        fetchEmojis();
-
-        function search(value) {
-            const lowercaseValue = value.toLowerCase();
-
-            let responseEmojis = Object.keys(emojiList)
-                .filter((key) => key.includes(lowercaseValue))
-                .flatMap((key) => emojiList[key]);
-
-            let insertedEmojis = [];
+        uploadimgbutton.addEventListener("click", () => {
 
 
 
-            document.querySelector(".emojiGrid").innerHTML = "";
+            console.log("stuff got clicked");
 
-            responseEmojis.forEach((emoji) => {
-
-                if (insertedEmojis.includes(emoji)) return;
-
-                const emojiHolder = document.createElement("div");
-
-                emojiHolder.className = "emojiHolder";
-
-                // I REALLY don't care that I do it via innerHTML I jst cbf to make 2 more elements (Im lazy 😔)
-                emojiHolder.innerHTML += `
-     <p class="emoji">${emoji}</p>
-     <button class="copyEmoji" data-e="${emoji}" onclick="navigator.clipboard.writeText('${emoji}'); alert('Copied Emoji!')">Copy</button>
-    `;
-
-                insertedEmojis.push(emoji);
-
-                document.querySelector(".emojiGrid").append(emojiHolder);
-            });
-
-
-            let responseEmojis2 = Object.keys(defaultEmojiList)
-                .filter((key) => key.includes(lowercaseValue))
-                .flatMap((key) => defaultEmojiList[key]);
-
-
-
-            responseEmojis2.forEach((emoji) => {
-                if (insertedEmojis.includes(emoji)) return;
-
-                const emojiHolder = document.createElement("div");
-
-                emojiHolder.className = "emojiHolder";
-
-                emojiHolder.innerHTML += `
-<p class="emoji">${emoji}</p>
-<button class="copyEmoji" data-e="${emoji}" onclick="navigator.clipboard.writeText('${emoji}'); alert('Copied Emoji!')">Copy</button>
-`;
-
-                insertedEmojis.push(emoji);
-
-                document.querySelector(".emojiGrid").append(emojiHolder);
-            });
-        }
-
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                if (document.activeElement === document.querySelector(".searchBar")) {
-                    search(document.querySelector(".searchBar").value);
-                }
-            }
+            document.querySelector(".imagequery").click();
         });
 
-        function arrayIT(str) {
-            const arrayed = str.replaceAll(" ", `","`);
+        imageButton.addEventListener("change", () => {
+            const file = imageButton.files[0];
 
-            console.log(arrayed);
-        }
+            if (!file) return;
 
-        if (params.get('search')) {
-            document.querySelector('.searchBar').value = params.get('search')
+            currentFile = file;
 
-            search(document.querySelector('.searchBar').value)
-        } else {
-            search("")
-        }
+            console.log(`Selected ${file.name}`);
 
-        document.querySelector('.searchBar').addEventListener('input', (event) => {
-            search(event.target.value)
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                console.log("Reader Loaded.");
+                uploadedIMG.src = e.target.result;
+                document.querySelector('.img2cap').src = e.target.result
+                uploadedIMG.style.display = "block";
+            };
+
+            reader.readAsDataURL(file);
         });
+
+        document.querySelector('.turntogifbutton').addEventListener('click', () => {
+            document.querySelector('.caption').textContent = document.querySelector('.captionInput').value
+            document.querySelector('.modifiedImage').style.display = 'block'
+            document.querySelector('.downloadimg').style.display = 'flex'
+        });
+
+        finishedFrame.addEventListener('click', () => {
+            const downloadA = document.querySelector('.downloadimg')
+
+            if (!currentFile) return
+
+            downloadA.click()
+        });
+
+        ttsgbutton.addEventListener("click", () => {
+
+        });
+
+        function download() {
+            html2canvas(document.querySelector('.modifiedImage')).then(function (canvas) {
+                canvas.style.display = 'none'
+                let img = canvas.toDataURL("image/png")
+                let link = document.createElement("a")
+                link.href = img
+                link.download = "meminitcaption.png"
+                link.click()
+            });
+        }
     </script>
+
+    <script src="https://meminit.github.io/js/toolsJS/gifWorker.js"></script>
 </body>
 
 </html>
