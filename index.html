@@ -5,7 +5,7 @@
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
     <meta name="google-site-verification" content="YwGuDxrJRAsPLdgJERfdDUe74bFIAQsRHSkM1qBHpmM" />
   <title>Memin It!</title>
-  <link rel="icon" type="image/webp"
+  <link rel="shortcut icon" type="image/webp"
     href="https://meminit.github.io/assets/images/assets_images_cooldude.webp" />
 
     <!-- Site Config -->
@@ -39,8 +39,58 @@ particlesJS.load('particles-js', 'https://meminit.github.io/particles.json', fun
 });
   </script>
 
-  <!-- End of Style Sheets Design Etc. -->
+<style>
+      .helpersGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 100px)); 
+        gap: 10px;
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+      }
 
+      .helperHolder {
+        height: 100%;
+        max-height: 100%;
+        max-width: 80%;
+        border: solid;
+        border-width: 1px;
+        border-color: rgb(255, 255, 255);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        color: white;
+        text-align: center;
+      }
+
+      .helperHolder:hover {
+        background-color: rgba(255, 255, 255, 0.438);
+      }
+
+      .helperPFP {
+        max-height: 100px;
+        object-fit: contain;
+        border-radius: 50%;
+        margin: 0;
+      }
+
+      .helperHolder h4 {
+        margin: 0;
+        margin-top: 10px;
+      }
+
+      .desc {
+        max-width: 90%;
+      }
+
+</style>
+
+<!-- End of Style Sheets Design Etc. -->
+
+  
 
 </head>
 
@@ -82,14 +132,14 @@ particlesJS.load('particles-js', 'https://meminit.github.io/particles.json', fun
 
       <div class="grid">
         <div class="gamecard" data-l="/tools/emojisearch">
-          <img class="gameImage" alt="game" src="https://meminit.github.io/assets/images/emojisearch.png">
+          <img class="gameImage" alt="game" src="https://meminit.github.io/assets/images/emojisearch.webp">
           <h3>Emoji Search</h3>
           <h5>Find that emoji you forgot the name of 🍕😎</h5>
 
         </div>
 
         <div class="gamecard" data-l="/tools/deepfry">
-          <img class="gameImage" alt="game" src="https://meminit.github.io/assets/images/deepfry.png">
+          <img class="gameImage" alt="game" src="https://meminit.github.io/assets/images/deepfry.webp">
           <h3>Deepfry 🍳🔥</h3>
           <h5>Deepfry any image you want 🔥</h5>
 
