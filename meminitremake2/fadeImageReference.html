@@ -250,13 +250,15 @@ ttsgbutton.addEventListener("click", () => {
 
     var gif = new GIF({
         workers: 2,
-        quality: 100,
+        quality: 10, // Lower quality to reduce file size
         workerScript: "https://meminit.github.io/js/toolsJS/gifWorker.js",
         width: uploadedIMG.width,
         height: uploadedIMG.height,
     });
 
     let opacity = 0;
+    const frameStep = 0.05; // Increase step to reduce the number of frames
+    const frameDelay = 100; // Increase delay between frames
 
     const fadeInterval = setInterval(() => {
         if (opacity >= 1) {
@@ -272,15 +274,15 @@ ttsgbutton.addEventListener("click", () => {
         ctx.drawImage(t2, 0, 0, canvas.width, canvas.height);
 
         // Add the current frame to the GIF
-        gif.addFrame(canvas, { copy: true, delay: 50 });
+        gif.addFrame(canvas, { copy: true, delay: frameDelay });
 
         // Update the displayed canvas for real-time animation
         const renderingImage = document.querySelector('.renderingImage');
         renderingImage.src = canvas.toDataURL();
         renderingImage.style.display = "block";
 
-        opacity += 0.01;
-    }, 50);
+        opacity += frameStep;
+    }, frameDelay);
 
     gif.on("finished", function (blob) {
         const downloadButton = document.querySelector('.downloadimg');
