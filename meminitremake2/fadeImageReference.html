@@ -157,7 +157,7 @@
           <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
 
           <script>
-             const uploadimgbutton = document.querySelector(".uploadimg");
+const uploadimgbutton = document.querySelector(".uploadimg");
 
 const imageButton = document.querySelector(".imagequery");
 
@@ -234,6 +234,9 @@ ttsgbutton.addEventListener("click", () => {
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
 
+    const t1 = document.querySelector('.t1');
+    const t2 = document.querySelector('.t2');
+
     canvas.width = uploadedIMG.width;
     canvas.height = uploadedIMG.height;
 
@@ -242,8 +245,8 @@ ttsgbutton.addEventListener("click", () => {
         return;
     }
 
-    document.querySelector('.t1').src = document.querySelector('#inputImage').src;
-    document.querySelector('.t2').src = document.querySelector('#inputImage2').src;
+    t1.src = document.querySelector('#inputImage').src;
+    t2.src = document.querySelector('#inputImage2').src;
 
     var gif = new GIF({
         workers: 2,
@@ -264,11 +267,18 @@ ttsgbutton.addEventListener("click", () => {
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.globalAlpha = 1;
-        ctx.drawImage(document.querySelector('.t1'), 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(t1, 0, 0, canvas.width, canvas.height);
         ctx.globalAlpha = opacity;
-        ctx.drawImage(document.querySelector('.t2'), 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(t2, 0, 0, canvas.width, canvas.height);
 
-        gif.addFrame(canvas, { delay: 50 });
+        // Add the current frame to the GIF
+        gif.addFrame(canvas, { copy: true, delay: 50 });
+
+        // Update the displayed canvas for real-time animation
+        const renderingImage = document.querySelector('.renderingImage');
+        renderingImage.src = canvas.toDataURL();
+        renderingImage.style.display = "block";
+
         opacity += 0.01;
     }, 50);
 
@@ -280,6 +290,9 @@ ttsgbutton.addEventListener("click", () => {
         finishedGifHolder.style.display = "block";
         downloadButton.href = URL.createObjectURL(blob);
         downloadButton.style.display = "flex";
+
+        // Hide the real-time rendering canvas after GIF is finished
+        document.querySelector('.renderingImage').style.display = "none";
     });
 });
           </script>
