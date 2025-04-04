@@ -19,9 +19,6 @@
         <link rel="stylesheet" href="https://meminit.github.io/css/default.css">
         <script src="https://kit.fontawesome.com/4b3613c91f.js" crossorigin="anonymous"></script>
       
-        <script src="
-      https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
-      "></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
       <style>
@@ -85,11 +82,6 @@
         }
     </style>
       
-      <script>
-          particlesJS.load('particles-js', 'https://meminit.github.io/particles.json', function() {
-        console.log('particles.js loaded - callback');
-      });
-      </script>
 
       <style>
         .innerbody {
@@ -291,7 +283,6 @@ ttsgbutton.addEventListener("click", () => {
         opacity += frameStep;
     }, frameDelay);
 
-    let dwnld
     let name
 
     gif.on("finished", function (blob) {
@@ -310,8 +301,12 @@ ttsgbutton.addEventListener("click", () => {
 });
 
 function download() {
-    if (!name) return
-    if (!dwnld) return
+    if (!finishedGifHolder.src) {
+        alert("No GIF to download!");
+        return;
+    }
+
+    const dwnld = finishedGifHolder.src
 
     const e = document.createElement('a')
     e.href = dwnld
