@@ -34,6 +34,7 @@ input {
     border: solid;
     border-style: dashed;
     border-color: var(--txt-color);
+    color: white;
     border-width: 2px;
     border-radius: 5px;
     transition: all 0.2s ease;
@@ -45,7 +46,7 @@ input {
 
 
 
-.uploadImage, .uploadButton {
+.uploadImage, .uploadButton, button {
     background-color: rgba(255, 255, 255, 0);
     border: solid;
     border-style: dashed;
@@ -54,7 +55,7 @@ input {
     border-radius: 5px;
     transition: all 0.2s ease;
     min-width: 300px;
-    max-width: 100%;
+    max-width: 90%;
     min-height: 30px;
     margin-bottom: 20px;
 }

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <title>Memin It!</title>
+        <link rel="icon" type="image/webp"
+          href="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247" />
+        <meta name="viewport" content="width=device-width initial-scale=1" />
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://meminit.github.io/css/default.css">
+        <link rel="stylesheet" href="https://meminit.github.io/css/tools/deepfry.css">
+      
+        <meta property="og:title" content="MeminIt" />
+        <meta property="og:description" content="Use MeminIt's AMAZING tools 🔥" />
+        <meta property="og:image"
+          content="https://cdn.glitch.global/2850ddd2-d672-4f7c-adfa-84b652ad2613/assets%2Fimages%2Fcooldude.webp?v=1738629702247" />
+        <meta property="og:url" content="https://meminit.github.io/" />
+      
+        <link rel="stylesheet" href="https://meminit.github.io/css/default.css">
+        <script src="https://kit.fontawesome.com/4b3613c91f.js" crossorigin="anonymous"></script>
+      
+        <script src="
+      https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
+      "></script>
+
+      <style>
+        .innerbody {
+            flex-grow: 1;
+        }
+
+        input,
+        button,
+        .deepfryButton,
+        .uploadButton {
+            color: var(--txt-color);
+            border: solid;
+            border-width: 1px;
+            border-color: var(--txt-color);
+            background-color: rgba(0, 0, 0, 0);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            transition: all 0.2s ease;
+            padding: 2px;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        input:focus {
+
+            outline: none;
+            --clr: rgba(126, 126, 126, 0.295);
+            --shadow-height: -10px;
+            
+
+            -webkit-box-shadow: 0px var(--shadow-height) 0px -4px var(--clr) inset;
+            -moz-box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
+            box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
+        }
+
+
+
+        label {
+            text-align: center;
+            font-family: var(--font);
+            margin-bottom: 10px;
+        }
+
+        .downloadimg {
+          color: var(--txt-color);
+            border: solid;
+            border-width: 1px;
+            border-color: var(--txt-color);
+            background-color: rgba(0, 0, 0, 0);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            transition: all 0.2s ease;
+            padding: 2px;
+        }
+        .downloadimg:hover {
+           transform: scale(1.05, 1.05);
+        }
+    </style>
+      
+      <script>
+          particlesJS.load('particles-js', 'https://meminit.github.io/particles.json', function() {
+        console.log('particles.js loaded - callback');
+      });
+      </script>
+
+      <style>
+        .innerbody {
+          flex-grow: 1;
+        }
+      </style>
+      </head>
+
+      <body>
+        <header class="mainheader">
+          <div class="titleHolder">
+          <img alt="logo" src="https://meminit.github.io/assets/images/assets_images_cooldude.webp" class="titlemoji">
+          <h1 class="sitetitle"><span class="orangespan">Memin</span> It</h1>
+        </div>
+          <div class="shortcuts">
+            <a href="/home"><i class="fa-solid fa-house href-icon"></i> <span>Home</span></a>
+            <a href="/tools"><i class="fa-solid fa-screwdriver-wrench href-icon"></i><span>Tools</span></a>
+            <a href="/suggestions"><i class="fa-regular fa-lightbulb href-icon"></i> <span>Suggestions</span> </a>
+            <a href="/discord" target="_blank"><i class="fa-brands fa-discord href-icon"></i><span>Discord</span></a>
+          </div>
+        </header>
+          
+          <div id="particles-js"></div>
+          
+          <div class="innerbody">
+          <h1>Gif Fade</h1>
+
+          <div class="container">
+            <h2><span class="orangespan">Caption</span> an Image</h2>
+            <input title="First Image" type="file" id="upload" accept="image/*" class="uploadImage imagequery "
+                style="display: none;" />
+                <input title="Second Image" type="file" id="upload2nd" accept="image/*" class="uploadImage imagequery "
+                style="display: none;" />
+            <button title="Upload" class="uploadButton uploadimg">Upload first Image</button>
+            <button title="Upload" class="uploadButton uploadimg">Upload second Image</button>
+            <img class="inputImage uploadedimg" id="inputImage" style="display: none;" alt="Input Image">
+            <button class="deepfryButton turntogifbutton uploadButton" id="turntogifbutton">Fade it</button>
+            <button class="downloadimg" onclick="download()">Download</button>
+          </div>
+
+          <script>
+
+          </script>
+        </div>
+        </body>
+</html>
