@@ -112,6 +112,10 @@
         .t2 {
           opacity: 0;
         }
+
+        .fg {
+          display: none;
+        }
       </style>
       </head>
 
@@ -237,6 +241,8 @@ ttsgbutton.addEventListener("click", () => {
     const t1 = document.querySelector('.t1');
     const t2 = document.querySelector('.t2');
 
+    ttsgbutton.innerHTML = "Attempting to render GIF...";
+
     canvas.width = uploadedIMG.width;
     canvas.height = uploadedIMG.height;
 
@@ -244,6 +250,7 @@ ttsgbutton.addEventListener("click", () => {
         alert("No file!");
         return;
     }
+
 
     t1.src = document.querySelector('#inputImage').src;
     t2.src = document.querySelector('#inputImage2').src;
@@ -284,19 +291,36 @@ ttsgbutton.addEventListener("click", () => {
         opacity += frameStep;
     }, frameDelay);
 
+    let dwnld
+    let name
+
     gif.on("finished", function (blob) {
         const downloadButton = document.querySelector('.downloadimg');
         const finishedGifHolder = document.querySelector('.fg');
-
+  
         finishedGifHolder.src = URL.createObjectURL(blob);
         finishedGifHolder.style.display = "block";
-        downloadButton.href = URL.createObjectURL(blob);
-        downloadButton.style.display = "flex";
+        dwnld = URL.createObjectURL(blob);
+        name = "meminit_faded.gif";
 
         // Hide the real-time rendering canvas after GIF is finished
         document.querySelector('.renderingImage').style.display = "none";
+        ttsgbutton.innerHTML = "Fade it!";
     });
 });
+
+function download() {
+    if (!name) return
+    if (!dwnld) return
+
+    const e = document.createElement('a')
+    e.href = dwnld
+    e.download = name
+    e.style.display = 'none'
+    document.body.appendChild(e)
+    e.click()
+    document.body.removeChild(e)
+  }
           </script>
 
 <div class="linfo">
