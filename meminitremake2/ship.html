@@ -4,13 +4,15 @@
 <head>
 
   <title>Memin It!</title>
-  <link rel="icon" href="https://meminit.github.io/favicon.ico" />
+  <link rel="icon"
+    href="https://meminit.github.io/favicon.ico" />
   <meta name="viewport" content="width=device-width initial-scale=1" />
   <meta charset="utf-8" />
 
   <meta property="og:title" content="Love Calculator 🥰❤" />
   <meta property="og:description" content="Check out MeminIt's Love Calculator! ♥💘🥰" />
-  <meta property="og:image" content="https://meminit.github.io/assets/images/ship.webp" />
+  <meta property="og:image"
+    content="https://meminit.github.io/assets/images/ship.webp" />
   <meta property="og:url" content="https://meminit.github.io/" />
   <meta property="og:width" content="1920" />
   <meta property="og:height" content="1080" />
@@ -199,7 +201,7 @@
       width: 50%;
       aspect-ratio: 1/1;
       object-fit: cover;
-
+      
       border-radius: 50%;
       border: 2px solid white;
 
@@ -210,9 +212,7 @@
       display: none;
     }
   </style>
-  <!-- Cloudflare Web Analytics -->
-  <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-    data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
+
   <script src="https://kit.fontawesome.com/4b3613c91f.js" crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -261,11 +261,13 @@
       <div class="input-container">
         <div class="columnContainer"><input class="nameInp" type="text" id="name1" placeholder="Your name" required>
           <button class="imageInpBtn" id="name1imgBtn">Image?</button>
-          <img class="pfpImage p1" style="display: none;" alt="Your Profile Image">
+          <img class="pfpImage p1" style="display: none;"
+          alt="Your Profile Image">
         </div>
         <div class="columnContainer"><input class="nameInp" type="text" id="name2" placeholder="Their name" required>
           <button class="imageInpBtn" id="name2imgBtn">Image?</button>
-          <img class="pfpImage p2" style="display: none;" alt="Your Profile Image">
+          <img class="pfpImage p2" style="display: none;"
+            alt="Your Profile Image">
         </div>
       </div>
       <button onclick="calculateLove()">Calculate the <span class="lovespan">LOVE</span></button>
@@ -289,14 +291,13 @@
 
           </div>
 
-          <h2 class="loveResultText"><span class="lovespan2" id="name1rendered">George</span> and <span
-              class="lovespan2" id="name1rendered">Mary</span> match <span class="lovespan2">100%</span></h2>
+          <h2 class="loveResultText"><span class="lovespan2" id="name1rendered">George</span> and <span class="lovespan2" id="name1rendered">Mary</span> match <span
+              class="lovespan2">100%</span></h2>
         </div>
-
+        
       </div>
       <img class="loveResult" alt="Your Love Percentage" style="display: none;">
-      <a class="downloadBtn" download="meminitLoveCalculator.png" id="downloadBtn"><span
-          class="lovespan">Download</span></a>
+      <a class="downloadBtn" download="meminitLoveCalculator.png" id="downloadBtn"><span class="lovespan">Download</span></a>
 </body>
 
 <script>
@@ -326,7 +327,7 @@
     if (file) {
       const reader = new FileReader();
       reader.onload = function (e) {
-
+        
         document.querySelector('.p2').src = e.target.result;
         document.querySelector('.p2').style.display = 'block';
       };
@@ -374,7 +375,7 @@
 
     html2canvas(document.querySelector('.rendererContainer')).then(canvas => {
       const img = canvas.toDataURL('image/png');
-
+      
       document.querySelector('.loveResult').src = img;
       document.querySelector('.loveResult').style.display = 'block';
 
