@@ -213,11 +213,12 @@
       display: none;
     }
   </style>
+  <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
   <!-- Cloudflare Web Analytics -->
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
     data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
   <script src="https://kit.fontawesome.com/4b3613c91f.js" crossorigin="anonymous"></script>
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
   <script src="
@@ -300,27 +301,32 @@
       <img class="loveResult" alt="Your Love Percentage" style="display: none;">
       <a class="downloadBtn" download="meminitLoveCalculator.png" id="downloadBtn"><span
           class="lovespan">Download</span></a>
-          </div>
-          <div class="container">
-            <h3>You might also like...</h3>
-            <div class="grid">
-              <div class="gamecard" data-l="/tools/convertgif">
-                <img class="gameImage" alt="game"
-                  src="https://meminit.github.io/assets/images/gifit.webp">
-                <h3>GIF Converter 🔁</h3>
-                <h5>Turn that love calculator into a result into a GIF to favourite it 🌟</h5>
-                <a style="display: none;" href="/tools/convertgif">c</a>
-              </div>
-              <div class="gamecard" data-l="/tools/deepfry">
-                <img class="gameImage" alt="game"
-                  src="https://meminit.github.io/assets/images/deepfry.webp">
-                <h3>Deepfrier 🔥🍳</h3>
-                <h5>Deepfry the image you just made 🔥🍳</h5>
-                <a style="display: none;" href="/tools/lovecalculator">c</a>
-              </div>
-            </div>
-          </div>
     </div>
+    <div class="container">
+      <h3>You might also like...</h3>
+      <div class="grid">
+        <div class="gamecard" data-l="/tools/convertgif">
+          <img class="gameImage" alt="game" src="https://meminit.github.io/assets/images/gifit.webp">
+          <h3>GIF Converter 🔁</h3>
+          <h5>Turn that love calculator into a result into a GIF to favourite it 🌟</h5>
+          <a style="display: none;" href="/tools/convertgif">c</a>
+        </div>
+        <div class="gamecard" data-l="/tools/deepfry">
+          <img class="gameImage" alt="game" src="https://meminit.github.io/assets/images/deepfry.webp">
+          <h3>Deepfrier 🔥🍳</h3>
+          <h5>Deepfry the image you just made 🔥🍳</h5>
+          <a style="display: none;" href="/tools/lovecalculator">c</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container blurbg">
+      <h3>Please turn off your adblocker :(</h3>
+      <script type="text/javascript" src="/js/deployBanner.js"></script>
+    </div>
+  </div>
+
+
 
 
 </body>
@@ -428,19 +434,19 @@
 </script>
 
 <style>
-.grid {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 
-}
+  }
 
-.gamecard {
-display: flex;
-flex-direction: column
-justify-content: start;
-align-items: center;
+  .gamecard {
+    display: flex;
+    flex-direction: column; 
+    justify-content: start;
+    align-items: center;
 
-}
+  }
 </style>
 
 </html>

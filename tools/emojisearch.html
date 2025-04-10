@@ -4,8 +4,7 @@
 <head>
 
     <title>Memin It!</title>
-    <link rel="icon"
-    href="https://meminit.github.io/favicon.ico" />
+    <link rel="icon" href="https://meminit.github.io/favicon.ico" />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta charset="utf-8" />
 
@@ -17,9 +16,11 @@
 
     <meta property="og:url" content="https://meminit.github.io/tools/deepfry" />
     <meta name="description" content="Search for that ONE emoji you really need but can't find 😎">
-  <!--end of tags-->
-        <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
-
+    <!--end of tags-->
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
+    <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
     <link rel="stylesheet" href="https://meminit.github.io/css/default.css">
     <link rel="stylesheet" href="https://meminit.github.io/css/tools/emojisearch.css">
     <script src="https://kit.fontawesome.com/4b3613c91f.js" crossorigin="anonymous"></script>
@@ -98,92 +99,92 @@
     </style>
 
     <style>
-              .searchBar {
-        background-color: rgba(0, 0, 0, 0);
-        border: none;
-        resize: none;
-        width: 5000px;
-        max-width: 80%;
-        line-height: 1;
-        height: fit-content;
-        padding-top: 17.5px;
-        text-align: center;
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-          flex-shrink: 0;
-      }
+        .searchBar {
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+            resize: none;
+            width: 5000px;
+            max-width: 80%;
+            line-height: 1;
+            height: fit-content;
+            padding-top: 17.5px;
+            text-align: center;
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+                "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            flex-shrink: 0;
+        }
 
-      .searchBar:focus {
-        outline: none;
-      }
+        .searchBar:focus {
+            outline: none;
+        }
 
-      .searchBar::placeholder {
-        color: var(--txt-color);
-      }
+        .searchBar::placeholder {
+            color: var(--txt-color);
+        }
 
-      .seperator {
-        height: 1px;
-        width: 5000px;
-        max-width: 90%;
-        transition: all 0.2s;
-        background-color: black;
-        margin-bottom: 20px;
-        margin-top: 5px;
-      }
+        .seperator {
+            height: 1px;
+            width: 5000px;
+            max-width: 90%;
+            transition: all 0.2s;
+            background-color: black;
+            margin-bottom: 20px;
+            margin-top: 5px;
+        }
 
-      .emojiHolder {
-        
-        height: 120px;
-        border: solid;
-        border-width: 1px;
-        border-color: rgb(255, 255, 255);
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 10px;
-        transition: all 0.3s ease;
-        color: white;
-      }
+        .emojiHolder {
 
-      .emojiHolder:hover {
-        background-color: rgba(255, 255, 255, 0.438);
-      }
+            height: 120px;
+            border: solid;
+            border-width: 1px;
+            border-color: rgb(255, 255, 255);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            color: white;
+        }
 
-      .emoji {
-        width: 100%;
-        height: 70%;
-        font-size: 3rem;
-        text-align: center;
-        margin: 0;
-      }
+        .emojiHolder:hover {
+            background-color: rgba(255, 255, 255, 0.438);
+        }
 
-      .copyEmoji {
-        width: 90%;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        height: 20%;
-        transition: all 0.2s ease;
-        background-color: var(--main-theme-color);
-        border-color: var(--main-theme-color);
+        .emoji {
+            width: 100%;
+            height: 70%;
+            font-size: 3rem;
+            text-align: center;
+            margin: 0;
+        }
 
-      }
+        .copyEmoji {
+            width: 90%;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            height: 20%;
+            transition: all 0.2s ease;
+            background-color: var(--main-theme-color);
+            border-color: var(--main-theme-color);
 
-      .copyEmoji:hover {
+        }
 
-        cursor: pointer;
-      }
+        .copyEmoji:hover {
 
-      .emojiGrid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 120px));
-        gap: 10px;
-        justify-content: center;
-        width: 100%;
-        overflow-y: auto;
-      }
+            cursor: pointer;
+        }
+
+        .emojiGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 120px));
+            gap: 10px;
+            justify-content: center;
+            width: 100%;
+            overflow-y: auto;
+        }
     </style>
 </head>
 
@@ -207,6 +208,11 @@
         <h1><span class="orangespan">Emoji</span> search</h1>
         <input class="searchBar" placeholder="Search for emoji...">
         <div class="emojiGrid"></div>
+        <div class="container blurbg">
+            <h3>Please turn off your adblocker :(</h3>
+            <script type="text/javascript" src="/js/deployBanner.js"></script>
+          </div>
+      
     </div>
 
     <script>
