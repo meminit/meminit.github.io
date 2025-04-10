@@ -1,4 +1,4 @@
-@font-face {
+2@font-face {
   font-family:  pixelated;
   src: url('https://meminit.github.io/assets/fonts/pixelated.ttf')
 }
@@ -382,6 +382,7 @@ body {
 .at {
   position: absolute;
   z-index: -1;
+display: none;
 }
 
 }
