@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
+    <meta name="google-site-verification" content="YwGuDxrJRAsPLdgJERfdDUe74bFIAQsRHSkM1qBHpmM" />
+  <title>Memin It!</title>
+  <link rel="shortcut icon"
+    href="https://meminit.github.io/favicon.ico" />
+    <!-- Site Config -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+    <!-- End of site Config -->
+
+    <!--Description Tags-->
+  <meta property="og:title" content="MeminIt" />
+  <meta property="og:description" content="Use MeminIt's AMAZING tools 🔥" />
+  <meta property="og:image"
+    content="https://meminit.github.io/assets/images/assets_images_cooldude.webp" />
+  <meta property="og:url" content="https://meminit.github.io/" />
+  <meta name="description" content="Check out MeminIt's tools & games like the image deepfrier, emoji search and MORE 🌟">
+  <!-- End of description tags -->
+
+  <!-- Style Sheets design etc. -->
+  <link rel="stylesheet" href="https://meminit.github.io/css/default.css">
+
+  <script src="https://kit.fontawesome.com/4b3613c91f.js" crossorigin="anonymous"></script>
+
+  <script src="
+  https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
+  "></script>
+  
+
+
+  <script>
+
+
+particlesJS.load('particles-js', 'https://meminit.github.io/particles.json', function() {
+  console.log('particles.js loaded - callback');
+});
+  </script>
+
+
+
+<style>
+    .innerbody {
+        flex-grow: 1;
+    }
+
+    .blogContainer {
+        max-width: 100%;
+        width: 700px;
+        min-height: 400px;
+        padding: 10px;
+    }
+
+    .blogThumbnail {
+        max-width: 90%;
+        object-fit: contain;
+        border-radius: 5px;
+        margin: 10px;
+    }
+
+    .blogDetails {
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        gap: 10px;
+    }
+
+    .ic {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tag {
+        transition:  all 0.2s ease;
+        
+        padding-left: 7px;
+        padding-right: 7px;
+        border-radius: 40px;
+        border: solid;
+        border-width: 1px;
+        border-color: white;
+
+        font-weight: 100; /* just did that because when I did p it didnt look right */
+    }
+
+    .tag:hover {
+        background-color: rgba(255, 255, 255, 0.342);
+    }
+
+    .blogTitle {
+        font-weight: normal;
+    }
+</style>
+
+<!-- End of Style Sheets Design Etc. -->
+
+  
+
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+
+  <script src="/assets/js/particlegen.js"></script>
+
+  <header class="mainheader">
+    <div class="titleHolder">
+    <img alt="logo" src="https://meminit.github.io/assets/images/assets_images_cooldude.webp" class="titlemoji">
+    <h1 class="sitetitle"><span class="orangespan">Memin</span> It</h1>
+  </div>
+    <div class="shortcuts">
+      <a href="/home"><i class="fa-solid fa-house href-icon"></i> <span>Home</span></a>
+      <a href="/tools"><i class="fa-solid fa-screwdriver-wrench href-icon"></i><span>Tools</span></a>
+      <a href="/suggestions"><i class="fa-regular fa-lightbulb href-icon"></i> <span>Suggestions</span> </a>
+      <a href="/discord" target="_blank"><i class="fa-brands fa-discord href-icon"></i><span>Discord</span></a>
+    </div>
+  </header>
+
+  <div class="innerbody">
+
+    <div class="blind">
+      <h1><span class="orangespan">Memin</span> It's <span class="orangespan">Blog</span></h1>
+    </div>
+<div class="grid">
+    <div class="container blogContainer gamecard" data-l="/blogs/howtoenhanceyourmemes">
+        <h2 class="blogTitle">3 ways to enhance the humor in your memes ❗</h2>
+        <img class="blogThumbnail" alt="Large Orange Background with Blue Laughing Emoji" src="https://meminit.github.io/assets/images/blogs/memeblog.png">
+        <div class="blogDetails">
+            <i class="fa-regular fa-circle-user ic"></i>
+            <p class="text">Jackson S.</p>
+            <i class="fa-regular fa-clock ic"></i>
+            <p class="text">3-5 minutes</p>
+            <p class="text"><b class="tag">Meme</b></p>
+            <p class="text"><b class="tag">Laughter</b></p>
+            <p class="text"><b class="tag">Jokes</b></p>
+        </div>
+    </div>
+    </div>
+
+    <!-- <div class="container blurbg">
+      <h3 class="at">Please turn off your adblocker :(</h3>
+      <script type="text/javascript" src="/js/deployBanner.js"></script>
+    </div> -->
+
+
+
+
+</body>
+
+<script src="./assets/js/header.js"></script>
+
+<script>
+  document.querySelectorAll('.gamecard').forEach(element => {
+    element.addEventListener('click', () => {
+      window.location.href = element.getAttribute('data-l')
+    });
+  });
+
+  function redirect(link) {
+    window.location.href = link
+  }
+</script>
+
+</html>
