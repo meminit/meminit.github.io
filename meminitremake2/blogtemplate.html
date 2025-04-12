@@ -29,99 +29,101 @@
     </script>
 
     <style>
-        body {
-            height: 100vh;
-        }
-
-        .container {
-            max-height: fit-content;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .innerbody {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: row;
-            align-items: start;
-            overflow-y: auto;
-        }
-
-        .blg {
-            margin: 10px;
-            width: 79%;
-            min-height: 400px;
-            height: fit-content;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: left;
-        }
-
-        .blgCon {
-            max-width: 900px;
-            width: 100%;
-        }
-
-        .blgCon h2 {
-            text-align: left;
-        }
 
 
+body {
+      height: 100vh;
+    }
 
-        .blg a {
-            color: #0c93e4;
-        }
+    .container {
+      max-height: fit-content;
+    }
+    
+html {
+      scroll-behavior: smooth;
+    }
 
-        .rcolumn {
-            width: 20%;
-        }
+    .innerbody {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: start;
+      overflow-y: auto;
+    }
 
-        .vertcontainer {
-            width: 90%;
-            margin: 10px;
-            min-height: 400px;
-        }
+    .blg {
+      margin: 10px;
+      width: 79%;
+      min-height: 400px;
+      height: fit-content;
 
-        img {
-            border-radius: 10px;
-            max-width: 50%;
-            object-fit: contain;
-        }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+    }
 
-        .gamecard {
-            width: 80%;
-        }
+    .blgCon {
+      max-width: 900px;
+      width: 100%;
+    }
 
-        @media (orientation: portrait) {
-            .innerbody {
-                flex-wrap: wrap;
-            }
-
-            .rcolumn {
-                width: 100%;
-                margin: 10px;
-            }
-
-            .vertcontainer {
-                width: 100%;
-                margin: 0;
-            }
+    .blgCon h2 {
+      text-align: left;
+    }
 
 
 
-            .blg {
-                width: 100%;
-            }
+    .blg a {
+      color: #0c93e4;
+    }
 
-            .blgCon {
-                margin-left: 1%;
-            }
-        }
+    .rcolumn {
+      width: 20%;
+    }
+
+    .vertcontainer {
+      width: 90%;
+      margin: 10px;
+      min-height: 400px;
+    }
+
+    img {
+      border-radius: 10px;
+      max-width: 50%;
+      object-fit: contain;
+    }
+
+    .gamecard {
+      width: 80%;
+    }
+
+    @media (orientation: portrait) {
+      .innerbody {
+        flex-wrap: wrap;
+      }
+
+      .rcolumn {
+        width: 100%;
+        margin: 10px;
+      }
+
+      .vertcontainer {
+        width: 100%;
+        margin: 0;
+      }
+
+
+
+      .blg {width: 100%; }
+
+      .blgCon {
+        margin-left: 1%;
+      }
+    }
+
+  
     </style>
 </head>
 
@@ -142,7 +144,9 @@
     <div id="particles-js"></div>
 
     <div class="innerbody">
-        <div class="container blg"></div>
+        <div class="container blg">
+            <div class="blgCon">{{{files.0.content.html}}}</div>
+        </div>
         <div class="rcolumn">
             <div class="container vertcontainer">
                 <h3>Popular Tools</h3>
