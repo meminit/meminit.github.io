@@ -4,8 +4,7 @@
 <head>
 
     <title>Memin It!</title>
-    <link rel="icon"
-    href="https://meminit.github.io/favicon.ico" />
+    <link rel="icon" href="https://meminit.github.io/favicon.ico" />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta charset="utf-8" />
 
@@ -21,9 +20,10 @@
 
     <meta property="og:url" content="https://meminit.github.io/emojisearch" />
 
+    
     <link rel="stylesheet" href="https://meminit.github.io/css/default.css">
     <link rel="stylesheet" href="https://meminit.github.io/css/tools/deepfry.css">
-      <script defer src="https://meminit.github.io/js/all.min.js"></script>
+    <script defer src="https://meminit.github.io/js/all.min.js"></script>
 
     <script src="
       https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
@@ -101,12 +101,13 @@
             font-family: var(--font);
             margin-bottom: 10px;
         }
-
     </style>
 
-      <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
-      
-    </head>
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
+
+</head>
 
 <body>
     <header class="mainheader">
@@ -141,13 +142,28 @@
             <a class="downloadimg" href="" download="">Download</a>
         </div>
 
-        <div class="container blurbg">
-            <h3 class="at">Please turn off your adblocker :(</h3>
-            <script type="text/javascript" src="/js/deployBanner.js"></script>
-          </div>
-      
 
-          <div class="linfo">
+        <div class="container blurbg" style="text-align: center;">
+            <h2>Free Online GIF Converter</h2>
+            <p>The GIF Convertor allows you to instantly convert a normal image to a GIF that you can favourite on your
+                social media platforms. Use this tool any time you want to get quick access to a meme. <br>
+            <h3>How to convert image to GIF:</h3>
+            <ul>
+                <li>Upload your image by clicking the <b>Upload Image</b> button.</li>
+                <li>Click the <b>Convert To Gif</b> button.</li>
+            </ul>
+            <p>If you want to make your meme even funnier. try the <a href="/tools/captionit">Caption It</a> tool or <a href="/tools/deepfry">Deepfry It!</a> before you turn it into a gif!</p>
+            </p>
+        </div>
+
+        <div class="container blurbg">
+            <p class="at">Please turn off your adblocker :(
+            <p>
+                <script type="text/javascript" src="/js/deployBanner.js"></script>
+        </div>
+
+
+        <div class="linfo">
             <img alt="logo" class="linfoEmoji"
                 src="https://meminit.github.io/assets/images/assets_images_cooldude.webp">
             <h4 class="linfoTitle">Meminit</h4>
@@ -157,13 +173,13 @@
         <div class="linksRow">
             <a class="linfoText linfoHyperlink" href="mailto:alshield@gmail.com?subject=To%20MeminIt"
                 target="_blank">Contact Us</a>
-                <div class="hozSeperator"></div>
+            <div class="hozSeperator"></div>
             <a href="/privacy" class="linfoText linfoHyperlink">Privacy Policy</a>
             <div class="hozSeperator"></div>
             <a class="linfoText linfoHyperlink" href="/discord" target="_blank">Our Discord</a>
         </div>
-      
-        </div>
+
+    </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
@@ -259,7 +275,7 @@
             gif.on("finished", function (blob) {
 
                 document.querySelector('.outputImage').style.display = 'block'
-             document.querySelector('.downloadimg').style.display = 'flex'
+                document.querySelector('.downloadimg').style.display = 'flex'
                 finishedGifHolder.src = URL.createObjectURL(blob);
                 finishedGifHolder.style.display = "block";
                 document.querySelector('.downloadimg').href = URL.createObjectURL(blob);
