@@ -167,7 +167,19 @@ a {
   align-items: center;
 }
 
+.exampleBox {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 
+.exampleImage {
+  max-width: 320px;
+  object-fit: contain;
+}
 
 .container h2 {
   height: 10%;
