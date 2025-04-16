@@ -4,11 +4,11 @@
 <head>
 
     <title>Memin It!</title>
-    <link rel="icon"
-    href="https://meminit.github.io/favicon.ico" />
+    <link rel="icon" href="https://meminit.github.io/favicon.ico" />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta charset="utf-8" />
-    <meta name="description" content="Deepfry an image to make it low quality and get the entire group laughing. Better yet, caption it with the caption tool!">
+    <meta name="description"
+        content="Deepfry an image to make it low quality and get the entire group laughing. Better yet, caption it with the caption tool!">
 
     <meta property="og:image" content="/assets/images/deepfry.png" />
     <meta property="og:width" content="1920" />
@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="https://meminit.github.io/css/default.css">
     <link rel="stylesheet" href="https://meminit.github.io/css/tools/deepfry.css">
-      <script defer src="https://meminit.github.io/js/all.min.js"></script>
+    <script defer src="https://meminit.github.io/js/all.min.js"></script>
 
     <script src="
       https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
@@ -63,7 +63,7 @@
             outline: none;
             --clr: rgba(126, 126, 126, 0.295);
             --shadow-height: -10px;
-            
+
 
             -webkit-box-shadow: 0px var(--shadow-height) 0px -4px var(--clr) inset;
             -moz-box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
@@ -79,9 +79,11 @@
         }
     </style>
 
-      <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
-      
-    </head>
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
+
+</head>
 
 <body>
     <header class="mainheader">
@@ -111,8 +113,9 @@
             <button title="Upload" onclick="document.querySelector('.uploadImage').click()" class="uploadButton">Upload
                 Image</button>
             <img class="inputImage" id="inputImage" style="display: none;" alt="Input Image">
-            
-            <h5>Note: keep <span class="orangespan">contrast</span> and <span class="orangespan">saturation</span> at least on 100% or you wont see <span class="orangespan">anything.</span></h5>
+
+            <h5>Note: keep <span class="orangespan">contrast</span> and <span class="orangespan">saturation</span> at
+                least on 100% or you wont see <span class="orangespan">anything.</span></h5>
             <input placeholder="Saturation" type="number" id="sat">
             <input placeholder="Contrast" type="number" id="con">
 
@@ -123,11 +126,55 @@
             <a class="download" href="" download=""></a>
         </div>
 
+        <div class="container blurbg" style="text-align: center;">
+            <h2>Online Image Deepfrier</h2>
+            <p>The Online Image Deepfrier delibaretely makes your images low quality on your command. This was made to
+                get a laugh
+                out of people or to post to social media. Accessible from any device, you can deepfry about all image
+                formats.<br>
+
+            
+            <h3>How to Deepfry your image:</h3>
+            <ul>
+                <li style="text-align: left;">Upload your image by clicking the <b>Upload Image</b> button.</li>
+                <li style="text-align: left;">Choose the <b>saturation</b> for your image. We recommend at least
+                    <b>100%</b> contrast to see the image properly.</li>
+                <li style="text-align: left;">Choose the <b>contrast</b> for your image. We also recommend at least <b>100%</b> saturation to see the image properly.</li>
+            </ul>
+            <br>
+            <p><b>Example:</b></p>
+            <div class="exampleBox">
+
+                <style>
+                    .exampleBox {
+                        width: 90%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px;
+                    }
+
+                    .exampleImage {
+                        max-width: 40%;
+                        object-fit: contain;
+                    }
+                </style>
+
+                <img alt="Normal" class="exampleImage" src="../assets/images/dog.webp">
+                >
+                <img alt="Result" class="exampleImage" src="../assets/images/dogdeepfried.webp">
+            </div>
+            <p>*120% Saturation and 100% Contrast</p>
+            <br><b>Turn your images twice as funny with the Deepfry Tool!</b>
+            </p>
+        </div>
+
         <div class="container blurbg">
             <h3 class="at">Please turn off your adblocker :(</h3>
             <script type="text/javascript" src="/js/deployBanner.js"></script>
-          </div>
-          <div class="linfo">
+        </div>
+        <div class="linfo">
             <img alt="logo" class="linfoEmoji"
                 src="https://meminit.github.io/assets/images/assets_images_cooldude.webp">
             <h4 class="linfoTitle">Meminit</h4>
@@ -137,7 +184,7 @@
         <div class="linksRow">
             <a class="linfoText linfoHyperlink" href="mailto:alshield@gmail.com?subject=To%20MeminIt"
                 target="_blank">Contact Us</a>
-                <div class="hozSeperator"></div>
+            <div class="hozSeperator"></div>
             <a href="/privacy" class="linfoText linfoHyperlink">Privacy Policy</a>
             <div class="hozSeperator"></div>
             <a class="linfoText linfoHyperlink" href="/discord" target="_blank">Our Discord</a>

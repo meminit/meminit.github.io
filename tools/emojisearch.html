@@ -99,6 +99,10 @@
     </style>
 
     <style>
+        .innerbody {
+            flex-grow: 1;
+        }
+
         .searchBar {
             background-color: rgba(0, 0, 0, 0);
             border: none;
@@ -183,7 +187,7 @@
             gap: 10px;
             justify-content: center;
             width: 100%;
-            overflow-y: auto;
+            height: fit-content;
         }
     </style>
 </head>
@@ -214,6 +218,52 @@
             <h3 class="at">Please turn off your adblocker :(</h3>
             <script type="text/javascript" src="/js/deployBanner.js"></script>
         </div>
+
+        <div class="container blurbg">
+            <style>
+                p {
+                    margin: 0;
+                    text-align: center;
+                }
+
+                p a {
+                    text-decoration: none;
+                }
+
+                p a:hover {
+                    text-decoration: underline;
+                }
+
+                h3 {
+                    text-align: center;
+                }
+            </style>
+            <h2>Online Emoji Search</h2>
+            <p>Using the free online emoji search tool, you can find all the emojis by a search.</p>
+            <br>
+            <p>We have <b>unique</b> emoji queries and powered by our community, updating whenever somebody needs to
+                find that emoji. You can suggest queries for your emojis at the <b><a
+                        href="/suggestions">suggestions</a></b> page, our <b><a target="_blank"
+                        href="/discord">discord</a></b>, or hit an <b><a target="_blank"
+                        href="mailto:alshield@gmail.com">email</a>!</b></p>
+
+            <p class="htu" style="margin: 10px;">How do I use this?</p>
+
+            <ul style="margin: 5px;">
+                <li>Click the emoji search bar (or tap for mobile)</li>
+                <li>Type in the emoji you are looking for!</li>
+            </ul>    
+            <h3>Use the Online Emoji Search anywhere, on anything with a browser!</h3>
+
+            <h4 style="margin: 0;">How it works:</h4>
+            <p style="margin: 10px;">The <b>Online Emoji Search</b> gets the data from our site, and whenever you
+                search something, it checks through <b>all</b> of the emojis and their names and checks if it has any
+                similarities; If the emoji
+                name has a similarity, it puts it into your results. Creating an easy and unique user experience.
+            <br>This data is submitted by our community (that you can be a part of too!) to be used by anybody, anywhere!</p>
+            
+        </div>
+
         <div class="linfo">
             <img alt="logo" class="linfoEmoji"
                 src="https://meminit.github.io/assets/images/assets_images_cooldude.webp">

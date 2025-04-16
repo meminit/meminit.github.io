@@ -178,7 +178,7 @@ a {
 }
 
 .exampleImage {
-  max-width: 320px;
+  max-width: 40%;
   object-fit: contain;
 }
 
