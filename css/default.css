@@ -146,6 +146,12 @@ a {
   align-items: center;
 }
 
+.htu {
+  font-size: larger;
+  font-weight: bold;
+  margin: 5px;
+}
+
 .blindContainer {
   margin-top: 20px;
   width: 700px;
