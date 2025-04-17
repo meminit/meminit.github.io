@@ -1,76 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Memin It!</title>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="https://meminit.github.io/favicon.ico" />
+<head>
+    <title>Memin It!</title>
 
-<link rel="stylesheet" href="../css/default.css">
-<script defer src="../js/all.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://meminit.github.io/favicon.ico" />
 
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-    data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script>
+    <meta property="og:title" content="Fancy Text" />
+    <meta property="og:description"
+      content="Check out MeminIt's gif fade feature. Use this when something looks very familiar to another and compare or joke about it 🤣" />
+    <meta property="og:image" content="https://meminit.github.io/assets/images/fancytext.webp" />
+    <meta property="og:url" content="https://meminit.github.io/tools/fancytext" />
+    <meta property="og:width" content="1920" />
+    <meta property="og:height" content="1080" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="../css/default.css">
+    <script defer src="../js/all.min.js"></script>
+
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script>
 
 
 
-<style>
-    .innerbody {
-        flex-grow: 1;
-    }
+    <style>
+        .innerbody {
+            flex-grow: 1;
+        }
 
-    .container {
-        width: 90%;
+        .container {
+            width: 90%;
 
-    }
+        }
 
-    .container h1 {
-        text-align: center;
-    }
+        .container h1 {
+            text-align: center;
+        }
 
-    textarea {
-        font-size: x-large;
-        width: 50%;
-        height: 300px;
-        min-height: 100%;
-        background-color: rgba(0, 0, 0, 0);
-        color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        justify-content: start;
-        resize: vertical;
-        border-color: rgb(20, 20, 20);
-        border-width: 2px;
-        border-radius: 5px;
-        font-family: var(--font);
-        transition: border-color 0.2s ease;
-        overflow-y: auto;
-    }
+        textarea {
+            font-size: x-large;
+            width: 50%;
+            height: 300px;
+            min-height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            resize: vertical;
+            border-color: rgb(20, 20, 20);
+            border-width: 2px;
+            border-radius: 5px;
+            font-family: var(--font);
+            transition: border-color 0.2s ease;
+            overflow-y: auto;
+        }
 
-    .inputAreas {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        width: 90%;
-        justify-content: center;
-        align-items: center;
-        margin: 10px;
-    }
+        .inputAreas {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            width: 90%;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+        }
 
-    textarea:focus {
-        outline: none;
-        border-color: white;
-        border-width: 2px;
-    }
+        textarea:focus {
+            outline: none;
+            border-color: white;
+            border-width: 2px;
+        }
 
-    .md {
-        max-width: 90%;
-        width: 600px;
-    }
-</style>
+        .md {
+            max-width: 90%;
+            width: 600px;
+        }
+    </style>
 
-</html>
+</head>
 
 <body>
     <header class="mainheader">
@@ -112,15 +122,19 @@
                 You can also use this in your chats to add some personality to those messages.
                 <br>
                 <br>
-                These fancy letters use something called <b>Unicode</b>. This tool makes using those <b>Unicode</b> characters
-                to style text <b>WAY</b> easier! You can't just use a keyboard for this - you will need to use a text font generator like this one!
-                <h3>Check out the Online Fancy Letter Generator Now!</h3>
-                <br>
+                These fancy letters use something called <b>Unicode</b>. This tool makes using those <b>Unicode</b>
+                characters
+                to style text <b>WAY</b> easier! You can't just use a keyboard for this - you will need to use a text
+                font generator like this one!
+            <h3>Check out the Online Fancy Letter Generator Now!</h3>
+            <br>
 
-                <h4 style="margin: 5px;">FAQ:</h4>
-                <h5 style="margin: 0;">Some of my fancy letters are boxes?</h5>
-                <p>The <b>Unicode</b> library has over <b>120,000</b> characters, so if you can only see boxes, this means your browser does not support
-                that yet. But don't worry; <b>Unicode</b> support updates all the time. So keep on checking as the time goes by!</p>
+            <h4 style="margin: 5px;">FAQ:</h4>
+            <h5 style="margin: 0;">Some of my fancy letters are boxes?</h5>
+            <p>The <b>Unicode</b> library has over <b>120,000</b> characters, so if you can only see boxes, this means
+                your browser does not support
+                that yet. But don't worry; <b>Unicode</b> support updates all the time. So keep on checking as the time
+                goes by!</p>
             </p>
         </div>
     </div>
@@ -149,7 +163,7 @@
 
 
         document.querySelector('.mainTextInput').addEventListener('input', loadTextOutput)
-        
+
         function loadTextOutput(event) {
             document.querySelector('.mainTextOutput').value = ''
             for (const filterName in data) {
@@ -162,8 +176,8 @@
                 const finalText = filter.syntax.replace('{output}', filteredText);
                 console.log(finalText)
                 document.querySelector('.mainTextOutput').value += `${finalText}\n\n`
-           
-                
+
+
             }
         }
 
@@ -173,7 +187,7 @@
 
             const atest = ['2', 'awd', '3']
 
-            
+
 
             const splitInput = inputstring.split('')
             const splitOutput = outputstring.split('\n')
@@ -200,7 +214,7 @@
             return json
         }
 
-        
+
 
     </script>
 
@@ -213,3 +227,5 @@
 
 
 </body>
+
+</html>
