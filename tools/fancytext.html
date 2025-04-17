@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Memin It!</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="https://meminit.github.io/favicon.ico" />
+
+<link rel="stylesheet" href="../css/default.css">
+<script defer src="../js/all.min.js"></script>
+
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+    data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script>
+
+
+
+<style>
+    .innerbody {
+        flex-grow: 1;
+    }
+
+    .container {
+        width: 90%;
+
+    }
+
+    .container h1 {
+        text-align: center;
+    }
+
+    textarea {
+        font-size: x-large;
+        width: 50%;
+        height: 300px;
+        min-height: 100%;
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        resize: vertical;
+        border-color: rgb(20, 20, 20);
+        border-width: 2px;
+        border-radius: 5px;
+        font-family: var(--font);
+        transition: border-color 0.2s ease;
+        overflow-y: auto;
+    }
+
+    .inputAreas {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+    }
+
+    textarea:focus {
+        outline: none;
+        border-color: white;
+        border-width: 2px;
+    }
+
+    .md {
+        max-width: 90%;
+        width: 600px;
+    }
+</style>
+
+</html>
+
+<body>
+    <header class="mainheader">
+        <div class="titleHolder">
+            <img alt="logo" src="https://meminit.github.io/assets/images/assets_images_cooldude.webp" class="titlemoji">
+            <h1 class="sitetitle"><span class="orangespan">Memin</span> It</h1>
+        </div>
+        <div class="shortcuts">
+            <a href="/home"><i class="fa-solid fa-house href-icon"></i> <span>Home</span></a>
+            <a href="/tools"><i class="fa-solid fa-screwdriver-wrench href-icon"></i><span>Tools</span></a>
+            <a href="/suggestions"><i class="fa-regular fa-lightbulb href-icon"></i> <span>Suggestions</span> </a>
+            <a href="/about"><i class="fa-solid fa-circle-question href-icon"></i> <span>About</span></a>
+            <a href="/blog"><i class="fa-solid fa-book-open href-icon"></i> <span>Blog</span></a>
+            <a href="/discord" target="_blank"><i class="fa-brands fa-discord href-icon"></i><span>Discord</span></a>
+        </div>
+    </header>
+    <div id="particles-js"></div>
+
+    <div class="innerbody">
+        <div class="container blurbg">
+            <h1>Fancy <span class="orangespan">Letter</span> Generator</h1>
+            <div class="inputAreas">
+                <textarea class="mainTextInput" placeholder="Your normal text goes here..."></textarea>
+                <textarea class="mainTextOutput"
+                    placeholder="𝕬𝖓𝖉 𝖋𝖆𝖓𝖈𝖞 𝖙𝖊𝖝𝖙 𝖜𝖎𝖑𝖑 𝖆𝖕𝖕𝖊𝖆𝖗 𝖍𝖊𝖗𝖊"></textarea>
+            </div>
+        </div>
+
+        <style>
+            p {
+                text-align: center;
+            }
+        </style>
+
+        <div class="container blurbg md">
+            <h2>Online Fancy Letter Generator</h2>
+            <p>The fancy letter generator that you can copy & paste as many times as you want! This tool
+                is useful for people trying to add some bling to their profile on Discord, Facebook, Instagram and more!
+                You can also use this in your chats to add some personality to those messages.
+                <br>
+                <br>
+                These fancy letters use something called <b>Unicode</b>. This tool makes using those <b>Unicode</b> characters
+                to style text <b>WAY</b> easier! You can't just use a keyboard for this - you will need to use a text font generator like this one!
+                <h3>Check out the Online Fancy Letter Generator Now!</h3>
+                <br>
+
+                <h4 style="margin: 5px;">FAQ:</h4>
+                <h5 style="margin: 0;">Some of my fancy letters are boxes?</h5>
+                <p>The <b>Unicode</b> library has over <b>120,000</b> characters, so if you can only see boxes, this means your browser does not support
+                that yet. But don't worry; <b>Unicode</b> support updates all the time. So keep on checking as the time goes by!</p>
+            </p>
+        </div>
+    </div>
+
+    <script>
+
+        let data = {}
+
+        function loadData() {
+            fetch('../assets/data/textfilters.json').then(dataRes => dataRes.json()).then(json => {
+
+
+
+                console.log(json)
+
+                data = json
+
+
+            });
+
+            return
+        }
+
+        loadData()
+
+
+
+        document.querySelector('.mainTextInput').addEventListener('input', loadTextOutput)
+        
+        function loadTextOutput(event) {
+            document.querySelector('.mainTextOutput').value = ''
+            for (const filterName in data) {
+                if (event.target.value == '') return
+                const filter = data[filterName];
+                const filteredText = event.target.value.split('')
+                    .map(c => filter.filters[c] || c)  // use the correct filter map
+                    .join('');
+
+                const finalText = filter.syntax.replace('{output}', filteredText);
+                console.log(finalText)
+                document.querySelector('.mainTextOutput').value += `${finalText}\n\n`
+           
+                
+            }
+        }
+
+        function jsonify(inputstring, outputstring) {
+
+            let json = {}
+
+            const atest = ['2', 'awd', '3']
+
+            
+
+            const splitInput = inputstring.split('')
+            const splitOutput = outputstring.split('\n')
+
+
+            console.log(splitInput)
+
+            console.log(splitOutput)
+
+            json.syntax = '{output}'
+            json.filters = {}
+
+            splitInput.forEach(element => {
+                json.filters[element] = ""
+            });
+
+            splitOutput.forEach(element => {
+                console.log(splitOutput.indexOf(element))
+                console.log(splitInput[splitOutput.indexOf(element)])
+                json.filters[splitInput[splitOutput.indexOf(element)]] = element
+            });
+
+            console.log(json)
+            return json
+        }
+
+        
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', 'https://meminit.github.io/particles.json', function () {
+            console.log('particles.js loaded - callback');
+        });
+    </script>
+
+
+</body>
