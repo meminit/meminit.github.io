@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+
+    <title>Would You Rather Poster Generator</title>
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta charset="utf-8" />
+
+    <meta property="og:title" content="Would You Rather Poster Generator" />
+    <meta property="og:description" content="Generate a would you ra" />
+    <meta property="og:image" content="/assets/images/wouldyourather.webp" />
+    <meta property="og:url" content="/tools/wouldyouratherpostergenerator" />
+    <meta property="og:width" content="1920" />
+    <meta property="og:height" content="1080" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+
+
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/tools/deepfry.css">
+    <link rel="stylesheet" href="/css/tools/tools.css">
+
+    <style>
+        input {
+            color: white;
+            width: 90%;
+            object-fit: contain;
+        }
+
+        input::placeholder {
+            color: white;
+            opacity: 0.75;
+        }
+
+        button {
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border-color: white;
+            transition: all 0.2s ease;
+            width: 40%;
+            font-size: small;
+        }
+
+        button:hover {
+            border-color: white;
+        }
+
+        .downloadBtn {
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: dashed;
+            border-width: 2px;
+            border-color: pink;
+            min-height: 50px;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 20px;
+            margin-bottom: 10px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            margin: 20px;
+        }
+
+        .downloadBtn:hover {
+            border-color: white;
+        }
+
+        .lovespan {
+            color: #ff69b4;
+            font-weight: bold;
+        }
+
+        .loveResult {
+            border-radius: 5px;
+            max-width: 90%;
+            object-fit: contain;
+            border: dashed;
+            border-color: white;
+            border-width: 3px;
+        }
+
+        .options {
+            gap: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 100%;
+            font-size: xx-large;
+            text-align: center;
+        }
+
+        .options p {
+            width: 45%;
+            margin: 10px;
+        }
+
+        .options .p1 {
+            text-align: right;
+        }
+
+        .options .p2 {
+            text-align: left;
+        }
+
+        .columnContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+
+        }
+
+        .renderer {
+            background-color: #ff69b4;
+            display: flex;
+            flex-direction: column;
+            width: 1920px;
+            height: 1080px;
+            max-width: 100%;
+            max-height: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        .renderer h1 {
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        .rendererContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 90%;
+            object-fit: contain;
+            margin: 10px;
+            border: dashed;
+            border-color: white;
+            border-width: 3px;
+            border-radius: 5px;
+            aspect-ratio: 16/9;
+        }
+
+        .rendererRow {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+
+        }
+
+        .rendererRow .x {
+            margin: 0;
+            width: 20px;
+            height: 20px;
+        }
+
+        .rendererRowColumn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            height: 100%;
+        }
+
+        .profileImage {
+            width: 50%;
+            object-fit: contain;
+            border-radius: 50%;
+            aspect-ratio: 1/1;
+            border: 2px solid white;
+        }
+
+        @media (orientation: portrait) {
+            .input-container {
+                flex-direction: column;
+            }
+
+            .columnContainer {
+                width: 100%;
+            }
+
+
+        }
+
+        .lovespan2 {
+            text-align: center;
+            color: #a0386c;
+
+        }
+
+        .loveResultText {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+        }
+
+        .pfpImage {
+            width: 50%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+
+            border-radius: 50%;
+            border: 2px solid white;
+
+        }
+
+        .rendererContainer {
+            filter: blur(5px);
+            display: none;
+        }
+
+        .e {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
+    <script defer src="/js/all.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="
+      https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
+      "></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9758035810696915"
+        crossorigin="anonymous"></script>
+    <script>
+        particlesJS.load('particles-js', '/particles.json', function () {
+            console.log('particles.js loaded - callback');
+        });
+    </script>
+
+    <style>
+        .innerbody {
+            flex-grow: 1;
+        }
+
+        .downloadBtn {
+            border-color: white;
+        }
+    </style>
+
+</head>
+
+<body ng-controller="MainCtrl">
+    <header class="mainheader">
+        <div class="titleHolder">
+            <img alt="logo" src="/assets/images/assets_images_cooldude.webp" class="titlemoji">
+            <p class="sitetitle"><span class="orangespan">Memin</span> It</p>
+        </div>
+        <div class="shortcuts">
+            <a href="/home"><i class="fa-solid fa-house href-icon"></i> <span>Home</span></a>
+            <a href="/tools"><i class="fa-solid fa-screwdriver-wrench href-icon"></i><span>Tools</span></a>
+            <a href="/suggestions"><i class="fa-regular fa-lightbulb href-icon"></i> <span>Suggestions</span> </a>
+            <a href="/about"><i class="fa-solid fa-circle-question href-icon"></i> <span>About</span></a>
+            <a href="/blog"><i class="fa-solid fa-book-open href-icon"></i> <span>Blog</span></a>
+            <a href="/discord" target="_blank"><i class="fa-brands fa-discord href-icon"></i><span>Discord</span></a>
+        </div>
+    </header>
+
+    <div id="particles-js"></div>
+
+    <style>
+        select:focus-visible {
+            outline: none;
+        }
+
+        select {
+            background-color: black;
+            color: white;
+        }
+    </style>
+
+    <div class="innerbody">
+        <h1>Would You Rather Poster Generator</h1>
+
+        <div class="container">
+            <style>
+                .demoFrame {
+                    background-color: black;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    object-fit: cover;
+                    position: relative;
+
+                    background-size: cover;
+                    background-position: center center;
+                }
+
+                .demoFrame * {
+                    z-index: 5;
+
+                }
+
+
+
+                .demoFrame p:hover,
+                .demoFrame h1:hover {
+                    background-color: rgba(255, 255, 255, .25);
+                }
+
+                .or {
+                    width: fit-content;
+                }
+
+                .hoverBG {
+                    z-index: 1;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                }
+
+                .df {
+                    background-color: black;
+                    width: 90%;
+                    aspect-ratio: 16/9;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    object-fit: cover;
+                    position: relative;
+                    margin: 10px;
+                    padding: 5px;
+                }
+
+                input:hover {
+                    cursor: pointer;
+                }
+            </style>
+
+            <div class="df">
+                <div class="demoFrame"
+                    ng-style="{'background-color': bg, 'font-family': ff, 'font-size': fs, 'color': tc}"
+                    style="text-shadow: 10px 3px 5px black;">
+                    <div class="hoverBG"></div>
+                    <h1 contenteditable="true">What would you rather?</h1>
+                    <div class="options">
+                        <p class="p1" contenteditable="true" ng-style="{'font-size': fs}">Pizza</p>
+                        <p class="or" contenteditable="true" ng-style="{'font-size': fs}">
+                            OR
+                        </p>
+                        <p class="p2" contenteditable="true" ng-style="{'font-size': fs}">Tacos</p>
+                    </div>
+                </div>
+            </div>
+            <label for="hebl">Background Color</label>
+            <input id="hebl" type="color" ng-model="bg">
+            <label for="hebl">Text Color</label>
+            <input id="hebl" type="color" ng-model="tc">
+            <select title="Font" ng-model="ff">
+                <option selected="selected" value="system-ui, -apple-system, BlinkMacSystemFont, 
+                'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 
+                'Open Sans', 'Helvetica Neue', sans-serif">
+
+                    Segoe UI
+
+                </option>
+                <option value="'Courier New', Courier, monospace">
+                    Courier New
+                </option>
+                <option value="pixelated">
+                    Pixels
+                </option>
+
+            </select>
+            <select title="Font Size" ng-model="fs">
+                <option value="auto">Auto</option>
+                <option value="xx-large">XX-Large</option>
+                <option value="x-large">X-Large</option>
+                <option value="larger">Larger</option>
+                <option value="large">Large</option>
+                <option value="medium">Medium</option>
+                <option value="small">Small</option>
+                <option value="smaller">Smaller</option>
+                <option value="x-small">X-Small</option>
+                <option value="xx-small">XX-Small</option>
+            </select>
+            <button onclick="uploadImage()">Upload Image Background</button>
+            <button onclick="toggleshadow()" id="ts" on="y">Turn Text Shadow Off</button>
+            <a class="downloadBtn" onclick="render()" id="downloadBtn" style="color: white;">Download</a>
+
+            <a style="display: none;" id="realdownloadbtn" download="wouldyourather_meminit.png" href=""></a>
+
+            <input style="display: none;" id="image" onchange="displayImage()" type="file" accept="image/*">
+        </div>
+
+        <script>
+
+            function toggleshadow() {
+                if (document.querySelector('#ts').getAttribute('on') === 'y') {
+                    document.querySelector('.demoFrame').style.textShadow = '';
+                    document.querySelector('#ts').setAttribute('on', 'n')
+                    document.querySelector('#ts').textContent = `Turn Text Shadow On`
+                } else {
+                    document.querySelector('.demoFrame').style.textShadow = '10px 3px 5px black'
+                    document.querySelector('#ts').setAttribute('on', 'y')
+                    document.querySelector('#ts').textContent = `Turn Text Shadow Off`
+                }
+            }
+
+            function uploadImage() { document.querySelector('#image').click() }
+
+
+            function displayImage() {
+                const image = document.querySelector('#image').files[0]
+
+                const fileReader = new FileReader()
+
+                fileReader.readAsDataURL(image)
+
+                fileReader.addEventListener('load', () => {
+                    document.querySelector('.demoFrame').style.backgroundImage = `url(${fileReader.result})`
+                });
+            }
+
+            function render() {
+                document.querySelector('#downloadBtn').textContent = 'Loading...'
+
+                html2canvas(document.querySelector('.demoFrame')).then(canvas => {
+                    document.querySelector('#realdownloadbtn').href = canvas.toDataURL()
+                    document.querySelector('#realdownloadbtn').click()
+
+                    document.querySelector('#downloadBtn').textContent = 'Download'
+                });
+            }
+        </script>
+
+        <script async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9758035810696915"
+            crossorigin="anonymous"></script>
+        <!-- MeminIt Square Ads -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9758035810696915"
+            data-ad-slot="3295236388" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+        <div class="container blurbg">
+            <style>
+                p {
+                    text-align: center;
+                }
+            </style>
+            <h2>Free Online Would You Rather Generator</h2>
+            <p>Have you ever wanted to make a would you rather picture to post to your socials? On MeminIt you can use
+                our Online Would
+                You Rather Generator to ask your fans questions, whether it's on Facebook, Youtube, Instagram, or
+                Discord! <br>
+                This Online Would You Rather Generator is free <b>forever</b>! No need to pay, never.
+            </p>
+            <h3>How to use:</h3>
+            <p>This Would You Rather Generator is designed to be easy to use and understandable to anybody! Lets go
+                through the steps anyways.</p>
+            <ul>
+                <li>
+                    To change the text, click on it! Once you click on the text, you should be able to edit it with your
+                    keyboard/phone keyboard.
+                </li>
+                <li>
+                    To change the Background Color & Text Color, just click on the buttons that have the colors, this
+                    should bring up a menu that lets you choose the color.
+                </li>
+                <li>
+                    Want to add an image to that background? Click on the Upload Image Background button and it should
+                    prompt you
+                    with the images that you can choose.
+                </li>
+                <li>
+                    To Toggle the Text Shadow, you can click the "Turn Text Shadow Off/On" button.
+                </li>
+                <li>
+                    Once you're done with choosing all your options, click the download button!
+                </li>
+            </ul>
+            <p>
+                The Would You Rather Poster Generator allows quick creation of a simple Would You Rather Poster online.
+                You can post this to Facebook, Instagram, Youtube, Discord, Snapchat, Messenger, TikTok and many more.
+            </p>
+
+        </div>
+
+        <div class="container">
+            <h3>You might also like...</h3>
+            <div class="grid">
+                <div class="gamecard" data-l="/tools/convertgif">
+                    <img class="gameImage" alt="game" src="/assets/images/gifit.webp">
+                    <h3>GIF Converter 🔁</h3>
+                    <h5>Turn this image into a result into a GIF to favourite it 🌟</h5>
+                    <a style="display: none;" href="/tools/convertgif">c</a>
+                </div>
+                <div class="gamecard" data-l="/tools/captionit">
+                    <img class="gameImage" alt="game" src="/assets/images/meminit247.webp">
+                    <h3>Caption It</h3>
+                    <h5>Caption any image you want!</h5>
+                    <a style="display: none;" href="/tools/captionit">c</a>
+                </div>
+            </div>
+            <script src="/js/toolRedirects.js"></script>
+        </div>
+
+        <div class="container blurbg">
+            <h3 class="at">Please turn off your adblocker :(</h3>
+            <script type="text/javascript" src="/js/deployBanner.js"></script>
+        </div>
+
+        <div class="linfo">
+            <img alt="logo" class="linfoEmoji" src="/assets/images/assets_images_cooldude.webp">
+            <h4 class="linfoTitle">Meminit</h4>
+            <h5 class="linfoText">By <span class="orangespan">itsprobablyjackson</span></h5>
+
+        </div>
+
+
+
+        <div class="linksRow">
+            <a class="linfoText linfoHyperlink" href="mailto:alshield@gmail.com?subject=To%20MeminIt"
+                target="_blank">Contact Us</a>
+            <div class="hozSeperator"></div>
+            <a href="/privacy" class="linfoText linfoHyperlink">Privacy Policy</a>
+            <div class="hozSeperator"></div>
+            <a class="linfoText linfoHyperlink" href="/discord" target="_blank">Our Discord</a>
+        </div>
+    </div>
+
+
+    <script>
+        angular.module('myApp', [])
+            .controller('MainCtrl', function ($scope) {
+                $scope.bg = '#000000';
+                $scope.ff = `system-ui, -apple-system, BlinkMacSystemFont, 
+                'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 
+                'Open Sans', 'Helvetica Neue', sans-serif`;
+                $scope.fs = `auto`;
+                $scope.tc = '#ffffff'
+            });
+    </script>
+
+</body>
+
+<script>
+
+</script>
+
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .gamecard {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+
+    }
+</style>
+
+</html>

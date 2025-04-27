@@ -221,6 +221,8 @@ a {
   border-radius: 5px;
   border-color: var(--primary-color);
   margin-bottom: 20px;
+  color: white !important;
+  text-decoration: none !important;
 
 }
 

@@ -1,1 +1,0 @@
-/* deprecated and not giving credit to the money hungry ad servers (My only choice is adsense now so better put some mass effort) */
