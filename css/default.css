@@ -266,8 +266,13 @@ a {
   filter: sepia();
 }
 
+.gamecard {
+  border: dashed;
+  border-color: var(--primary-color);
+}
+
 .gamecard:hover {
-  transform: scale(1.05, 1.05);
+
   cursor: pointer;
   border-color: var(--hover-color);
 }
