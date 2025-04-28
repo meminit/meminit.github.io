@@ -1,0 +1,257 @@
+input {
+    color: white;
+    width: 90%;
+    object-fit: contain;
+}
+
+input::placeholder {
+    color: white;
+    opacity: 0.75;
+}
+
+button {
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border-color: white;
+    transition: all 0.2s ease;
+    width: 40%;
+    font-size: small;
+}
+
+button:hover {
+    border-color: white;
+}
+
+.downloadBtn {
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: dashed;
+    border-width: 2px;
+    border-color: pink;
+    min-height: 50px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    margin: 20px;
+}
+
+.downloadBtn:hover {
+    border-color: white;
+}
+
+.loveResult {
+    border-radius: 5px;
+    max-width: 90%;
+    object-fit: contain;
+    border: dashed;
+    border-color: white;
+    border-width: 3px;
+}
+
+.qinfo {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 45%;
+    font-size: xx-large;
+    text-align: center;
+    height: 100%;
+
+}
+
+.qinfo p {
+    text-align: right;
+    width: 100%;
+}
+
+.qinfo .p1 {
+    text-align: right;
+}
+
+.qinfo .p2 {
+    text-align: left;
+}
+
+.columnContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+.renderer {
+    background-color: #ff69b4;
+    display: flex;
+    flex-direction: column;
+    width: 1920px;
+    height: 1080px;
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: 16/9;
+}
+
+.renderer h1 {
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.rendererContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    object-fit: contain;
+    margin: 10px;
+    border: dashed;
+    border-color: white;
+    border-width: 3px;
+    border-radius: 5px;
+    aspect-ratio: 16/9;
+}
+
+.rendererRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.rendererRow .x {
+    margin: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.rendererRowColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+}
+
+.profileImage {
+    width: 50%;
+    object-fit: contain;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    border: 2px solid white;
+}
+
+@media (orientation: portrait) {
+    .input-container {
+        flex-direction: column;
+    }
+
+    .columnContainer {
+        width: 100%;
+    }
+
+
+}
+
+
+.pfpImage {
+    width: 55%;
+    height: 100%;
+    object-fit: cover;
+    color: black;
+    box-shadow: -40px 0px 45px 1px rgba(0,0,0,1) inset;
+    z-index: 2;
+    background-position: center center;
+    background-size: cover;
+}
+
+
+
+.rendererContainer {
+    filter: blur(5px);
+    display: none;
+}
+
+.e {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Demo Frame CSS */
+
+        .demoFrame {
+            background-color: black;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: right;
+            align-items: center;
+            object-fit: cover;
+            position: relative;
+
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .demoFrame * {
+            z-index: 5;
+
+        }
+
+
+
+        .demoFrame p:hover,
+        .demoFrame h1:hover {
+            background-color: rgba(255, 255, 255, .25);
+        }
+
+        .or {
+            width: fit-content;
+        }
+
+        .hoverBG {
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        .df {
+            background-color: black;
+            width: 90%;
+            aspect-ratio: 16/9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            object-fit: cover;
+            position: relative;
+            margin: 10px;
+            padding: 0px;
+        }
+
+        input:hover {
+            cursor: pointer;
+        }
