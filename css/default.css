@@ -17,7 +17,7 @@ body {
 
 
 :root {
-  --primary-color: rgb(20, 20, 20);
+  --primary-color: #141414;
   --secondary-color: rgb(39, 39, 39);
   --tertiary-color: rgba(0, 0, 0, 0.5);
 
