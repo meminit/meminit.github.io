@@ -1,0 +1,125 @@
+
+
+
+body {
+align-items: center;
+justify-content: start;
+}
+
+button {
+    background-color: var(--secondary-color);
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover-color) !important;
+    cursor: pointer;
+}
+
+header {
+    z-index: 10;
+}
+
+.container {
+    background-color: rgba(0,0,0,0);
+    border: none;
+}
+
+.upload {
+    background-color: var(--secondary-color);
+    border: none;
+    width: auto;
+    height: 120px;
+    width: 100%;
+    border-radius: 10px;
+    transition: all 0.2s ease-in;
+}
+
+.fa-upload {
+    width: 50%;
+    height: 25%;
+    color: gray;
+}
+
+.uploadContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputContainer input {
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 100%;
+    transition: all 0.2s ease-in;
+    color: var(--txt-color);
+}
+
+.independantTool {
+    display: flex;
+    flex-direction: row;
+    width: 99%;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.inputContainer button {
+    border: none;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    font-size: 100%;
+}
+
+.optionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+input:focus {
+    background-color: var(--button-hover-color);
+    outline: none;
+}
+
+button {
+    color: var(--txt-color);
+}
+
+.upload:hover {
+    background-color: var(--button-hover-color);
+}
+
+.output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.downloadBtn {
+    background-color: var(--secondary-color);
+    display: block;
+    border: none;
+}
+
+.downloadBtn:hover {
+    background-color: var(--button-hover-color);
+    cursor: pointer;
+}
+
+@media (max-width: 750px) {
+    .independantTool {
+        flex-direction: column;
+        width: 90%;
+    }
+}

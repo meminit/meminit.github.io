@@ -1,60 +1,39 @@
-<script src="https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.js"></script>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <script src="https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.js"></script>
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
-    
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9758035810696915"
-     crossorigin="anonymous"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9758035810696915"
+        crossorigin="anonymous"></script>
 
     <title>Memin It!</title>
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta charset="utf-8" />
 
-    <meta property="og:title" content="Caption It" />
+    <meta property="og:title" content="Emoji Search" />
     <meta property="og:description"
-        content="Caption your image or static GIF right here with 3 clicks 🤩" />
-    <meta property="og:image" content="/assets/images/captionit.webp" />
+        content="Use Memin It's Emoji Search to find that ONE emoji you wanted but never got" />
+    <meta property="og:image" content="/assets/images/emojisearch.png" />
 
     <meta property="og:width" content="1920">
     <meta property="og:height" content="1080">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="description" content="Caption your image or static GIF right here with 3 clicks 🤩">
 
-    <meta property="og:url" content="/tools/captionit" />
+    <meta property="og:url" content="/emojisearch" />
 
     <link rel="stylesheet" href="/css/default.css">
-    <link rel="stylesheet" href="/css/tools/deepfry.css">
-      <script defer src="/js/all.min.js"></script>
 
-
+    <script defer src="/js/all.min.js"></script>
 
     <style>
         .innerbody {
             flex-grow: 1;
-        }
-
-        input,
-        button,
-        .deepfryButton,
-        .uploadButton {
-            color: var(--txt-color);
-            border: solid;
-            border-width: 1px;
-            border-color: var(--txt-color);
-            background-color: rgba(0, 0, 0, 0);
-            -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
-            transition: all 0.2s ease;
-            padding: 2px;
-            text-decoration: none;
         }
 
         .downloadimg {
@@ -79,18 +58,6 @@
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
-        }
-
-        input:focus {
-
-            outline: none;
-            --clr: rgba(126, 126, 126, 0.295);
-            --shadow-height: -10px;
-
-
-            -webkit-box-shadow: 0px var(--shadow-height) 0px -4px var(--clr) inset;
-            -moz-box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
-            box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
         }
 
 
@@ -122,7 +89,6 @@
         .modifiedImage {
             max-width: 90%;
             object-fit: contain;
-            display: none;
         }
 
         .img2cap {
@@ -130,13 +96,15 @@
             object-fit: contain;
         }
     </style>
+
+
 </head>
 
 <body>
     <header class="mainheader">
         <div class="titleHolder">
             <img alt="logo" src="/assets/images/assets_images_cooldude.webp" class="titlemoji">
-            <h1 class="sitetitle"><span class="orangespan">Memin</span> It</h1>
+            <p class="sitetitle"><span class="orangespan">Memin</span> It</p>
         </div>
         <div class="shortcuts">
             <a href="/home"><i class="fa-solid fa-house href-icon"></i> <span>Home</span></a>
@@ -150,73 +118,82 @@
 
     <div id="particles-js"></div>
 
-    <div class="innerbody">
-        <h1>Image <span class="orangespan">captioner</span></h1>
+    <h1>Image <span class="orangespan">captioner</span></h1>
 
-        <div class="container">
-            <h2><span class="orangespan">Caption</span> an Image</h2>
-            <input title="Quality Image" type="file" id="upload" accept="image/*" class="uploadImage imagequery "
-                style="display: none;" />
-            <button title="Upload" class="uploadButton uploadimg">Upload
-                Image</button>
-            <img class="inputImage uploadedimg" id="inputImage" style="display: none;" alt="Input Image">
-            <input type="text" placeholder="Caption" class="captionInput">
-            <button class="deepfryButton turntogifbutton uploadButton" id="turntogifbutton">Caption It</button>
-            <div class="modifiedImage">
-                <div class="captionHolder">
-                    <h1 class="caption">Default Caption</h1>
-                </div>
-                <img src="/assets/images/deepfry.png" class="img2cap" alt="Input Image">
+    <div class="independantTool">
+
+        <input title="Quality Image" type="file" id="upload" accept="image/*" class="uploadImage imagequery"
+            style="display: none;" />
+
+        <div class="inputContainer">
+            <div class="uploadContainer">
+                <button title="Upload Image" class="uploadButton uploadimg upload"><i class="fa fa-upload"
+                        aria-hidden="true"></i></button>
             </div>
-            <button class="downloadimg" onclick="download()">Download</button>
-        </div>
-
-        <div class="container blurbg" style="text-align: center;">
-            <style>
-                .htu {
-                    font-size: larger;
-                    font-weight: bold;
-                    margin: 5px;
-                }
-            </style>
-            <h2>Free Online Image Captioner</h2>
-            <p>Have you ever wanted to make your meme funnier? Enrich your meme? This will please those needs.</p>
-            <p>The Online Image Captioner captions your images quickly and efficiently. This tool can caption about all image types and
-                add some flavour to your meme!<br>
-            <p class="htu">How to caption your image:</p>
-            <ul>
-                <li>Upload your image by clicking the <b>Upload Image</b> button.</li>
-                <li>Type in your caption in the <b>Caption</b> textbox.</li>
-                <li>Click the <b>Caption It</b> button.</li>
-                <li>If <b>all this works</b>, you should see the captioned image, and the download button! You can download the image by clicking the button.</li>
-            </ul>
-            <br><br><b>Try it now to add some tang into your memes!</b>
-            </p>
-        </div>
-        <div class="container blurbg">
-            <h3 class="at">Please turn off your adblocker :(</h3>
-            <script type="text/javascript" src="/js/deployBanner.js"></script>
-          </div>
-
-          
-
-          <div class="linfo">
-            <img alt="logo" class="linfoEmoji"
-                src="/assets/images/assets_images_cooldude.webp">
-            <h4 class="linfoTitle">Meminit</h4>
-            <h5 class="linfoText">By <span class="orangespan">itsprobablyjackson</span></h5>
+            <div class="optionsContainer">
+                <input type="text" placeholder="Caption" class="captionInput">
+                <button class="deepfryButton turntogifbutton uploadButton" id="turntogifbutton">Caption It</button>
+            </div>
 
         </div>
-        <div class="linksRow">
-            <a class="linfoText linfoHyperlink" href="mailto:alshield@gmail.com?subject=To%20MeminIt"
-                target="_blank">Contact Us</a>
-                <div class="hozSeperator"></div>
-            <a href="/privacy" class="linfoText linfoHyperlink">Privacy Policy</a>
-            <div class="hozSeperator"></div>
-            <a class="linfoText linfoHyperlink" href="/discord" target="_blank">Our Discord</a>
+
+        <div class="output">
+
+            <div class="modifiedImage" aria-hidden="true">
+                <div class="captionHolder">
+                    <h1 class="caption">Try It Now!</h1>
+                </div>
+                <img src="/assets/images/smartdude.webp" class="img2cap" alt="Input Image">
+            </div>
+            <button class="downloadimg downloadBtn" onclick="download()">Download</button>
         </div>
+
 
     </div>
+
+    <div class="container blurbg" style="text-align: center;">
+        <style>
+            .htu {
+                font-size: larger;
+                font-weight: bold;
+                margin: 5px;
+            }
+        </style>
+        <h2>Free Online Image Captioner</h2>
+        <p>Have you ever wanted to make your meme funnier? Enrich your meme? This will please those needs.</p>
+        <p>The Online Image Captioner captions your images quickly and efficiently. This tool can caption about all
+            image types and
+            add some flavour to your meme!<br>
+        <p class="htu">How to caption your image:</p>
+        <ul>
+            <li>Upload your image by clicking the <b>Upload Image</b> button.</li>
+            <li>Type in your caption in the <b>Caption</b> textbox.</li>
+            <li>Click the <b>Caption It</b> button.</li>
+            <li>If <b>all this works</b>, you should see the captioned image, and the download button! You can
+                download the image by clicking the button.</li>
+        </ul>
+        <br><br><b>Try it now to add some tang into your memes!</b>
+        </p>
+    </div>
+
+
+
+    <div class="linfo">
+        <img alt="logo" class="linfoEmoji" src="/assets/images/assets_images_cooldude.webp">
+        <h4 class="linfoTitle">Meminit</h4>
+        <h5 class="linfoText">By <span class="orangespan">itsprobablyjackson</span></h5>
+
+    </div>
+    <div class="linksRow">
+        <a class="linfoText linfoHyperlink" href="mailto:alshield@gmail.com?subject=To%20MeminIt"
+            target="_blank">Contact Us</a>
+        <div class="hozSeperator"></div>
+        <a href="/privacy" class="linfoText linfoHyperlink">Privacy Policy</a>
+        <div class="hozSeperator"></div>
+        <a class="linfoText linfoHyperlink" href="/discord" target="_blank">Our Discord</a>
+    </div>
+
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
@@ -262,7 +239,6 @@
 
             reader.onload = (e) => {
                 console.log("Reader Loaded.");
-                uploadedIMG.src = e.target.result;
                 document.querySelector('.img2cap').src = e.target.result
                 uploadedIMG.style.display = "block";
             };
@@ -302,5 +278,7 @@
 
     <script src="/js/toolsJS/gifWorker.js"></script>
 </body>
+
+<link rel="stylesheet" href="/css/test.css">
 
 </html>
