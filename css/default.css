@@ -80,6 +80,17 @@ body {
   color: var(--txt-color);
 }
 
+.nice-banner {
+  width: 700px;
+  max-width: 90%;
+  background-color: var(--tertiary-color);
+  border-radius: 5px;
+  border: solid;
+  border-width: 1px;
+  margin: 10px;
+  border-color: rgba(71, 71, 71, 0.534);
+}
+
 .titlemoji {
   max-width: 80%;
   max-height: 80%;
