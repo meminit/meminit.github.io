@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+/* document.addEventListener("DOMContentLoaded", () => {
     const containers = document.querySelectorAll('.container');
     const insertedBefore = new Set();
     const insertedAfter = new Set();
@@ -46,4 +46,4 @@ document.addEventListener("DOMContentLoaded", () => {
       banner.innerHTML = text;
       return banner;
     }
-  });
+  }); */
