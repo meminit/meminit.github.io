@@ -18,7 +18,7 @@ body {
 
 :root {
   --primary-color: #141414;
-  --secondary-color: rgb(39, 39, 39);
+  --secondary-color: #272727;
   --tertiary-color: rgba(0, 0, 0, 0.5);
 
   --hover-color: white;
