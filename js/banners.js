@@ -1,3 +1,12 @@
+console.log('serviceWorker' in navigator)
+
+if ('serviceWorker' in navigator) {
+     navigator.serviceWorker.register('/service-worker.js')
+       .then(() => console.log('Service Worker registered'))
+       .catch(err => console.error('SW registration failed:', err));
+   }
+   
+
 /* document.addEventListener("DOMContentLoaded", () => {
     const containers = document.querySelectorAll('.container');
     const insertedBefore = new Set();
