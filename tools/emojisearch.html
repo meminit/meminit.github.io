@@ -216,12 +216,8 @@
         <h1><span class="orangespan">Emoji</span> search</h1>
         <input class="searchBar" placeholder="Search for emoji...">
         <div class="emojiGrid"></div>
-        <div class="container blurbg">
-            <h3 class="at">Please turn off your adblocker :(</h3>
-            <script type="text/javascript" src="/js/deployBanner.js"></script>
-        </div>
 
-        <div class="container blurbg">
+        <div class="container blurbg md">
             <style>
                 p {
                     margin: 0;
@@ -330,7 +326,6 @@
 
                 emojiHolder.className = "emojiHolder";
 
-                // I REALLY don't care that I do it via innerHTML I jst cbf to make 2 more elements (Im lazy 😔)
                 emojiHolder.innerHTML += `
      <p class="emoji">${emoji}</p>
      <button class="copyEmoji" data-e="${emoji}" onclick="navigator.clipboard.writeText('${emoji}'); alert('Copied Emoji!')">Copy</button>

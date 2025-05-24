@@ -156,9 +156,15 @@ a {
 
 }
 
+.md {
+  max-width: 100%;
+  width: 600px;
+}
+
 .container {
   margin-top: 20px;
-  width: 700px;
+  min-width: 700px;
+  max-width: 100%;
   border-radius: 5px;
   border: solid;
   border-width: 1px;
@@ -456,4 +462,20 @@ a {
     flex-direction: row;
     align-items: center;
     
+  }
+
+  .mainFooter {
+    background-color: var(--tertiary-color);
+    height: 90px;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mainFooter a {
+    color: white;
   }

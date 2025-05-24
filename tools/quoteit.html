@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Font Families -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .nunito-sans {
+            font-family: "Nunito Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: normal;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100,
+                "YTLC" 500;
+        }
+    </style>
+    <!-- End of font families -->
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "5c2bff58f4d947fbbcf28b588c074de6"}'></script><!-- End Cloudflare Web Analytics -->
+
+    <script src="https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9758035810696915"
+        crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <script defer src="/js/banners.js"></script>
+
+    <title>Quote It | MeminIt</title>
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta charset="utf-8" />
+
+    <meta property="og:title" content="Quote It" />
+    <meta property="og:description" content="The Online Quote It Tool is a free online tool that you can use to create beautiful 
+    quotes of discord messages, ancient quotes, anything you can imagine!" />
+    <meta property="og:image" content="/assets/images/quoteit.webp" />
+
+    <meta property="og:width" content="1920">
+    <meta property="og:height" content="1080">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="The Online Quote It Tool is a free online tool that you can use to create beautiful 
+    quotes of discord messages, ancient quotes, anything you can imagine!">
+
+    <meta property="og:url" content="/tools/quoteit" />
+
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/simple.css">
+    <link rel="stylesheet" href="/css/tools/default.css">
+    <link rel="stylesheet" href="/css/tools/quoteit.css">
+    <script defer src="/js/all.min.js"></script>
+
+</head>
+
+<body ng-app=""
+    ng-init="username='quotemaker'; displayname='Quote Maker'; quote='Make a quote!'; profilepicture='/assets/images/confusedDude.png';">
+    <header class="mainheader">
+        <div class="titleHolder">
+            <img alt="logo" src="/assets/images/assets_images_cooldude.webp" class="titlemoji">
+            <p class="sitetitle"><span class="orangespan">Memin</span> It</p>
+        </div>
+        <div class="shortcuts">
+            <a href="/home"><i class="fa-solid fa-house href-icon"></i> <span>Home</span></a>
+            <a href="/tools"><i class="fa-solid fa-screwdriver-wrench href-icon"></i><span>Tools</span></a>
+            <a href="/suggestions"><i class="fa-regular fa-lightbulb href-icon"></i> <span>Suggestions</span> </a>
+            <a href="/about"><i class="fa-solid fa-circle-question href-icon"></i> <span>About</span></a>
+            <a href="/blog"><i class="fa-solid fa-book-open href-icon"></i> <span>Blog</span></a>
+            <a href="/discord" target="_blank"><i class="fa-brands fa-discord href-icon"></i><span>Discord</span></a>
+        </div>
+    </header>
+
+    <div class="blind">
+        <h1><span class="orangespan">Quote</span> It</h1>
+        <p style="margin: 0; font-size: smaller;">Create a quoted message with style ✨</p>
+    </div>
+
+    <div class="container">
+        <div class="innerContainer row-center">
+            <div class="inputHolder">
+                <label>Photo / PFP</label>
+                <input id="pfp" style="display: none;" type="file" accept="image/*" onchange="changePicture()">
+                <button title="Upload Image" class="defaultInput" onclick="document.getElementById('pfp').click()">
+                    <i class="fa-solid fa-upload"></i>
+                </button>
+                <label>Username</label>
+                <input type="text" placeholder="Username" class="defaultInput text" id="username" ng-model="username">
+                <label>Display Name</label>
+                <input type="text" placeholder="Display Name" class="defaultInput text" id="displayname"
+                    ng-model="displayname">
+                <label>Quote</label>
+                <textarea placeholder="Quote... e.g I like cheese" class="defaultInput" ng-model="quote"></textarea>
+
+                <input type="text" style="display: none;" ng-model="profilepicture" id="pfpurl">
+            </div>
+            <div class="previewHolder">
+                <div class="previewFrame" aria-hidden="true">
+                    <img alt="Profile Picture" src="{{profilepicture}}" class="exportPFP ng-binding profilepicture"
+                        style="filter:grayscale();">
+                    <img alt="gradient" src="/assets/images/gradient.png" class="gradient">
+                    <div class="textContent">
+                        <p class="nunito-sans quote">{{quote}}</p>
+                        <p class="nunito-sans displayname"><span style="font-style: italic;">- {{displayname}}</span>
+                        </p>
+                        <p class="nunito-sans username">@{{username}}</p>
+                        <p class="nunito-sans watermark">meminit.github.io</p>
+                    </div>
+                </div>
+                <button class="defaultInput" title="Download" style="margin-top: 10px; width:100%;"
+                    onclick="snapshotElement('.previewFrame')">
+                    <i class="fa-solid fa-download"></i>
+                    Download
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container md" style="text-align: center;">
+        <h1>Online Quote It Tool</h1>
+        <p>The <b>Online Quote It Tool</b> is a free online tool that you can use to create beautiful
+            quotes of discord messages, ancient quotes, anything you can imagine!
+        </p>
+
+        <p>
+            Post a quote to your social medias like Youtube, Instagram, Snapchat, Tiktok, Facebook and more!
+        </p>
+
+        <h2 style="margin: 0;">How To Use:</h2>
+        <p>You might be asking, how do I use the Quote It Tool? Great question, we have instructions
+            for the simple tool right here for you in a simple step-by-step tutorial to read!</p>
+
+        <ul>
+            <li>
+                Upload a Profile Picture / Picture of Speaker by clicking the upload button.
+            </li>
+            <li>
+                Enter their username in the username box.
+            </li>
+            <li>
+                Enter their display name in the display name box.
+            </li>
+            <li>
+                Enter the quote you want it to show
+            </li>
+            <li>
+                Download, and all done!
+            </li>
+        </ul>
+    </div>
+
+    <footer class="mainFooter">
+        <img class="titlemoji" alt="MeminIt Logo/Mascot" src="/assets/images/assets_images_cooldude.webp">
+        <p>
+            <b>MeminIt</b>
+            <br>
+            by <span class="orangespan">itsprobablyjackson</span>
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+        <a class="linfoHyperlink" href="mailto:alshield@gmail.com?subject=To%20MeminIt"
+            target="_blank">Contact Us</a>
+        <a href="/privacy" class="linfoHyperlink">Privacy Policy</a>
+        <a class="linfoHyperlink" href="/discord" target="_blank">Our Discord</a>
+    </div>
+    </footer>
+
+    <script>
+        function snapshotElement(selector) {
+            const element = document.querySelector(selector);
+            const loadingScreen = document.querySelector('.loadingFrame')
+
+            const originalDisplay = element.style.display;
+
+            loadingScreen.style.display = 'flex';
+            element.style.display = 'flex';
+
+
+            html2canvas(element, {
+                useCORS: true,
+                backgroundColor: 'black'
+            }).then(canvas => {
+                // Create a new canvas to apply the grayscale filter
+                const grayscaleCanvas = document.createElement('canvas');
+                const ctx = grayscaleCanvas.getContext('2d');
+
+                grayscaleCanvas.width = canvas.width;
+                grayscaleCanvas.height = canvas.height;
+
+                // Draw the original canvas onto the new canvas
+                ctx.filter = 'grayscale(100%)';
+                ctx.drawImage(canvas, 0, 0);
+
+                // Export the grayscale canvas
+                const link = document.createElement('a');
+                link.download = 'snapshot.png';
+                link.href = grayscaleCanvas.toDataURL('image/png');
+                link.click();
+
+                element.style.display = originalDisplay;
+                loadingScreen.style.display = 'none';
+            }).catch(error => {
+                console.error('Error capturing the element:', error);
+
+                loadingScreen.style.display = 'none';
+                element.style.display = originalDisplay;
+            });
+        }
+
+        function changePicture() {
+            const rawFile = document.querySelector('#pfp').files[0];
+            const reader = new FileReader();
+
+            reader.readAsDataURL(rawFile);
+
+            reader.onload = () => {
+                const scope = angular.element(document.getElementById('pfpurl')).scope();
+                scope.$apply(() => {
+                    scope.profilepicture = reader.result;
+                });
+            };
+        }
+    </script>
+
+    <div class="loadingFrame">
+        <span class="loader"></span>
+        <p>Rendering...</p>
+    </div>
+
+    <!-- <div class="exportFrame" style="display: none;" aria-hidden="true">
+    <img alt="Profile Picture" src="{{profilepicture}}" class="exportPFP ng-binding profilepicture" style="filter:grayscale();">
+    <img alt="gradient" src="/assets/images/gradient.png" class="gradient">
+    <div class="textContent">
+        <p class="nunito-sans quote">{{quote}}</p>
+        <p class="nunito-sans displayname"><span style="font-style: italic;">- {{displayname}}</span></p>
+        <p class="nunito-sans username">@{{username}}</p>
+        <p class="nunito-sans watermark">meminit.github.io</p>
+    </div>
+</div> -->
+
+</body>
+
+</html>
