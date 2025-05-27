@@ -188,18 +188,17 @@
                 useCORS: true,
                 backgroundColor: 'black'
             }).then(canvas => {
-                // Create a new canvas to apply the grayscale filter
+
                 const grayscaleCanvas = document.createElement('canvas');
                 const ctx = grayscaleCanvas.getContext('2d');
 
                 grayscaleCanvas.width = canvas.width;
                 grayscaleCanvas.height = canvas.height;
 
-                // Draw the original canvas onto the new canvas
+
                 ctx.filter = 'grayscale(100%)';
                 ctx.drawImage(canvas, 0, 0);
 
-                // Export the grayscale canvas
                 const link = document.createElement('a');
                 link.download = 'snapshot.png';
                 link.href = grayscaleCanvas.toDataURL('image/png');
