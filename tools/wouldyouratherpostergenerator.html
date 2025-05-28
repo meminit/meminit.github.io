@@ -22,73 +22,9 @@
 
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/tools/deepfry.css">
-    <link rel="stylesheet" href="/css/tools/tools.css">
+    <link rel="stylesheet" href="/css/tools/default.css">
 
     <style>
-        input {
-            color: white;
-            width: 90%;
-            object-fit: contain;
-        }
-
-        input::placeholder {
-            color: white;
-            opacity: 0.75;
-        }
-
-        button {
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            border-color: white;
-            transition: all 0.2s ease;
-            width: 40%;
-            font-size: small;
-        }
-
-        button:hover {
-            border-color: white;
-        }
-
-        .downloadBtn {
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            border: dashed;
-            border-width: 2px;
-            border-color: pink;
-            min-height: 50px;
-            width: 40%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 20px;
-            margin-bottom: 10px;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            margin: 20px;
-        }
-
-        .downloadBtn:hover {
-            border-color: white;
-        }
-
-        .lovespan {
-            color: #ff69b4;
-            font-weight: bold;
-        }
-
-        .loveResult {
-            border-radius: 5px;
-            max-width: 90%;
-            object-fit: contain;
-            border: dashed;
-            border-color: white;
-            border-width: 3px;
-        }
 
         .options {
             gap: 10px;
@@ -255,10 +191,6 @@
         .innerbody {
             flex-grow: 1;
         }
-
-        .downloadBtn {
-            border-color: white;
-        }
     </style>
 
 </head>
@@ -295,7 +227,20 @@
 
         <h1>Would You Rather Poster Generator</h1>
 
-        <div class="container">
+        <style>
+            .rowcontainer {
+                flex-direction: row;
+            }
+
+            @media (orientation: portrait) {
+                .rowcontainer {
+                    flex-direction: column;
+                    justify-content: center;
+                }
+            }
+        </style>
+
+        <div class="container rowcontainer">
             <style>
                 .demoFrame {
                     background-color: black;
@@ -354,26 +299,15 @@
                 }
             </style>
 
-            <div class="df">
-                <div class="demoFrame"
-                    ng-style="{'background-color': bg, 'font-family': ff, 'font-size': fs, 'color': tc}"
-                    style="text-shadow: 10px 3px 5px black;">
-                    <div class="hoverBG"></div>
-                    <h1 contenteditable="true">What would you rather?</h1>
-                    <div class="options">
-                        <p class="p1" contenteditable="true" ng-style="{'font-size': fs}">Pizza</p>
-                        <p class="or" contenteditable="true" ng-style="{'font-size': fs}">
-                            OR
-                        </p>
-                        <p class="p2" contenteditable="true" ng-style="{'font-size': fs}">Tacos</p>
-                    </div>
-                </div>
-            </div>
+            <div class="inputHolder">
+            <label>Image Background</label>
+            <button onclick="uploadImage()" class="defaultInput"><i class="fa-solid fa-upload"></i></button>
             <label for="hebl">Background Color</label>
-            <input id="hebl" type="color" ng-model="bg">
+            <input id="hebl" class="defaultInput" type="color" ng-model="bg">
             <label for="hebl">Text Color</label>
-            <input id="hebl" type="color" ng-model="tc">
-            <select title="Font" ng-model="ff">
+            <input id="hebl" type="color" class="defaultInput" ng-model="tc">
+            <label>Font Family</label>
+            <select class="defaultInput" title="Font" ng-model="ff">
                 <option selected="selected" value="system-ui, -apple-system, BlinkMacSystemFont, 
                 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 
                 'Open Sans', 'Helvetica Neue', sans-serif">
@@ -389,7 +323,8 @@
                 </option>
 
             </select>
-            <select title="Font Size" ng-model="fs">
+            <label>Font Size</label>
+            <select title="Font Size" class="defaultInput" ng-model="fs">
                 <option value="auto">Auto</option>
                 <option value="xx-large">XX-Large</option>
                 <option value="x-large">X-Large</option>
@@ -401,9 +336,29 @@
                 <option value="x-small">X-Small</option>
                 <option value="xx-small">XX-Small</option>
             </select>
-            <button onclick="uploadImage()">Upload Image Background</button>
-            <button onclick="toggleshadow()" id="ts" on="y">Turn Text Shadow Off</button>
-            <a class="downloadBtn" onclick="render()" id="downloadBtn" style="color: white;">Download</a>
+            <button onclick="toggleshadow()" id="ts" class="defaultInput" on="y">Turn Text Shadow Off</button>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 10px;">
+            <div class="df" style="width: 100%;">
+                <div class="demoFrame"
+                    ng-style="{'background-color': bg, 'font-family': ff, 'font-size': fs, 'color': tc}"
+                    style="text-shadow: 10px 3px 5px black;">
+                    <div class="hoverBG"></div>
+                    <h1 contenteditable="true">What would you rather?</h1>
+                    <div class="options">
+                        <p class="p1" contenteditable="true" ng-style="{'font-size': fs}">Pizza</p>
+                        <p class="or" contenteditable="true" ng-style="{'font-size': fs}">
+                            OR
+                        </p>
+                        <p class="p2" contenteditable="true" ng-style="{'font-size': fs}">Tacos</p>
+                    </div>
+                </div>
+            </div>
+            <button class="defaultInput" onclick="render()" id="downloadBtn" style="color: grey; width: 100% !important; display: flex; flex-direction: row; justify-content: center; align-items: center;"><i class="fa-solid fa-download"></i></button>
+            </div>
+
+
 
             <a style="display: none;" id="realdownloadbtn" download="wouldyourather_meminit.png" href=""></a>
 
@@ -440,13 +395,15 @@
             }
 
             function render() {
-                document.querySelector('#downloadBtn').textContent = 'Loading...'
+                // document.querySelector('#downloadBtn').textContent = 'Loading...'
+                                  document.querySelector('.loadingFrame').style.display = 'flex'
 
                 html2canvas(document.querySelector('.demoFrame')).then(canvas => {
                     document.querySelector('#realdownloadbtn').href = canvas.toDataURL()
                     document.querySelector('#realdownloadbtn').click()
 
-                    document.querySelector('#downloadBtn').textContent = 'Download'
+                  //  document.querySelector('#downloadBtn').textContent = 'Download'
+                  document.querySelector('.loadingFrame').style.display = 'none'
                 });
             }
         </script>
@@ -524,10 +481,11 @@
             <script src="/js/toolRedirects.js"></script>
         </div>
 
-        <div class="container blurbg">
-            <h3 class="at">Please turn off your adblocker :(</h3>
-            <script type="text/javascript" src="/js/deployBanner.js"></script>
-        </div>
+        
+    <div class="loadingFrame">
+        <span class="loader"></span>
+        <p>Rendering...</p>
+    </div>
 
         <div class="linfo">
             <img alt="logo" class="linfoEmoji" src="/assets/images/assets_images_cooldude.webp">
