@@ -36,35 +36,33 @@
 
     <script defer src="/js/banners.js"></script>
 
-    <title>Quote It | MeminIt</title>
+    <title>Caption It | MeminIt</title>
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta charset="utf-8" />
 
-    <meta property="og:title" content="Quote It" />
-    <meta property="og:description" content="The Online Quote It Tool is a free online tool that you can use to create beautiful 
-    quotes of discord messages, ancient quotes, anything you can imagine!" />
-    <meta property="og:image" content="/assets/images/quoteit.webp" />
+    <meta property="og:title" content="Caption It" />
+    <meta property="og:description"
+        content="Caption your image or static GIF right here with 3 clicks 🤩" />
+    <meta property="og:image" content="/assets/images/captionit.webp" />
 
     <meta property="og:width" content="1920">
     <meta property="og:height" content="1080">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="description" content="The Online Quote It Tool is a free online tool that you can use to create beautiful 
-    quotes of discord messages, ancient quotes, anything you can imagine!">
+    <meta name="description" content="Caption your image or static GIF right here with 3 clicks 🤩">
 
-    <meta property="og:url" content="/tools/quoteit" />
+    <meta property="og:url" content="https://meminit.github.io/tools/captionit">
 
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/simple.css">
     <link rel="stylesheet" href="/css/tools/default.css">
-    <link rel="stylesheet" href="/css/tools/quoteit.css">
+    <link rel="stylesheet" href="/css/tools/captionit.css">
     <script defer src="/js/all.min.js"></script>
-
 
 </head>
 
 <body ng-app=""
-    ng-init="username='quotemaker'; displayname='Quote Maker'; quote='Make a quote!'; profilepicture='/assets/images/confusedDude.png';">
+    ng-init="caption='Your Image Caption'; picture='/assets/images/dog.webp'; textcolor='black'; font='var(--font)'">
     <header class="mainheader">
         <div class="titleHolder">
             <img alt="logo" src="/assets/images/assets_images_cooldude.webp" class="titlemoji">
@@ -81,40 +79,30 @@
     </header>
 
     <div class="blind">
-        <h1><span class="orangespan">Quote</span> It</h1>
-        <p style="margin: 0; font-size: smaller;">Create a quoted message with style ✨</p>
+        <h1><span class="orangespan">Caption</span> It</h1>
+        <p style="margin: 0; font-size: smaller;">Caption any image you want 😎</p>
     </div>
 
     <div class="container">
         <div class="innerContainer row-center">
             <div class="inputHolder">
-                <label>Photo / PFP</label>
-                <input id="pfp" style="display: none;" type="file" accept="image/*" onchange="changePicture()">
-                <button title="Upload Image" class="defaultInput" onclick="document.getElementById('pfp').click()">
+                <label>Photo</label>
+                <input id="picture" style="display: none;" type="file" accept="image/*" onchange="changePicture()">
+                <button title="Upload Image" class="defaultInput" onclick="document.getElementById('picture').click()">
                     <i class="fa-solid fa-upload"></i>
                 </button>
-                <label>Username</label>
-                <input type="text" placeholder="Username" class="defaultInput text" id="username" ng-model="username">
-                <label>Display Name</label>
-                <input type="text" placeholder="Display Name" class="defaultInput text" id="displayname"
-                    ng-model="displayname">
-                <label>Quote</label>
-                <textarea placeholder="Quote... e.g I like cheese" class="defaultInput" ng-model="quote"></textarea>
-
-                <input type="text" style="display: none;" ng-model="profilepicture" id="pfpurl">
+                <label>Caption</label>
+                <input type="text" placeholder="Username" class="defaultInput text" id="username" ng-model="caption">
+                <label>Font</label>
+                <select title="Font Family" class="defaultInput" ng-model="font">
+                    <option value="var(--font)">Default</option>
+                </select>
+                <!--  <label>Align</label> -->
             </div>
             <div class="previewHolder">
                 <div class="previewFrame" aria-hidden="true">
-                    <img alt="Profile Picture" src="{{profilepicture}}" class="exportPFP ng-binding profilepicture"
-                        style="filter:grayscale();">
-                    <img alt="gradient" src="/assets/images/gradient.png" class="gradient">
-                    <div class="textContent">
-                        <p class="nunito-sans quote">{{quote}}</p>
-                        <p class="nunito-sans displayname"><span style="font-style: italic;">- {{displayname}}</span>
-                        </p>
-                        <p class="nunito-sans username">@{{username}}</p>
-                        <p class="nunito-sans watermark">meminit.github.io</p>
-                    </div>
+                    <p ng-style="{'color': textcolor, 'font-family': font, 'font-size': 'xx-large', 'font-weight': '700', 'margin': '5px 0', 'text-align': 'center'}">{{caption}}</p>
+                    <img id="captionedpicture" alt="" src="{{picture}}">
                 </div>
                 <button class="defaultInput" title="Download" style="margin-top: 10px; width:100%;"
                     onclick="snapshotElement('.previewFrame')">
@@ -125,37 +113,27 @@
         </div>
     </div>
 
-    <div class="container md" style="text-align: center;">
-        <h1>Online Quote It Tool</h1>
-        <p>The <b>Online Quote It Tool</b> is a free online tool that you can use to create beautiful
-            quotes of discord messages, ancient quotes, anything you can imagine!
-        </p>
-
-        <p>
-            Post a quote to your social medias like Youtube, Instagram, Snapchat, Tiktok, Facebook and more!
-        </p>
-
-        <h2 style="margin: 0;">How To Use:</h2>
-        <p>You might be asking, how do I use the Quote It Tool? Great question, we have instructions
-            for the simple tool right here for you in a simple step-by-step tutorial to read!</p>
-
+    <div class="container blurbg md" style="text-align: center;">
+        <style>
+            .htu {
+                font-size: larger;
+                font-weight: bold;
+                margin: 5px;
+            }
+        </style>
+        <h2>Free Online Image Captioner</h2>
+        <p>Have you ever wanted to make your meme funnier? Enrich your meme? This will please those needs.</p>
+        <p>The Online Image Captioner captions your images quickly and efficiently. This tool can caption about all image types and
+            add some flavour to your meme!<br>
+        <p class="htu">How to caption your image:</p>
         <ul>
-            <li>
-                Upload a Profile Picture / Picture of Speaker by clicking the upload button.
-            </li>
-            <li>
-                Enter their username in the username box.
-            </li>
-            <li>
-                Enter their display name in the display name box.
-            </li>
-            <li>
-                Enter the quote you want it to show
-            </li>
-            <li>
-                Download, and all done!
-            </li>
+            <li>Upload your image by clicking the <b>Upload Image</b> button.</li>
+            <li>Type in your caption in the <b>Caption</b> textbox.</li>
+            <li>Click the <b>Caption It</b> button.</li>
+            <li>If <b>all this works</b>, you should see the captioned image, and the download button! You can download the image by clicking the button.</li>
         </ul>
+        <br><br><b>Try it now to add some tang into your memes!</b>
+        </p>
     </div>
 
     <footer class="mainFooter">
@@ -167,40 +145,12 @@
         </p>
 
         <div style="display: flex; flex-direction: column; gap: 2px;">
-            <a class="linfoHyperlink" href="mailto:alshield@gmail.com?subject=To%20MeminIt" target="_blank">Contact
-                Us</a>
-            <a href="/privacy" class="linfoHyperlink">Privacy Policy</a>
-            <a class="linfoHyperlink" href="/discord" target="_blank">Our Discord</a>
-        </div>
+        <a class="linfoHyperlink" href="mailto:alshield@gmail.com?subject=To%20MeminIt"
+            target="_blank">Contact Us</a>
+        <a href="/privacy" class="linfoHyperlink">Privacy Policy</a>
+        <a class="linfoHyperlink" href="/discord" target="_blank">Our Discord</a>
+    </div>
     </footer>
-
-
-    <script>
-
-        (function setParamsToScope() {
-            const params = new URLSearchParams(window.location.search);
-                console.log(params)
-                if (params.size==0) return;
-            setTimeout(() => {
-                document.querySelector('.loadingFrame').style.display = 'flex'
-                const scope = angular.element(document.body).scope();
-                if (!scope) {
-                    console.error('AngularJS scope is not initialized. Ensure AngularJS is properly loaded and initialized.');
-                    setParamsToScope()
-                    return;
-                }
-
-                params.forEach((value, key) => {
-                    scope.$apply(() => {
-                        scope[key] = value;
-                    });
-                    document.querySelector('.loadingFrame').style.display = 'none'
-                });
-            }, 500);
-
-        })();
-
-    </script>
 
     <script>
         function snapshotElement(selector) {
@@ -218,19 +168,9 @@
                 backgroundColor: 'black'
             }).then(canvas => {
 
-                const grayscaleCanvas = document.createElement('canvas');
-                const ctx = grayscaleCanvas.getContext('2d');
-
-                grayscaleCanvas.width = canvas.width;
-                grayscaleCanvas.height = canvas.height;
-
-
-                ctx.filter = 'grayscale(100%)';
-                ctx.drawImage(canvas, 0, 0);
-
                 const link = document.createElement('a');
-                link.download = 'snapshot.png';
-                link.href = grayscaleCanvas.toDataURL('image/png');
+                link.download = 'captionit_meminit.png';
+                link.href = canvas.toDataURL('image/png');
                 link.click();
 
                 element.style.display = originalDisplay;
@@ -244,15 +184,15 @@
         }
 
         function changePicture() {
-            const rawFile = document.querySelector('#pfp').files[0];
+            const rawFile = document.querySelector('#picture').files[0];
             const reader = new FileReader();
 
             reader.readAsDataURL(rawFile);
 
             reader.onload = () => {
-                const scope = angular.element(document.getElementById('pfpurl')).scope();
+                const scope = angular.element(document.getElementById('captionedpicture')).scope();
                 scope.$apply(() => {
-                    scope.profilepicture = reader.result;
+                    scope.picture = reader.result;
                 });
             };
         }
