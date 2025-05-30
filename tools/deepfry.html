@@ -23,64 +23,12 @@
     <meta property="og:url" content="/tools/deepfry" />
 
     <link rel="stylesheet" href="/css/default.css">
-    <link rel="stylesheet" href="/css/tools/deepfry.css">
+
     <script defer src="/js/all.min.js"></script>
 
 
 
-    <script>
-        particlesJS.load('particles-js', '/particles.json', function () {
-            console.log('particles.js loaded - callback');
-        });
-    </script>
-
-
-
-    <style>
-        .innerbody {
-            flex-grow: 1;
-        }
-
-        input,
-        button,
-        .deepfryButton,
-        .uploadButton {
-            color: var(--txt-color);
-            border: solid;
-            border-width: 1px;
-            border-color: var(--txt-color);
-            background-color: rgba(0, 0, 0, 0);
-            -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
-            transition: all 0.2s ease;
-            padding: 2px;
-        }
-
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-        }
-
-        input:focus {
-
-            outline: none;
-            --clr: rgba(126, 126, 126, 0.295);
-            --shadow-height: -10px;
-
-
-            -webkit-box-shadow: 0px var(--shadow-height) 0px -4px var(--clr) inset;
-            -moz-box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
-            box-shadow: 0 var(--shadow-height) 0px -4px var(--clr) inset;
-        }
-
-
-
-        label {
-            text-align: center;
-            font-family: var(--font);
-            margin-bottom: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/tools/default.css">
 
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
@@ -108,32 +56,36 @@
         <h1>Image deepfrier 🔥</h1>
 
         <div class="container">
+            <style>
+                .outputImage {
+                    max-height: 500px;
+                    object-fit: contain;
+                }
+
+                .defaultInput {
+                    max-width: 100%;
+                    width: 300px;
+                    
+                }
+            </style>
             <h2>Deep Fry an Image</h2>
-            <input title="Quality Image" type="file" id="upload" accept="image/*" class="uploadImage"
+            <div class="innerContainer row-center" style="margin: 10px;">
+            <div class="inputHolder">
+            <input title="Quality Image" type="file" id="upload" accept="image/*" class="uploadImage defaultInput"
                 style="display: none;" />
-            <button title="Upload" onclick="document.querySelector('.uploadImage').click()" class="uploadButton">Upload
+            <button title="Upload" onclick="document.querySelector('.uploadImage').click()" class="uploadButton defaultInput">Upload
                 Image</button>
-            <img class="inputImage" id="inputImage" style="display: none;" alt="Input Image">
-
-            <h5>Note: keep <span class="orangespan">contrast</span> and <span class="orangespan">saturation</span> at
-                least on 100% or you wont see <span class="orangespan">anything.</span></h5>
-            <input placeholder="Saturation" type="number" id="sat">
-            <input placeholder="Contrast" type="number" id="con">
-
-            <label for="quality" style="margin: 0;">Quality Recommended to go below 0.1 for funnier results</label>
-            <input placeholder="Quality" type="number" id="quality">
-            <button class="deepfryButton" id="dfit">Deepfry it!</button>
-            <img id="output" class="outputImage" style="max-width: 300px; display: none;" alt="Deepfried" />
-            <a class="download" href="" download=""></a>
-            <script async
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9758035810696915"
-                crossorigin="anonymous"></script>
-            <!-- MeminIt Square Ads -->
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9758035810696915"
-                data-ad-slot="3295236388" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <input placeholder="Saturation (Use at least 100% to be visible)" type="number" id="sat" class="defaultInput">
+            <input placeholder="Contrast (Use at least 100% to be visible)" type="number" id="con" class="defaultInput">
+            <input placeholder="Quality" type="number" id="quality" class="defaultInput">
+            <button class="deepfryButton defaultInput" id="dfit">Deepfry it!</button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <img id="previewImg" class="outputImage" src="/assets/images/upload.png" alt="Deepfried" />
+            <button class="defaultInput" title="Download" style="width: 100%;" onclick="document.getElementById('download').click()">Download Image</button>
+            <a class="download" id="download" href="" download="meminit_deepfry.jpg"></a>
+        </div>
+    </div>
         </div>
 
         <div class="container blurbg md" style="text-align: center;">
@@ -182,10 +134,6 @@
             </p>
         </div>
 
-        <div class="container blurbg">
-            <h3 class="at">Please turn off your adblocker :(</h3>
-            <script type="text/javascript" src="/js/deployBanner.js"></script>
-        </div>
         <div class="linfo">
             <img alt="logo" class="linfoEmoji" src="/assets/images/assets_images_cooldude.webp">
             <h4 class="linfoTitle">Meminit</h4>
