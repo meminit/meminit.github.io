@@ -78,3 +78,13 @@ textarea.defaultInput {
     gap: 10px;
     justify-content: center;
 }
+
+@media (orientation: portrait) {
+  .row-center {
+    flex-direction: column;
+  }
+
+  .outputImage {
+    max-width: 100%;
+  }
+}
