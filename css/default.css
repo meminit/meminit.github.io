@@ -255,10 +255,40 @@ a {
   margin-bottom: 10px;
 }
 
+.shortcuts {
+  /* position: abdo; */
+  /* position: abd; */
+  /* position: ab; */
+  /* gap: 1; */
+  /* gap: 10; */
+  /* gap: 10p; */
+  /* gap: 10px; */
+  /* gap: 0px; */
+  position: absolute;
+  right: 0;
+  gap: 20px;
+}
+
+
 @media (orientation: portrait) {
   .container {
     width: 90%;
   }
+
+  .shortcuts {
+    /* position: abdo; */
+    /* position: abd; */
+    /* position: ab; */
+    /* gap: 1; */
+    /* gap: 10; */
+    /* gap: 10p; */
+    /* gap: 10px; */
+    /* gap: 0px; */
+    position: relative;
+    gap: 1px;
+  }
+
+  
 }
 
 .shortcuts {
