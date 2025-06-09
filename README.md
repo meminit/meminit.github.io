@@ -7,7 +7,7 @@ We also offer just-for-fun tools like the [**Love Calculator**](https://meminit.
 
 **MeminIt** was created by **@itsprobablyjackson**, with thumbnail designs by **@shepeleigh** — built for all types of **memers**. Whether you're making content for your **friends** or your **followers**, there's something here for everyone.
 
-Got an idea or feature request? Hit up the [**Suggestions**](/suggestions) page, send me an [**email**](mailto:alshield@gmail.com), or join the [**Discord server**](https://discord.gg/meminit)!
+Got an idea or feature request? Hit up the [**Suggestions**](/suggestions) page, send me an [**email**](mailto:itsprobablyjackson@proton.me), or join the [**Discord server**](https://discord.gg/meminit)!
 
 If you're experiencing any issues or have feedback, feel free to reach out — I’m available based on the AEST time zone 🙂
 
