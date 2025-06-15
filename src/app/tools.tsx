@@ -1,4 +1,4 @@
-export default {
+const tools = {
     newest: {
         name: "Make It A Quote",
         shortDescription: "Create a fictional quote of an Unc, Albert Einstein and more!",
@@ -71,6 +71,29 @@ export default {
             href: "/tools/caption-it",
             thumbnail: "/static/images/tools/thumbnails/meminit247.webp",
             identifier: 'caption-it'
+        },
+        {
+            name: "Emoji Search",
+            shortDescription: "Find that ONE emoji that you forgot the name of! 🤣",
+            href: "/tools/emoji-search",
+            thumbnail: "/static/images/tools/thumbnails/emojisearch.webp",
+            identifier: "emoji-search"
+        },
+        {
+            name: "GIF Converter",
+            shortDescription: "Turn an image into a static GIF!",
+            href: "/tools/gif-converter",
+            thumbnail: "/static/images/tools/thumbnails/gifit.webp",
+            identifier: "gif-converter"
+        },
+        {
+            name: "GIF Fade Transition",
+            shortDescription: "Make a GIF that transitions from on image to another with a fade!",
+            href: "/tools/gif-fade-transition-generator",
+            thumbnail: "/static/images/tools/thumbnails/gifcombine.webp",
+            identifier: "gif-fade-transition-generator"
         }
     ]
 }
+
+export default tools
