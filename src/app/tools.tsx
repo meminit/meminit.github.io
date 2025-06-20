@@ -36,6 +36,36 @@ const tools = {
             identifier: 'caption-it'
         }
     ],
+    etc: [
+        {
+            name: "GIF Fade Transition",
+            shortDescription: "Make a GIF that transitions from on image to another with a fade!",
+            href: "/tools/gif-fade-transition-generator",
+            thumbnail: "/static/images/tools/thumbnails/gifcombine.webp",
+            identifier: "gif-fade-transition-generator"
+        },
+        {
+            name: "Would You Rather Generator",
+            shortDescription: "Make your messages and bio have some fancy bling! ✨",
+            href: "/tools/would-you-rather-generator",
+            thumbnail: "/static/images/tools/thumbnails/wouldyourather.webp",
+            identifier: 'would-you-rather-generator'
+        },
+        {
+            name: "Emoji Search",
+            shortDescription: "Find that ONE emoji that you forgot the name of! 🤣",
+            href: "/tools/emoji-search",
+            thumbnail: "/static/images/tools/thumbnails/emojisearch.webp",
+            identifier: "emoji-search"
+        },
+        {
+            name: "GIF Converter",
+            shortDescription: "Turn an image into a static GIF!",
+            href: "/tools/gif-converter",
+            thumbnail: "/static/images/tools/thumbnails/gifit.webp",
+            identifier: "gif-converter"
+        }
+    ],
     all: [
         {
             name: "Fancy Text Generator",

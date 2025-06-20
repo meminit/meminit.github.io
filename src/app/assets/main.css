@@ -8,11 +8,11 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-amber-400: oklch(82.8% 0.189 84.429);
-    --color-zinc-300: oklch(87.1% 0.006 286.286);
-    --color-zinc-600: oklch(44.2% 0.017 285.786);
-    --color-zinc-700: oklch(37% 0.013 285.805);
-    --color-zinc-800: oklch(27.4% 0.006 286.033);
-    --color-zinc-950: oklch(14.1% 0.005 285.823);
+    --color-stone-300: oklch(87.1% 0.006 286.286);
+    --color-stone-600: oklch(44.2% 0.017 285.786);
+    --color-stone-700: oklch(37% 0.013 285.805);
+    --color-stone-800: oklch(27.4% 0.006 286.033);
+    --color-stone-950: oklch(14.1% 0.005 285.823);
     --color-white: #fff;
     --spacing: 0.25rem;
     --text-sm: 0.875rem;
@@ -247,11 +247,11 @@
   .rounded-2xl {
     border-radius: var(--radius-2xl);
   }
-  .bg-zinc-800 {
-    background-color: var(--color-zinc-800);
+  .bg-stone-800 {
+    background-color: var(--color-stone-800);
   }
-  .bg-zinc-950 {
-    background-color: var(--color-zinc-950);
+  .bg-stone-950 {
+    background-color: var(--color-stone-950);
   }
   .object-cover {
     object-fit: cover;
@@ -294,8 +294,8 @@
   .text-white {
     color: var(--color-white);
   }
-  .text-zinc-300 {
-    color: var(--color-zinc-300);
+  .text-stone-300 {
+    color: var(--color-stone-300);
   }
   .no-underline {
     text-decoration-line: none;

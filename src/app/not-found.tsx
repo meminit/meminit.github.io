@@ -1,4 +1,4 @@
-import Header from "./components/header"
+import Header from "./components/defaults/header/header"
 import DefaultBody from "./components/body"
 
 export default function Code404() {
