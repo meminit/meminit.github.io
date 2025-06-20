@@ -11,8 +11,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
       <AnalyticsScripts />
-      <AdScripts />
+        <AdScripts />
+        </head>
       {children}
     </html>
   );
