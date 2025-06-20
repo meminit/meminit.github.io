@@ -1,12 +1,18 @@
 'use client'
-import React from "react"
+import {use, useEffect} from "react"
 
 const AdBanner = () => {
+
+    useEffect(() => {
+
+             ( (window as any).adsbygoogle = (window as any).adsbygoogle || []).push({ });
+        }, [])
+
     return (
 
         <div className="bg-zinc-900 w-full h-10 rounded-lg flex flex-col items-center justify-center">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9758035810696915"
-                crossOrigin="anonymous"></script>
+
+            
             <ins className="adsbygoogle"
                 style={{ display: 'block' }}
                 data-ad-client="ca-pub-9758035810696915"

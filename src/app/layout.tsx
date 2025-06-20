@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import './main.css'
+import AnalyticsScripts from './components/scripts/analytics'
+import AdScripts from './components/scripts/ads'
 
 export default function RootLayout({
   children,
@@ -9,6 +11,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <AnalyticsScripts />
+      <AdScripts />
       {children}
     </html>
   );
