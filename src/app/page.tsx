@@ -6,6 +6,9 @@ import AdBanner from "./components/adComponents/banner"
 import Meme from "./components/randomMeme"
 import MarkDown from "./components/md/md2html"
 import Footer from "./components/defaults/footer"
+import ogTags from "@/app/components/meta/og";
+
+import dynamic from "next/dynamic";
 
 export default function Home() {
   return (
@@ -13,6 +16,7 @@ export default function Home() {
       <>
         <title>Home | MeminIt!</title>
         <meta name="description" content="Welcome to MeminIt! Discover the latest and most popular tools." />
+        {ogTags('Home | MeminIt!', 'Welcome to MeminIt, your go-to site for fun and creative online tools! From fancy text generators and "would you rather" poster generators, to deepfrying images, love calculators, and more, Meminit makes it easy to create, customize, and share awesome creations with friends. Perfect for making memes, spicing up your posts, or just having a laugh online. Have fun!', '\static\images\brand\cooldude.webp', true)}
       </>
       <body className="bg-zinc-900">
         <Header />

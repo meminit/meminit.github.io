@@ -4,7 +4,7 @@ Have you ever wanted to make your meme funnier? Enrich your meme? This will plea
 
 The Online Image Caption-er captions your images quickly and efficiently. This tool can caption about all image types and add some flavor to your meme!  
 
-How to caption your image:
+### How to caption your image:
 
 -   Upload your image by clicking the **Upload Image** button.
 -   Type in your caption in the **Caption** textbox.

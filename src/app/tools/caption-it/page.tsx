@@ -12,9 +12,9 @@ export default function captionIt() {
                 <title>Caption It | MeminIt!</title>
                 {ogTags('Caption It', 'Caption any image you can imagine!', '/static/images/tools/thumbnails/meminit247.webp', true)}
             </>
-            <DefaultBody className="items-center">
+            <DefaultBody className="items-center flex flex-col gap-10">
                 <Header></Header>
-                <DefaultContainer className="flex flex-col gap-10">
+                <DefaultContainer className="flex flex-col gap-10 rounded-2xl list-disc">
                     {(async () => {
                         const md = await DescriptionMarkdown("tools/caption-it")
                         await md

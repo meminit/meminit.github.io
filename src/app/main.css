@@ -8,15 +8,11 @@
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-amber-400: oklch(82.8% 0.189 84.429);
     --color-zinc-300: oklch(87.1% 0.006 286.286);
-    --color-zinc-600: oklch(44.2% 0.017 285.786);
-    --color-zinc-700: oklch(37% 0.013 285.805);
-    --color-zinc-800: oklch(27.4% 0.006 286.033);
     --color-zinc-900: oklch(21% 0.006 285.885);
     --color-stone-300: oklch(86.9% 0.005 56.366);
     --color-stone-600: oklch(44.4% 0.011 73.639);
     --color-stone-700: oklch(37.4% 0.01 67.558);
     --color-stone-800: oklch(26.8% 0.007 34.298);
-    --color-stone-900: oklch(21.6% 0.006 56.043);
     --color-stone-950: oklch(14.7% 0.004 49.25);
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -28,8 +24,6 @@
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
     --text-8xl: 6rem;
     --text-8xl--line-height: 1;
     --font-weight-bold: 700;
@@ -286,14 +280,11 @@
   .max-w-\[300px\] {
     max-width: 300px;
   }
+  .max-w-\[500px\] {
+    max-width: 500px;
+  }
   .max-w-\[1000px\] {
     max-width: 1000px;
-  }
-  .flex-grow {
-    flex-grow: 1;
-  }
-  .grow {
-    flex-grow: 1;
   }
   .border-collapse {
     border-collapse: collapse;
@@ -306,6 +297,12 @@
   }
   .resize {
     resize: both;
+  }
+  .list-\[decimal\!important\] {
+    list-style-type: decimal!important;
+  }
+  .list-disc {
+    list-style-type: disc;
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -369,15 +366,6 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .bg-zinc-600 {
-    background-color: var(--color-zinc-600);
-  }
-  .bg-zinc-700 {
-    background-color: var(--color-zinc-700);
-  }
-  .bg-zinc-800 {
-    background-color: var(--color-zinc-800);
-  }
   .bg-zinc-900 {
     background-color: var(--color-zinc-900);
   }
@@ -405,6 +393,9 @@
   .text-center {
     text-align: center;
   }
+  .text-left {
+    text-align: left;
+  }
   .text-right {
     text-align: right;
   }
@@ -414,14 +405,6 @@
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
-  }
-  .text-3xl {
-    font-size: var(--text-3xl);
-    line-height: var(--tw-leading, var(--text-3xl--line-height));
-  }
-  .text-4xl {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
   }
   .text-8xl {
     font-size: var(--text-8xl);
@@ -481,16 +464,6 @@
       position: fixed;
     }
   }
-  .not-md\:top-0 {
-    @media not (width >= 48rem) {
-      top: calc(var(--spacing) * 0);
-    }
-  }
-  .not-md\:top-10\/10 {
-    @media not (width >= 48rem) {
-      top: calc(10/10 * 100%);
-    }
-  }
   .not-md\:bottom-0 {
     @media not (width >= 48rem) {
       bottom: calc(var(--spacing) * 0);
@@ -519,11 +492,6 @@
   .not-md\:grid {
     @media not (width >= 48rem) {
       display: grid;
-    }
-  }
-  .not-md\:h-\[0vh\] {
-    @media not (width >= 48rem) {
-      height: 0vh;
     }
   }
   .not-md\:h-\[100vh\] {
@@ -591,11 +559,6 @@
       overflow: hidden;
     }
   }
-  .not-md\:bg-stone-900 {
-    @media not (width >= 48rem) {
-      background-color: var(--color-stone-900);
-    }
-  }
   .not-md\:bg-zinc-900 {
     @media not (width >= 48rem) {
       background-color: var(--color-zinc-900);
@@ -625,6 +588,9 @@
 h1, h2, h3, h4, h5, h6 {
   font-size: revert !important;
   font-weight: revert !important;
+}
+ol, ul, menu {
+  list-style: inherit !important;
 }
 body {
   background: var(--background);
