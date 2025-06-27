@@ -3,17 +3,11 @@
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
-    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-amber-400: oklch(82.8% 0.189 84.429);
+    --color-lime-300: oklch(89.7% 0.196 126.665);
     --color-zinc-300: oklch(87.1% 0.006 286.286);
     --color-zinc-900: oklch(21% 0.006 285.885);
-    --color-stone-300: oklch(86.9% 0.005 56.366);
-    --color-stone-600: oklch(44.4% 0.011 73.639);
-    --color-stone-700: oklch(37.4% 0.01 67.558);
-    --color-stone-800: oklch(26.8% 0.007 34.298);
-    --color-stone-950: oklch(14.7% 0.004 49.25);
+    --color-zinc-950: oklch(14.1% 0.005 285.823);
     --color-white: #fff;
     --spacing: 0.25rem;
     --text-sm: 0.875rem;
@@ -22,10 +16,9 @@
     --text-lg--line-height: calc(1.75 / 1.125);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
-    --text-3xl: 1.875rem;
-    --text-3xl--line-height: calc(2.25 / 1.875);
     --text-8xl: 6rem;
     --text-8xl--line-height: 1;
+    --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --radius-lg: 0.5rem;
     --radius-2xl: 1rem;
@@ -256,8 +249,14 @@
   .min-h-10 {
     min-height: calc(var(--spacing) * 10);
   }
+  .min-h-\[100vh\] {
+    min-height: 100vh;
+  }
   .min-h-\[300px\] {
     min-height: 300px;
+  }
+  .min-h-\[550px\] {
+    min-height: 550px;
   }
   .min-h-full {
     min-height: 100%;
@@ -280,9 +279,6 @@
   .max-w-\[300px\] {
     max-width: 300px;
   }
-  .max-w-\[500px\] {
-    max-width: 500px;
-  }
   .max-w-\[1000px\] {
     max-width: 1000px;
   }
@@ -297,9 +293,6 @@
   }
   .resize {
     resize: both;
-  }
-  .list-\[decimal\!important\] {
-    list-style-type: decimal!important;
   }
   .list-disc {
     list-style-type: disc;
@@ -369,6 +362,9 @@
   .bg-zinc-900 {
     background-color: var(--color-zinc-900);
   }
+  .bg-zinc-950 {
+    background-color: var(--color-zinc-950);
+  }
   .object-cover {
     object-fit: cover;
   }
@@ -425,20 +421,27 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
   .text-ellipsis {
     text-overflow: ellipsis;
   }
   .text-amber-400 {
     color: var(--color-amber-400);
   }
-  .text-red-500 {
-    color: var(--color-red-500);
+  .text-lime-300 {
+    color: var(--color-lime-300);
   }
   .text-white {
     color: var(--color-white);
   }
   .text-zinc-300 {
     color: var(--color-zinc-300);
+  }
+  .italic {
+    font-style: italic;
   }
   .no-underline {
     text-decoration-line: none;
@@ -567,6 +570,13 @@
   .not-md\:text-center {
     @media not (width >= 48rem) {
       text-align: center;
+    }
+  }
+  .hover\:underline {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-line: underline;
+      }
     }
   }
   .md\:hidden {

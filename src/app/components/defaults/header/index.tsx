@@ -35,7 +35,7 @@ export default function header() {
                     <i className="fa-icon fa-solid fa-question mr-1"></i>
                     About</Link>
 
-                <Link href="/tools">
+                <Link href="/articles">
                     <i className="fa-icon fa-solid fa-book mr-1"></i>
                     Articles</Link>
             </nav>

@@ -69,7 +69,7 @@ const tools = {
     all: [
         {
             name: "Fancy Text Generator",
-            shortDescription: "/static/images/fancytext.webp",
+            shortDescription: "Make your messages and bio have some fancy bling ✨",
             href: "/tools/fancy-text-generator",
             thumbnail: "/static/images/tools/thumbnails/fancytext.webp",
             identifier: 'fancy-text-generator'
@@ -122,6 +122,13 @@ const tools = {
             href: "/tools/gif-fade-transition-generator",
             thumbnail: "/static/images/tools/thumbnails/gifcombine.webp",
             identifier: "gif-fade-transition-generator"
+        },
+        {
+            name: "Make It A Quote",
+            shortDescription: "Create a fictional quote of an Unc, Albert Einstein and more!",
+            href: "/tools/make-it-a-quote",
+            thumbnail: '/static/images/tools/thumbnails/quoteit.webp',
+            identifier: 'make-it-a-quote'
         }
     ]
 }

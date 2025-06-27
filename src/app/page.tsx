@@ -3,7 +3,6 @@ import Header from "./components/defaults/header"
 import toolsList from "./tools"
 import Cards from "./components/tools/cards"
 import AdBanner from "./components/adComponents/banner"
-import Meme from "./components/randomMeme"
 import MarkDown from "./components/md/md2html"
 import Footer from "./components/defaults/footer"
 import ogTags from "@/app/components/meta/og";

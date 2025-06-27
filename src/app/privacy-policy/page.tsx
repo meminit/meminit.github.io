@@ -10,9 +10,9 @@ export default function privacyPolicy() {
             <>
                 <title>Privacy Policy | MeminIt!</title>
             </>
-            <DefaultBody className="flex flex-col items-center">
+            <DefaultBody className="flex flex-col items-center gap-5">
                 <Header></Header>
-                <Container className="m-2 rounded-2xl">
+                <Container className="rounded-2xl">
                     {
                         (async () => {
                             const md = await MarkDown("privacy-policy")
