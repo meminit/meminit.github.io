@@ -5,6 +5,7 @@ import ogTags from "@/app/components/meta/og"
 import Markdown from "../../../lib/markdown"
 import DefaultContainer from "@/app/components/containers/container"
 import Tool from "./caption"
+import Ad from "@/app/components/adComponents/banner"
 
 import Capture from "@/app/tools/js/capture"
 
@@ -20,7 +21,8 @@ export default function captionIt() {
             <DefaultContainer className="">
                     <h1 className="mb-10">Free Online Image Caption-er</h1>
                     <Tool />
-                </DefaultContainer>
+            </DefaultContainer>
+            <Ad className="max-w-[1000px] w-9/10"></Ad>
                 <DefaultContainer className="flex flex-col gap-10 rounded-2xl list-disc">
                     {(async () => {
                         const md = await Markdown("caption-it/description")

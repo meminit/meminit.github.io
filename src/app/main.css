@@ -5,12 +5,12 @@
   :root, :host {
     --color-amber-400: oklch(82.8% 0.189 84.429);
     --color-lime-300: oklch(89.7% 0.196 126.665);
+    --color-pink-400: oklch(71.8% 0.202 349.761);
+    --color-pink-900: oklch(40.8% 0.153 2.432);
+    --color-pink-950: oklch(28.4% 0.109 3.907);
     --color-zinc-200: oklch(92% 0.004 286.32);
     --color-zinc-300: oklch(87.1% 0.006 286.286);
-    --color-zinc-500: oklch(55.2% 0.016 285.938);
     --color-zinc-600: oklch(44.2% 0.017 285.786);
-    --color-zinc-700: oklch(37% 0.013 285.805);
-    --color-zinc-800: oklch(27.4% 0.006 286.033);
     --color-zinc-900: oklch(21% 0.006 285.885);
     --color-zinc-950: oklch(14.1% 0.005 285.823);
     --color-black: #000;
@@ -20,8 +20,14 @@
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
     --text-8xl: 6rem;
@@ -30,6 +36,7 @@
     --font-weight-bold: 700;
     --radius-lg: 0.5rem;
     --radius-2xl: 1rem;
+    --aspect-video: 16 / 9;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-geist-sans);
@@ -314,6 +321,9 @@
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
+  .aspect-video {
+    aspect-ratio: var(--aspect-video);
+  }
   .h-7 {
     height: calc(var(--spacing) * 7);
   }
@@ -425,6 +435,12 @@
   .justify-center {
     justify-content: center;
   }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .justify-start {
+    justify-content: flex-start;
+  }
   .justify-items-center {
     justify-items: center;
   }
@@ -446,6 +462,9 @@
   .overflow-auto {
     overflow: auto;
   }
+  .overflow-clip {
+    overflow: clip;
+  }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
   }
@@ -459,6 +478,12 @@
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
+  }
+  .bg-\[\#FF66B9\] {
+    background-color: #FF66B9;
+  }
+  .bg-pink-400 {
+    background-color: var(--color-pink-400);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -506,6 +531,14 @@
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
   .text-5xl {
     font-size: var(--text-5xl);
     line-height: var(--tw-leading, var(--text-5xl--line-height));
@@ -521,6 +554,10 @@
   .text-sm {
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
   }
   .text-\[18px\] {
     font-size: 18px;
@@ -539,6 +576,9 @@
   .text-ellipsis {
     text-overflow: ellipsis;
   }
+  .text-\[\#820F41\] {
+    color: #820F41;
+  }
   .text-amber-400 {
     color: var(--color-amber-400);
   }
@@ -547,6 +587,12 @@
   }
   .text-lime-300 {
     color: var(--color-lime-300);
+  }
+  .text-pink-900 {
+    color: var(--color-pink-900);
+  }
+  .text-pink-950 {
+    color: var(--color-pink-950);
   }
   .text-white {
     color: var(--color-white);

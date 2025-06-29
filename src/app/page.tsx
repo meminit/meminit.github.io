@@ -43,12 +43,12 @@ export default function Home() {
               }
 
             </div>
-            <AdBanner />
+            <AdBanner className=""/>
 
 
           </div>
           <div className="flex flex-col gap-5">
-            <AdBanner />
+            <AdBanner className=""/>
 
 
             <div className="grid grid-cols-2 box-border h-full justify-items-center content-evenly gap-[20px] not-md:gap-10 not-md:grid-cols-1">

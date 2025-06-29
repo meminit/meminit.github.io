@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect, useRef, ChangeEvent } from "react";
-import Doownload from "@/app/tools/js/capture"
 import download from "@/app/tools/js/capture";
 
 
