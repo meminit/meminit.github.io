@@ -42,7 +42,7 @@ export default function load() {
                         </div>
                         <img src={image} alt="Upload Image Placeholder"></img>
                     </div>
-                    <button className="w-full bg-zinc-950 p-2 rounded-lg text-zinc-600 hover:text-zinc-200 transition-all cursor-pointer" onClick={() => download(document.getElementById('captioned'))}><i className="fa-solid fa-download"></i> Download</button>
+                    <button className="w-full bg-zinc-950 p-2 rounded-lg text-zinc-600 hover:text-zinc-200 transition-all cursor-pointer" onClick={() => download(document.getElementById('captioned') as HTMLElement)}><i className="fa-solid fa-download"></i> Download</button>
                 </div>
             </div>
         </>
