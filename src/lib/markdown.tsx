@@ -3,7 +3,6 @@ import html from 'remark-html';
 import path from 'path'
 import matter from 'gray-matter'
 import fs from 'fs'
-import { marked } from 'marked'
 
 const postsDirectory = './src/app/tools'
 
