@@ -1,10 +1,9 @@
 "use client";
 
-import { Html } from "next/document";
 import Capture from "./html2canvas";
 
-export default function download(element) {
-  Capture(element).then((canvas) => {
+export default function download(element: HTMLElement) {
+  Capture(element).then((canvas: HTMLCanvasElement) => {
     const link = document.createElement("a");
     link.download = "meminit.png";
     link.href = canvas.toDataURL("image/png");
