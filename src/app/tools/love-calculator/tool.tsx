@@ -62,7 +62,7 @@ export default function tool() {
                         </div>
                     </div>
                 </div>
-                    <button className="w-full bg-zinc-950 p-2 rounded-lg text-zinc-600 hover:text-zinc-200 transition-all cursor-pointer" onClick={() => download(document.getElementById('loveResult'))}><i className="fa-solid fa-download"></i> Download</button>
+                    <button className="w-full bg-zinc-950 p-2 rounded-lg text-zinc-600 hover:text-zinc-200 transition-all cursor-pointer" onClick={() => download(document.getElementById('loveResult') as HTMLElement)}><i className="fa-solid fa-download"></i> Download</button>
                 </div>
 
 
