@@ -32,7 +32,7 @@ export default function tool() {
                     <input className="outline-0 bg-zinc-950 p-2 rounded-lg not-md:w-full" type="text" placeholder="Person Username..." onChange={(e) => setUsername(e.target.value)}></input>
 
                     <p className="text-lg font-bold">Quote:</p>
-                    <input className="outline-0 bg-zinc-950 p-2 rounded-lg not-md:w-full" type="text" placeholder="Quote..." onChange={(e) => setQuote(e.target.value)}></input>
+                    <textarea className="outline-0 bg-zinc-950 p-2 rounded-lg not-md:w-full" placeholder="Quote..." onChange={(e) => setQuote(e.target.value)}></textarea>
                 </div>
 
                 <div className="flex flex-col gap-4">
