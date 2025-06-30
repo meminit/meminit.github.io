@@ -10,12 +10,6 @@ export default function load() {
 
     const imageInput = useRef(null)
 
-    useEffect(() => {
-
-
-
-    }, [caption, imageFile])
-
     function loadImage(event: ChangeEvent<HTMLInputElement>) {
         const reader = new FileReader()
 
