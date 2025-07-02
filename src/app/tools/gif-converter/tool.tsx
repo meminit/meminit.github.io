@@ -30,7 +30,7 @@ export default function tool() {
 
     }
 
-    function handleImageLoaded() {
+    async function handleImageLoaded() {
         if (image === '/static/images/tools/other/upload.png') return;
         const canvas = document.createElement("canvas")
         const ctx = canvas.getContext("2d");
@@ -41,20 +41,24 @@ export default function tool() {
 
         ctx?.drawImage(uploadedImg.current, 0, 0, uploadedImg.current.width, uploadedImg.current.height);
         
-        var gif = new GIF({
-            workers: 2,
-            quality: 100,
-            workerScript: "/static/js/tools/toGif/gifWorker.js",
-            width: uploadedImg.current.width,
-            height: uploadedImg.current.height,
-        });
-        gif.addFrame(canvas);
-        gif.on("finished", function (blob: Blob) {
-            console.log("finished")
-            const url = URL.createObjectURL(blob);
-            setGIF(url)
-        });
-        gif.render();
+
+        if (typeof window !== "undefined") {
+            const GIF = (window as any).GIF || (await import('@/app/tools/js/toGif/main')).default;
+            var gif = new GIF({
+                workers: 2,
+                quality: 100,
+                workerScript: "/static/js/tools/toGif/gifWorker.js",
+                width: uploadedImg.current.width,
+                height: uploadedImg.current.height,
+            });
+            gif.addFrame(canvas);
+            gif.on("finished", function (blob: Blob) {
+                console.log("finished")
+                const url = URL.createObjectURL(blob);
+                setGIF(url)
+            });
+            gif.render();
+        }
     }
 
 
