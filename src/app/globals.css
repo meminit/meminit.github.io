@@ -5,6 +5,17 @@
   --foreground: #171717;
 }
 
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid #FFF;
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

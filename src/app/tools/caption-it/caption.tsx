@@ -20,7 +20,6 @@ export default function load() {
 
     return (
         <>
-            <script src="/static/js/tools/all/html2canvas.js"></script>
             <div className="flex flex-row gap-10 not-md:flex-col">
                 <div className="flex flex-col gap-2">
                     <input type="file" accept="image/*" hidden id="imageInput" ref={imageInput} onChange={(e) => loadImage(e)}></input>
