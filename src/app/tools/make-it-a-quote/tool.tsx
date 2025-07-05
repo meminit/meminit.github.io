@@ -1,10 +1,15 @@
 'use client';
 import { ChangeEvent, useEffect, useState } from "react";
+import {Nunito_Sans} from "next/font/google"
 import download from "@/app/tools/js/capture";
 
+const nunitoSans = Nunito_Sans({
 
+})
 
 export default function tool() {
+
+
 
     const [quote, setQuote] = useState('Create a quote!')
     const [username, setUsername] = useState('quotemaker')
@@ -41,10 +46,10 @@ export default function tool() {
                             <img alt="Profile Picture" src={image} className="grayscale aspect-square object-cover"></img>
                             <img alt="Gradient" src="/static/images/tools/other/gradient.png" className="absolute left-[56.5%] top-[0] w-full h-full rotate-90  origin-top-left"></img>
                             <div className="relative grow h-full flex flex-col justify-center items-center">
-                                <p className="text-4xl text-center not-md:text-sm">{quote}</p>
-                                <p className="text-2xl text-center not-md:text-xs"><i>- {displayName}</i></p>
-                                <p className="text-m text-center text-[#46423d] not-md:text-xs">@{username}</p>
-                                <p className="text-m text-center text-[#46423d] not-md:text-xs absolute bottom-0 right-0">meminit.github.io</p>
+                                <p className={"text-4xl text-center not-md:text-sm " + nunitoSans.className}>{quote}</p>
+                                <p className="text-2xl text-center not-md:text-xs"><i className={nunitoSans.className}>- {displayName}</i></p>
+                                <p className={"text-m text-center text-[#46423d] not-md:text-xs " + nunitoSans.className}>@{username}</p>
+                                <p className={"text-m text-center text-[#46423d] not-md:text-xs absolute bottom-0 right-0 " + nunitoSans.className}>meminit.github.io</p>
                             </div>
                         </div>
                     </div>
