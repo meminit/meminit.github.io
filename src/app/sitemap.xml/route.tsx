@@ -11,10 +11,15 @@ const SITE_URL = 'https://meminit.github.io';
 function getAppRoutes(dir: string, baseUrl = ''): string[] {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
     let routes: string[] = [];
+    const excludedPaths = ['/markdown', '/tools/js', '/components'];
     for (const entry of entries) {
         if (entry.isDirectory()) {
-            if (!entry.name.startsWith('_') && !entry.name.startsWith('.')) {
-                const route = `${baseUrl}/${entry.name}`;
+            const route = `${baseUrl}/${entry.name}`;
+            if (
+                !entry.name.startsWith('_') &&
+                !entry.name.startsWith('.') &&
+                !excludedPaths.some(excluded => route.startsWith(excluded))
+            ) {
                 routes.push(route);
                 routes = routes.concat(getAppRoutes(path.join(dir, entry.name), route));
             }
