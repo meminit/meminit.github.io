@@ -1,6 +1,6 @@
-// scripts/generate-sitemap.ts
 import fs from "fs";
 import path from "path";
+
 
 const pagesDir = path.join(process.cwd(), "src", "app");
 

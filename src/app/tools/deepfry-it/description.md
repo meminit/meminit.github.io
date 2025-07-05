@@ -13,7 +13,7 @@ formats.
 
 - **Instant Results:** Deepfry your images in seconds with our fast online tool.
 - **No Installation Needed:** 100% web-based—no software downloads or extensions required.
-- **Supports Multiple Formats:** Works with JPG, PNG, GIF, and more.
+- **Supports Multiple Formats:** Works with JPG, PNG, WEBP, and more.
 - **Customizable Settings:** Adjust saturation and contrast to achieve your desired deepfried effect.
 - **Mobile Friendly:** Use the deepfrier on any device, including smartphones and tablets.
 - **Safe & Private:** Your images are processed securely and never stored.

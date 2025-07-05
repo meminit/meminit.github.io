@@ -10,6 +10,9 @@ export const metadata = ogTags("Image Deepfry-er"
 export default function page() {
     return (
         <>
+            <>
+                <title>Image Deepfry-er | MeminIt!</title>
+            </>
             <Container className="">
                 <h1 className="mb-5">Image Deepfry-er</h1>
                 <Tool />

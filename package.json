@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "npm run generate-sitemap && next build",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "generate-sitemap": "ts-node scripts/generate-sitemap.ts",
+    "lint": "next lint"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
