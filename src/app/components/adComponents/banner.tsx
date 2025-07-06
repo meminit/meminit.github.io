@@ -1,7 +1,7 @@
 'use client'
 import { use, useEffect } from "react"
 
-type props = {className: string}
+type props = {className?: string}
 
 const AdBanner = ({className=""}: props) => {
 

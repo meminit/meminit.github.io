@@ -3,8 +3,13 @@
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
     --color-amber-400: oklch(82.8% 0.189 84.429);
     --color-lime-300: oklch(89.7% 0.196 126.665);
+    --color-blue-400: oklch(70.7% 0.165 254.624);
     --color-zinc-200: oklch(92% 0.004 286.32);
     --color-zinc-300: oklch(87.1% 0.006 286.286);
     --color-zinc-600: oklch(44.2% 0.017 285.786);
@@ -26,6 +31,8 @@
     --text-4xl--line-height: calc(2.5 / 2.25);
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
+    --text-6xl: 3.75rem;
+    --text-6xl--line-height: 1;
     --text-8xl: 6rem;
     --text-8xl--line-height: 1;
     --font-weight-semibold: 600;
@@ -35,8 +42,8 @@
     --aspect-video: 16 / 9;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    --default-font-family: var(--font-geist-sans);
-    --default-mono-font-family: var(--font-geist-mono);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
   }
 }
 @layer base {
@@ -347,6 +354,12 @@
   .aspect-video {
     aspect-ratio: var(--aspect-video);
   }
+  .h-3 {
+    height: calc(var(--spacing) * 3);
+  }
+  .h-7 {
+    height: calc(var(--spacing) * 7);
+  }
   .h-7\/8 {
     height: calc(7/8 * 100%);
   }
@@ -361,6 +374,9 @@
   }
   .h-full {
     height: 100%;
+  }
+  .max-h-6 {
+    max-height: calc(var(--spacing) * 6);
   }
   .max-h-6\/8 {
     max-height: calc(6/8 * 100%);
@@ -382,6 +398,9 @@
   }
   .min-h-full {
     min-height: 100%;
+  }
+  .w-9 {
+    width: calc(var(--spacing) * 9);
   }
   .w-9\/10 {
     width: calc(9/10 * 100%);
@@ -410,8 +429,14 @@
   .max-w-xs {
     max-width: var(--container-xs);
   }
+  .flex-grow {
+    flex-grow: 1;
+  }
   .grow {
     flex-grow: 1;
+  }
+  .border-collapse {
+    border-collapse: collapse;
   }
   .origin-top-left {
     transform-origin: top left;
@@ -427,6 +452,9 @@
   }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .list-disc {
     list-style-type: disc;
@@ -445,6 +473,9 @@
   }
   .flex-row-reverse {
     flex-direction: row-reverse;
+  }
+  .content-center {
+    align-content: center;
   }
   .content-evenly {
     align-content: space-evenly;
@@ -520,6 +551,15 @@
   .bg-zinc-950 {
     background-color: var(--color-zinc-950);
   }
+  .bg-cover {
+    background-size: cover;
+  }
+  .bg-center {
+    background-position: center;
+  }
+  .bg-no-repeat {
+    background-repeat: no-repeat;
+  }
   .object-cover {
     object-fit: cover;
   }
@@ -564,6 +604,10 @@
   .text-5xl {
     font-size: var(--text-5xl);
     line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+  .text-6xl {
+    font-size: var(--text-6xl);
+    line-height: var(--tw-leading, var(--text-6xl--line-height));
   }
   .text-8xl {
     font-size: var(--text-8xl);
@@ -612,9 +656,6 @@
   .text-white {
     color: var(--color-white);
   }
-  .text-zinc-200 {
-    color: var(--color-zinc-200);
-  }
   .text-zinc-300 {
     color: var(--color-zinc-300);
   }
@@ -651,6 +692,10 @@
   .shadow {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .outline-0 {
     outline-style: var(--tw-outline-style);
@@ -826,8 +871,7 @@
   }
 }
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
 }
 .loader {
   width: 48px;
@@ -851,6 +895,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 ol, ul, menu {
   list-style: inherit !important;
+}
+.markdown a {
+  color: var(--color-blue-400);
+  font-weight: bold;
+}
+.markdown a:hover {
+  text-decoration: underline;
 }
 body {
   background: var(--background);

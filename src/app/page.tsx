@@ -8,6 +8,8 @@ import Footer from "./components/defaults/footer"
 import ogTags from "@/app/components/meta/og";
 
 import dynamic from "next/dynamic";
+import tool from "./tools/gif-converter/tool";
+import tools from "./tools";
 
 export default function Home() {
   return (
@@ -20,12 +22,21 @@ export default function Home() {
       <body className="bg-zinc-900">
         <Header />
         <div className="grid grid-cols-2 not-md:grid-cols-1 box-border w-full p-5 gap-10">
-          {
-            Cards.largeCard(toolsList.newest.name, toolsList.newest.shortDescription, toolsList.newest.href, toolsList.newest.thumbnail)
-          }
+          <Cards.largeCard
+            name={toolsList.newest.name}
+            shortDescription={toolsList.newest.shortDescription}
+            href={toolsList.newest.href}
+            thumbnail={toolsList.newest.thumbnail}
+            identifier={toolsList.newest.identifier} />
           <div className="grid grid-cols-2 box-border h-full justify-items-center content-evenly gap-[20px] not-md:gap-10 not-md:grid-cols-1">
             {toolsList.popular.map((game, index: number) => {
-              return Cards.gridCard(game.name, game.shortDescription, game.href, game.thumbnail, game.identifier)
+              // return Cards.gridCard(game.name, game.shortDescription, game.href, game.thumbnail, game.identifier)
+              return <Cards.gridCard
+                name={game.name}
+                shortDescription={game.shortDescription}
+                href={game.href}
+                thumbnail={game.thumbnail}
+                identifier={game.identifier} />
             })}
           </div>
         </div>
@@ -43,17 +54,24 @@ export default function Home() {
               }
 
             </div>
-            <AdBanner className=""/>
+            <AdBanner />
 
 
           </div>
           <div className="flex flex-col gap-5">
-            <AdBanner className=""/>
+
+            <AdBanner />
 
 
-            <div className="grid grid-cols-2 box-border h-full justify-items-center content-evenly gap-[20px] not-md:gap-10 not-md:grid-cols-1">
+            <div className="grid grid-cols-1 box-border h-full justify-items-center gap-[20px] not-md:gap-10 not-md:grid-cols-1">
               {toolsList.etc.map((game, index: number) => {
-                return Cards.gridCard(game.name, game.shortDescription, game.href, game.thumbnail, game.identifier)
+                if (index > 1) return
+                return <Cards.secondaryGridCard
+                  name={game.name}
+                  shortDescription={game.shortDescription}
+                  href={game.href}
+                  thumbnail={game.thumbnail}
+                  identifier={game.identifier} />
               })}
             </div>
           </div>

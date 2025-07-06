@@ -28,9 +28,15 @@ Cloudflare does **not use cookies** and does **not collect personal data** for t
 
 You can read more about Cloudflare’s privacy-first approach [here](https://www.cloudflare.com/web-analytics/).
 
+## Umami Analytics
+
+We use Umami Analytics to help us understand how visitors use our website. Umami may use cookies or similar technologies (such as browser fingerprinting) to collect non-personal information such as your device type, browser, pages visited, and general location. This data is used only to improve the website and is not shared with third parties for advertising or profiling.
+
+By using this site, you accept the usage of cookies to identify your device for the improvement of our sites performance and analytics.  
+
 ## Contact
 
 If you have any questions about this Privacy Policy, feel free to contact us through the [suggestions page](/suggestions), [email](mailto:alshield@gmail.com), or the [Discord server](https://discord.gg/meminit).
 
-Last updated: April 14, 2025
+Last updated: July 6, 2025 (AEST)
 

@@ -22,7 +22,7 @@ export default async function getPostData(name:string) {
  
   return {
     name,
-    html: <div dangerouslySetInnerHTML={{__html: contentHtml}} className="flex flex-col gap-5"></div>,
+    html: <div dangerouslySetInnerHTML={{__html: contentHtml}} className="flex flex-col gap-5 markdown"></div>,
     ...matterResult.data,
   };
 }

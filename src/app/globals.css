@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #0a0a0a;
 }
 
 .loader {
@@ -16,12 +15,6 @@
     animation: rotation 1s linear infinite;
   }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -38,6 +31,15 @@ h1, h2, h3, h4, h5, h6 {
 ol, ul, menu {
 	list-style: inherit !important;
 }
+
+.markdown a {
+  color: var(--color-blue-400);
+  font-weight: bold;
+}
+
+.markdown a:hover {
+  text-decoration: underline;
+} 
 
 body {
   background: var(--background);
