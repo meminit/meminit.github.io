@@ -18,7 +18,13 @@ export default function toolPage() {
                 </div>
                 <div className="grid grid-cols-2 w-9/10 max-w-[1000px] gap-10 not-md:grid-cols-1">
                     {toolsList.all.map((game, index: number) => {
-                        return Cards.gridCard(game.name, game.shortDescription, game.href, game.thumbnail, game.identifier)
+                        //return Cards.gridCard(game.name, game.shortDescription, game.href, game.thumbnail, game.identifier)
+                        return <Cards.gridCard
+                                        name={game.name}
+                                        shortDescription={game.shortDescription}
+                                        href={game.href}
+                                        thumbnail={game.thumbnail}
+                                        identifier={game.identifier} />
                     })}
                 </div>
                 <div className="w-9/10 max-w-[1000px] text-left m-0">
