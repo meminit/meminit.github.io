@@ -1,15 +1,36 @@
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-# MeminIt 😎
+## Getting Started
 
-**MeminIt** is your go-to hub for creating awesome **memes**. From tools like [**Caption It!**](https://meminit.github.io/tools/captionit) to the [**Image Deep Fryer**](https://meminit.github.io/tools/deepfry), we make your memes **twice as funny** — and way easier to make.
+First, run the development server:
 
-We also offer just-for-fun tools like the [**Love Calculator**](https://meminit.github.io/tools/lovecalculator), perfect for sharing laughs with your friends 😂.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-**MeminIt** was created by **@itsprobablyjackson**, with thumbnail designs by **@shepeleigh** — built for all types of **memers**. Whether you're making content for your **friends** or your **followers**, there's something here for everyone.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Got an idea or feature request? Hit up the [**Suggestions**](/suggestions) page, send me an [**email**](mailto:itsprobablyjackson@proton.me), or join the [**Discord server**](https://discord.gg/meminit)!
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-If you're experiencing any issues or have feedback, feel free to reach out — I’m available based on the AEST time zone 🙂
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Whether you're here to make people laugh or spice up your social media feed, **MeminIt** is the perfect place to create and share memes.
+## Learn More
 
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

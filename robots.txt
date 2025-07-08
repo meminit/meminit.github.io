@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /meminitremake2/*
-Disallow: /oldVersion/*
-
-Sitemap: https://meminit.github.io/sitemap.xml

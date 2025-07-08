@@ -3,13 +3,15 @@
     "development"
   ],
   "hints": {
-    "axe/name-role-value": [
+    "compat-api/css": [
       "default",
       {
-        "link-name": "off"
+        "ignore": [
+          "-webkit-text-size-adjust"
+        ]
       }
     ],
     "no-inline-styles": "off",
-    "disown-opener": "off"
+    "apple-touch-icons": "off"
   }
 }
