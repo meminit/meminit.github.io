@@ -38,13 +38,6 @@ const tools = {
     ],
     etc: [
         {
-            name: "GIF Fade Transition",
-            shortDescription: "Make a GIF that transitions from on image to another with a fade!",
-            href: "/tools/gif-fade-transition-generator",
-            thumbnail: "/static/images/tools/thumbnails/gifcombine.webp",
-            identifier: "gif-fade-transition-generator"
-        },
-        {
             name: "Would You Rather Generator",
             shortDescription: "Make your messages and bio have some fancy bling! ✨",
             href: "/tools/would-you-rather-generator",
@@ -115,13 +108,6 @@ const tools = {
             href: "/tools/gif-converter",
             thumbnail: "/static/images/tools/thumbnails/gifit.webp",
             identifier: "gif-converter"
-        },
-        {
-            name: "GIF Fade Transition",
-            shortDescription: "Make a GIF that transitions from on image to another with a fade!",
-            href: "/tools/gif-fade-transition-generator",
-            thumbnail: "/static/images/tools/thumbnails/gifcombine.webp",
-            identifier: "gif-fade-transition-generator"
         },
         {
             name: "Make It A Quote",

@@ -7,9 +7,6 @@ import DefaultContainer from "@/app/components/containers/container"
 import Tool from "./caption"
 import Ad from "@/app/components/adComponents/banner"
 
-import Capture from "@/app/tools/js/capture"
-
-
 
 export default function captionIt() {
     return (

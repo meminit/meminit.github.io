@@ -32,6 +32,7 @@ export default function Home() {
             {toolsList.popular.map((game, index: number) => {
               // return Cards.gridCard(game.name, game.shortDescription, game.href, game.thumbnail, game.identifier)
               return <Cards.gridCard
+                key={game.identifier}
                 name={game.name}
                 shortDescription={game.shortDescription}
                 href={game.href}
@@ -67,6 +68,7 @@ export default function Home() {
               {toolsList.etc.map((game, index: number) => {
                 if (index > 1) return
                 return <Cards.secondaryGridCard
+                  key={game.identifier}
                   name={game.name}
                   shortDescription={game.shortDescription}
                   href={game.href}

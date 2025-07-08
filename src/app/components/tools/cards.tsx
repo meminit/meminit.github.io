@@ -7,7 +7,7 @@ interface props {
 export default {
     largeCard: function ({name, shortDescription, href, thumbnail, identifier}: props) {
         return (
-            <a className="w-full min-h-full bg-zinc-900 rounded-lg flex flex-col" href={href}>
+            <a className="w-full min-h-full bg-zinc-900 rounded-lg flex flex-col" key={identifier} href={href}>
                 <Image src={thumbnail} alt={name} className="w-full h-7/8 not-md:max-h-6/8 object-cover rounded-t-lg" width={940} height={550} />
                 <div className="p-2">
                     <p className="text-lg font-bold text-ellipsis">{name}</p>
