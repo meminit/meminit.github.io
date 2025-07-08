@@ -15,9 +15,15 @@ export default function Home() {
   return (
     <>
       <>
-        <title>Home | MeminIt!</title>
-        <meta name="description" content="Welcome to MeminIt! Discover the latest and most popular tools." />
-        {ogTags('Home | MeminIt!', 'Welcome to MeminIt, your go-to site for fun and creative online tools! From fancy text generators and "would you rather" poster generators, to deepfrying images, love calculators, and more, Meminit makes it easy to create, customize, and share awesome creations with friends. Perfect for making memes, spicing up your posts, or just having a laugh online. Have fun!', '\static\images\brand\cooldude.webp', true)}
+        <head>
+          <title>Home | MeminIt!</title>
+          <meta name="description" content="Welcome to MeminIt! Discover the latest and most popular tools." />
+          {ogTags('Home | MeminIt!', 'Welcome to MeminIt, your go-to site for fun and creative online tools! From fancy text generators and "would you rather" poster generators, to deepfrying images, love calculators, and more, Meminit makes it easy to create, customize, and share awesome creations with friends. Perfect for making memes, spicing up your posts, or just having a laugh online. Have fun!', '\static\images\brand\cooldude.webp', true)}
+          <link rel="manifest" href="/static/manifest/manifest.json" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/static/images/icons/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/static/images/icons/favicon-126x126.png" />
+        </head>
+
       </>
       <body className="bg-zinc-900">
         <Header />
