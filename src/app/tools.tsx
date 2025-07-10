@@ -8,6 +8,13 @@ const tools = {
     },
     popular: [
         {
+            name: "Guess the movie by the emoji!",
+            shortDescription: "Guess the movie by the emoji combo!",
+            href: "/tools/guess-the-movie-by-the-emoji",
+            thumbnail: '/static/images/tools/thumbnails/guess-the-movie-by-the-emoji.webp',
+            identifier: 'make-it-a-quote'
+        },
+        {
             name: "Fancy Text Generator",
             shortDescription: "Make your messages and bio have some fancy bling! ✨",
             href: "/tools/fancy-text-generator",
@@ -27,13 +34,6 @@ const tools = {
             href: "/tools/love-calculator",
             thumbnail: "/static/images/tools/thumbnails/ship.webp",
             identifier: 'love-calculator'
-        },
-        {
-            name: "Caption It",
-            shortDescription: "Caption any image you can imagine!",
-            href: "/tools/caption-it",
-            thumbnail: "/static/images/tools/thumbnails/meminit247.webp",
-            identifier: 'caption-it'
         }
     ],
     etc: [
@@ -48,7 +48,7 @@ const tools = {
             name: "Emoji Search",
             shortDescription: "Find that ONE emoji that you forgot the name of! 🤣",
             href: "/tools/emoji-search",
-            thumbnail: "/static/images/tools/thumbnails/emoji-search.webp",
+            thumbnail: "/static/images/tools/thumbnails/emojisearch.webp",
             identifier: "emoji-search"
         },
         {
@@ -115,6 +115,13 @@ const tools = {
             href: "/tools/make-it-a-quote",
             thumbnail: '/static/images/tools/thumbnails/quoteit.webp',
             identifier: 'make-it-a-quote'
+        },
+        {
+            name: "Guess the movie by the emoji!",
+            shortDescription: "Guess the movie by the emoji combo!",
+            href: "/tools/guess-the-movie-by-the-emoji",
+            thumbnail: '/static/images/tools/thumbnails/guess-the-movie-by-the-emoji.webp',
+            identifier: 'guess-the-movie-by-the-emoji'
         }
     ]
 }

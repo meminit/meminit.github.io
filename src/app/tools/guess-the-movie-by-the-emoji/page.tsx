@@ -7,16 +7,16 @@ export default function page() {
     return (
         <>
             <>
-                <title>Image to GIF Converter | MeminIt!</title>
-                {ogTags('Image to GIF Converter', 'Convert images to GIFs easily with our online tool. Upload your image and get a GIF instantly!', '/static/images/tools/thumbnails/gif-converter.webp', true)}
+                <title>Guess the Movie By The Emoji Combo | MeminIt!</title>
+                {ogTags('Guess the Movie By The Emoji Combo', 'Guess the movie by looking at emojis!', '/static/images/tools/thumbnails/guess-the-movie-by-the-emoji.webp', true)}
             </>
             <Container className="">
-                <h1 className="mb-5">Image to GIF Convert-er</h1>
+                <h1 className="mb-5">Guess the Movie By The Emoji Combo</h1>
                 <Tool />
             </Container>
             <Container className="">
                 {(async () => {
-                    const md = await Markdown("gif-converter/description")
+                    const md = await Markdown("guess-the-movie-by-the-emoji/description")
                     await md
                     return md.html;
                 })()}
