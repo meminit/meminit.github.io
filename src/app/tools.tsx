@@ -48,7 +48,7 @@ const tools = {
             name: "Emoji Search",
             shortDescription: "Find that ONE emoji that you forgot the name of! 🤣",
             href: "/tools/emoji-search",
-            thumbnail: "/static/images/tools/thumbnails/emojisearch.webp",
+            thumbnail: "/static/images/tools/thumbnails/emoji-search.webp",
             identifier: "emoji-search"
         },
         {
@@ -121,7 +121,7 @@ const tools = {
             shortDescription: "Guess the movie by the emoji combo!",
             href: "/tools/guess-the-movie-by-the-emoji",
             thumbnail: '/static/images/tools/thumbnails/guess-the-movie-by-the-emoji.webp',
-            identifier: 'make-it-a-quote'
+            identifier: 'guess-the-movie-by-the-emoji'
         }
     ]
 }
