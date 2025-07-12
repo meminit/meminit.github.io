@@ -121,7 +121,11 @@ const tools = {
             shortDescription: "Guess the movie by the emoji combo!",
             href: "/tools/guess-the-movie-by-the-emoji",
             thumbnail: '/static/images/tools/thumbnails/guess-the-movie-by-the-emoji.webp',
+<<<<<<< HEAD
             identifier: 'make-it-a-quote'
+=======
+            identifier: 'guess-the-movie-by-the-emoji'
+>>>>>>> f08b9f6303f5b6753747b285d87bb9b8e89ffda3
         }
     ]
 }
