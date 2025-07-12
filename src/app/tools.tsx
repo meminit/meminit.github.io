@@ -99,7 +99,7 @@ const tools = {
             name: "Emoji Search",
             shortDescription: "Find that ONE emoji that you forgot the name of! 🤣",
             href: "/tools/emoji-search",
-            thumbnail: "/static/images/tools/thumbnails/emojisearch.webp",
+            thumbnail: "/static/images/tools/thumbnails/emoji-search.webp",
             identifier: "emoji-search"
         },
         {

@@ -6,11 +6,13 @@
     "dev": "next dev --turbopack",
     "tailwind": "npx @tailwindcss/cli -i ./src/app/globals.css -o ./src/app/main.css --watch",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 6687",
     "lint": "next lint"
   },
   "dependencies": {
+    "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
+    "https": "^1.0.0",
     "marked": "^15.0.12",
     "next": "15.3.3",
     "react": "^19.0.0",
