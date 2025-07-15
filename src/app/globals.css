@@ -2,7 +2,13 @@
 
 :root {
     --background: #0a0a0a;
-}
+    --foreground: #fff;
+    --red-alert: #ff27273d;
+  }
+
+  @theme {
+    --color-red-alert: var(--red-alert);
+  }
 
 .loader {
     width: 48px;
@@ -14,14 +20,6 @@
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
   }
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 h1, h2, h3, h4, h5, h6 {
   font-size: revert !important;
