@@ -1,6 +1,6 @@
 'use client';
 import { ChangeEvent, useEffect, useState } from "react";
-import {Nunito_Sans} from "next/font/google"
+import { Nunito_Sans } from "next/font/google"
 import download from "@/app/tools/js/capture";
 
 const nunitoSans = Nunito_Sans({
@@ -48,7 +48,12 @@ export default function tool() {
                     <div className="w-full rounded-2xl overflow-clip [aspect-ratio:16/9]">
                         <div className="flex flex-row h-full w-full relative overflow-hidden bg-[black]" id="quotedMessage">
                             <img alt="Profile Picture" src={image} className="grayscale aspect-square object-cover"></img>
-                            <img alt="Gradient" src="/static/images/tools/other/gradient.png" className="absolute left-[56.5%] top-[0] w-full h-full rotate-90  origin-top-left"></img>
+                            <img
+                                alt="Gradient"
+                                src="/static/images/tools/other/gradient.png"
+                                className="absolute top-0 left-0 w-full h-full object-cover opacity-75 pointer-events-none"
+                                style={{transform: 'rotate(90deg)'}}
+                            />
                             <div className="relative grow h-full flex flex-col justify-center items-center">
                                 <p className={"text-4xl text-center not-md:text-sm " + nunitoSans.className}>{quote}</p>
                                 <p className="text-2xl text-center not-md:text-xs"><i className={nunitoSans.className}>- {displayName}</i></p>
@@ -57,7 +62,7 @@ export default function tool() {
                             </div>
                         </div>
                     </div>
-                <button className="w-full bg-zinc-950 p-2 rounded-lg text-zinc-600 hover:text-zinc-200 transition-all cursor-pointer" onClick={() => download(document.getElementById('quotedMessage') as HTMLElement)}><i className="fa-solid fa-download"></i> Download</button>
+                    <button className="w-full bg-zinc-950 p-2 rounded-lg text-zinc-600 hover:text-zinc-200 transition-all cursor-pointer" onClick={() => download(document.getElementById('quotedMessage') as HTMLElement)}><i className="fa-solid fa-download"></i> Download</button>
                 </div>
 
 

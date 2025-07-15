@@ -1,10 +1,10 @@
 const tools = {
     newest: {
-        name: "Make It A Quote",
-        shortDescription: "Create a fictional quote of an Unc, Albert Einstein and more!",
-        href: "/tools/make-it-a-quote",
-        thumbnail: '/static/images/tools/thumbnails/quoteit.webp',
-        identifier: 'make-it-a-quote'
+        name: "Emoji Search",
+        shortDescription: "Find that ONE emoji that you forgot the name of! 🤣",
+        href: "/tools/emoji-search",
+        thumbnail: "/static/images/tools/thumbnails/emoji-search.webp",
+        identifier: "emoji-search"
     },
     popular: [
         {
@@ -108,13 +108,6 @@ const tools = {
             href: "/tools/gif-converter",
             thumbnail: "/static/images/tools/thumbnails/gifit.webp",
             identifier: "gif-converter"
-        },
-        {
-            name: "Make It A Quote",
-            shortDescription: "Create a fictional quote of an Unc, Albert Einstein and more!",
-            href: "/tools/make-it-a-quote",
-            thumbnail: '/static/images/tools/thumbnails/quoteit.webp',
-            identifier: 'make-it-a-quote'
         },
         {
             name: "Guess the movie by the emoji!",
