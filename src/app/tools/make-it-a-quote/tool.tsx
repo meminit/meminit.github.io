@@ -26,6 +26,10 @@ export default function tool() {
 
     return (
         <>
+            <div className="w-full min-h-10 border-l-10 box-border rounded-sm border-l-red-500 bg-red-500/25 my-5 px-2 py-2 gap-2 flex items-center">
+                <i className="fa-solid fa-circle-exclamation text-red-500 text-lg"></i>
+                <p className="font-bold">We're aware of issues on Chrome for this tool, working on a fix. In the meantime, it works on Firefox.</p>
+            </div>
             <div className="w-full flex flex-row gap-5 not-md:flex-col">
                 <div className="flex flex-col gap-2">
                     <p className="text-lg font-bold">Person</p>
@@ -42,7 +46,7 @@ export default function tool() {
 
                 <div className="flex flex-col gap-4">
                     <div className="w-full rounded-2xl overflow-clip [aspect-ratio:16/9]">
-                        <div className="flex flex-row w-[700px] max-w-full h-full relative overflow-hidden bg-[black]" id="quotedMessage">
+                        <div className="flex flex-row h-full w-full relative overflow-hidden bg-[black]" id="quotedMessage">
                             <img alt="Profile Picture" src={image} className="grayscale aspect-square object-cover"></img>
                             <img alt="Gradient" src="/static/images/tools/other/gradient.png" className="absolute left-[56.5%] top-[0] w-full h-full rotate-90  origin-top-left"></img>
                             <div className="relative grow h-full flex flex-col justify-center items-center">
