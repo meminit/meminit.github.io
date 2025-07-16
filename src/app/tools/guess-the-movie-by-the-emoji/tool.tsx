@@ -73,7 +73,9 @@ export default function tool() {
                     </div>
                 </div>
                 <div className="flex flex-row gap-2">
-                    <input className="outline-0 bg-zinc-950 p-2 rounded-lg w-full" ref={input} type="text" placeholder="What's that movie?"></input>
+                    <input className="outline-0 bg-zinc-950 p-2 rounded-lg w-full" ref={input} type="text" placeholder="What's that movie?" onKeyDown={(e) => {
+                        if (e.key == 'Enter') { changeMovie() }
+                    }}></input>
                     <button className="w-40 text-zinc-500 bg-zinc-950 p-2 rounded-lg" onClick={(e) => { changeMovie(); }}><i className="fa-solid fa-lightbulb"></i> Submit Guess</button>
                 </div>
             </div>
