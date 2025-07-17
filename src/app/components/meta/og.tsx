@@ -1,4 +1,12 @@
-export default function ogTags(name: string, description: string, thumbnail: string, card = false) {
+type props = {
+    name: string,
+    description: string,
+    thumbnail: string,
+    card?: boolean
+}
+
+
+export default function ogTags({ name, description, thumbnail, card = false }: props) {
     
     let twitterCard
 

@@ -237,9 +237,6 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
-  .top-\[0\] {
-    top: 0;
-  }
   .right-0 {
     right: calc(var(--spacing) * 0);
   }
@@ -248,15 +245,6 @@
   }
   .left-0 {
     left: calc(var(--spacing) * 0);
-  }
-  .left-1 {
-    left: calc(var(--spacing) * 1);
-  }
-  .left-1\/2 {
-    left: calc(1/2 * 100%);
-  }
-  .left-\[56\.5\%\] {
-    left: 56.5%;
   }
   .z-2 {
     z-index: 2;
@@ -287,9 +275,6 @@
   }
   .m-2 {
     margin: calc(var(--spacing) * 2);
-  }
-  .my-2 {
-    margin-block: calc(var(--spacing) * 2);
   }
   .my-5 {
     margin-block: calc(var(--spacing) * 5);
@@ -438,6 +423,9 @@
   .min-h-10 {
     min-height: calc(var(--spacing) * 10);
   }
+  .min-h-50 {
+    min-height: calc(var(--spacing) * 50);
+  }
   .min-h-\[100vh\] {
     min-height: 100vh;
   }
@@ -449,6 +437,12 @@
   }
   .min-h-full {
     min-height: 100%;
+  }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
+  }
+  .w-1\/2 {
+    width: calc(1/2 * 100%);
   }
   .w-9 {
     width: calc(var(--spacing) * 9);
@@ -465,12 +459,6 @@
   .w-\[100\%\] {
     width: 100%;
   }
-  .w-\[200\%\] {
-    width: 200%;
-  }
-  .w-\[700px\] {
-    width: 700px;
-  }
   .w-full {
     width: 100%;
   }
@@ -479,9 +467,6 @@
   }
   .max-w-\[1000px\] {
     max-width: 1000px;
-  }
-  .max-w-full {
-    max-width: 100%;
   }
   .max-w-xs {
     max-width: var(--container-xs);
@@ -494,17 +479,6 @@
   }
   .border-collapse {
     border-collapse: collapse;
-  }
-  .origin-top-left {
-    transform-origin: top left;
-  }
-  .-translate-x-1 {
-    --tw-translate-x: calc(var(--spacing) * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .-translate-x-1\/2 {
-    --tw-translate-x: calc(calc(1/2 * 100%) * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .rotate-0 {
     rotate: 0deg;
@@ -613,14 +587,6 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .border-l-2 {
-    border-left-style: var(--tw-border-style);
-    border-left-width: 2px;
-  }
-  .border-l-5 {
-    border-left-style: var(--tw-border-style);
-    border-left-width: 5px;
-  }
   .border-l-10 {
     border-left-style: var(--tw-border-style);
     border-left-width: 10px;
@@ -639,15 +605,6 @@
   }
   .bg-blue-500 {
     background-color: var(--color-blue-500);
-  }
-  .bg-green-500 {
-    background-color: var(--color-green-500);
-  }
-  .bg-green-500\/25 {
-    background-color: color-mix(in srgb, oklch(72.3% 0.219 149.579) 25%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-green-500) 25%, transparent);
-    }
   }
   .bg-red-500 {
     background-color: var(--color-red-500);
@@ -799,29 +756,8 @@
   .text-lime-300 {
     color: var(--color-lime-300);
   }
-  .text-red-400 {
-    color: var(--color-red-400);
-  }
-  .text-red-400\/75 {
-    color: color-mix(in srgb, oklch(70.4% 0.191 22.216) 75%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-red-400) 75%, transparent);
-    }
-  }
   .text-red-500 {
     color: var(--color-red-500);
-  }
-  .text-red-500\/50 {
-    color: color-mix(in srgb, oklch(63.7% 0.237 25.331) 50%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-red-500) 50%, transparent);
-    }
-  }
-  .text-red-500\/75 {
-    color: color-mix(in srgb, oklch(63.7% 0.237 25.331) 75%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-red-500) 75%, transparent);
-    }
   }
   .text-white {
     color: var(--color-white);
@@ -870,6 +806,10 @@
   }
   .shadow {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring {
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .outline {
@@ -1124,21 +1064,6 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-@property --tw-translate-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@property --tw-translate-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@property --tw-translate-z {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
 @property --tw-rotate-x {
   syntax: "*";
   inherits: false;
@@ -1298,9 +1223,6 @@ body {
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
-      --tw-translate-x: 0;
-      --tw-translate-y: 0;
-      --tw-translate-z: 0;
       --tw-rotate-x: initial;
       --tw-rotate-y: initial;
       --tw-rotate-z: initial;

@@ -1,7 +1,7 @@
 import DefaultBody from "@/app/components/body"
 import Header from "@/app/components/defaults/header"
 import Footer from "@/app/components/defaults/footer"
-import ogTags from "@/app/components/meta/og"
+import OgTags from "@/app/components/meta/og"
 import Markdown from "../../../lib/markdown"
 import DefaultContainer from "@/app/components/containers/container"
 import Tool from "./caption"
@@ -12,8 +12,13 @@ export default function captionIt() {
     return (
         <>
             <>
-                <title>Would You Rather Poster Maker | MeminIt!</title>
-                {ogTags('Would You Rather Poster Maker', 'Make a Would You Rather poster online for free!', '\static\images\tools\thumbnails\wouldyourather.webp', true)}
+                <title>Would You Rather Poster Maker | MeminIt!</title> 
+                <OgTags
+                    name="Would You Rather Poster Maker"
+                    description="Make a Would You Rather poster online for free!"
+                    thumbnail="/static/images/tools/thumbnails/wouldyourather.webp"
+                    card={ true }
+                />
             </>
             <DefaultContainer className="">
                     <h1 className="mb-10">Would You Rather Poster Maker</h1>

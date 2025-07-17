@@ -3,14 +3,19 @@ import Header from "@/app/components/defaults/header"
 import Footer from "@/app/components/defaults/footer"
 import toolsList from "@/app/tools"
 import Cards from "@/app/components/tools/cards"
-import ogTags from "@/app/components/meta/og"
+import OgTags from "@/app/components/meta/og"
 
 export default function toolPage() {
     return (
         <>
             <>
                 <title>Tools | MeminIt!</title>
-                {ogTags('Tools | MeminIt!', 'Welcome to MeminIt, your go-to site for fun and creative online tools! From fancy text generators and "would you rather" poster generators, to deepfrying images, love calculators, and more, Meminit makes it easy to create, customize, and share awesome creations with friends. Perfect for making memes, spicing up your posts, or just having a laugh online. Have fun!', '\static\images\brand\cooldude.webp', true)}
+           
+                <OgTags
+                    name="Tools | MeminIt!"
+                    description="Welcome to MeminIt, your go-to site for fun and creative online tools! View the tools on our tool page!"
+                    thumbnail="/static/images/brand/cooldude.webp"
+                />   
             </>
                 <div className="flex flex-col">
                     <h1 className="w-9/10 max-w-[1000px] text-left m-0">All Tools</h1>

@@ -1,7 +1,7 @@
 import DefaultBody from "@/app/components/body"
 import Header from "@/app/components/defaults/header"
 import Footer from "@/app/components/defaults/footer"
-import ogTags from "@/app/components/meta/og"
+import OgTags from "@/app/components/meta/og"
 import Markdown from "../../../lib/markdown"
 import DefaultContainer from "@/app/components/containers/container"
 import Tool from "./caption"
@@ -16,7 +16,13 @@ export default function captionIt() {
         <>
             <>
                 <title>Caption It | MeminIt!</title>
-                {ogTags('Caption It', 'Caption any image you can imagine!', '/static/images/tools/thumbnails/meminit247.webp', true)}
+           
+                <OgTags
+                    name="Caption It"
+                    description="Caption any image you can imagine!"
+                    thumbnail="/static/images/tools/thumbnails/meminit247.webp"
+                    card={true}
+                />
             </>
             <DefaultContainer className="">
                     <h1 className="mb-10">Free Online Image Caption-er</h1>

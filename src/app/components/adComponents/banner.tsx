@@ -5,6 +5,8 @@ type props = {className?: string}
 
 const AdBanner = ({className=""}: props) => {
 
+    if (typeof window == undefined) return;
+
     useEffect(() => {
         ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
     }, [])
