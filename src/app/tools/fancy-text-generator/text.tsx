@@ -10,12 +10,12 @@ export default function FancyText() {
 
   const [inputText, setInputText] = useState('')
   const [outputText, setOutputText] = useState('')
-  const [filters, setFilters] = useState<Record<string, FilterEntry>>({}) // Proper typing
+  const [filters, setFilters] = useState<Record<string, FilterEntry>>({})
 
   useEffect(() => {
     fetch('/static/json/text-filters/main.json')
       .then(res => res.json())
-      .then((json: Record<string, FilterEntry>) => setFilters(json)) // Tell TypeScript the shape
+      .then((json: Record<string, FilterEntry>) => setFilters(json))
       .catch(console.error)
     console.log('Fetched Data')
   }, [])
@@ -35,7 +35,7 @@ export default function FancyText() {
       let styled = ''
 
       for (const [char, replacement] of Object.entries(filterData.filters)) {
-        const regex = new RegExp(char, 'gi')
+        const regex = new RegExp(char, 'g')
         transformed = transformed.replaceAll(regex, replacement)
         styled = filterData.syntax.replace('{output}', transformed)
       }

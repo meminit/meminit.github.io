@@ -8,7 +8,7 @@ export default function page() {
     return (
         <>
             <>
-                <title>Online Love Calculator | MeminIt!</title>
+                <title>Fancy Username Generator | MeminIt!</title>
                 <OgTags name="Fancy Username Generator" description="Type any name and put it in a custom font to add to your social media username!" thumbnail="/static/images/tools/thumbnails/fancy-username.webp" card={ true } />
             </>
             <Container className="">

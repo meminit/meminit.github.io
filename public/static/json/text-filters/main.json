@@ -1,6 +1,6 @@
 {
   "gothic": {
-    "syntax": "💀 {output} 💀",
+    "syntax": "{output}",
     "filters": {
       "a": "𝖆",
       "b": "𝖇",

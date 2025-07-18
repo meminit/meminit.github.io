@@ -1,10 +1,10 @@
 const tools = {
     newest: {
-        name: "Emoji Search",
-        shortDescription: "Find that ONE emoji that you forgot the name of! 🤣",
-        href: "/tools/emoji-search",
-        thumbnail: "/static/images/tools/thumbnails/emoji-search.webp",
-        identifier: "emoji-search"
+        name: "Fancy Username Generator",
+        shortDescription: "Make your username fancy with this fancy username generator!",
+        href: "/tools/fancy-username-generator",
+        thumbnail: "/static/images/tools/thumbnails/fancy-username.webp",
+        identifier: "fancy-username-generator"
     },
     popular: [
         {
@@ -115,6 +115,13 @@ const tools = {
             href: "/tools/guess-the-movie-by-the-emoji",
             thumbnail: '/static/images/tools/thumbnails/guess-the-movie-by-the-emoji.webp',
             identifier: 'guess-the-movie-by-the-emoji'
+        },
+        {
+            name: "Fancy Username Generator",
+            shortDescription: "Make your username fancy with this fancy username generator!",
+            href: "/tools/fancy-username-generator",
+            thumbnail: "/static/images/tools/thumbnails/fancy-username.webp",
+            identifier: "fancy-username-generator"
         }
     ]
 }
