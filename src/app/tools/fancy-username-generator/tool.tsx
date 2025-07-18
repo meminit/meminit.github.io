@@ -49,7 +49,7 @@ export default function tool() {
             </div>
             <div className="w-full min-h-50 not-md:min-h-0 not-md:p-5 p-2 box-border rounded-2xl flex flex-col items-center justify-center" style={{ backgroundColor: 'rgb(18, 18, 20)' }}>
                 <div className="w-full flex flex-row gap-2">
-                    <img src="/static/images/other/confusedBean.jpg" alt="Cool Dude With Sunglasses Emoji" className="aspect-square w-15 bg-black rounded-4xl" />
+                    <img src="/static/images/other/confusedbean.jpg" alt="Confused Old Character Meme" className="aspect-square w-15 bg-black rounded-4xl" />
                     <div className="h-full flex flex-col justify-center">
                         <p className="text-lg text-pink-400 font-bold hover:underline">{styledUsername}</p>
                         <p>I like food</p>
