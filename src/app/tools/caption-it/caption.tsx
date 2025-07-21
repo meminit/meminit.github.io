@@ -31,7 +31,7 @@ export default function load() {
                 <div className="w-full flex flex-col gap-2">
                     <div className="w-full" id="captioned">
                         <div className="w-full bg-white font-bold p-2">
-                            <p className="text-black text-center text-5xl">{caption}</p>
+                            <p className="text-black text-center text-5xl text-ellipsis">{caption}</p>
                         </div>
                         <img src={image} alt="Upload Image Placeholder"></img>
                     </div>

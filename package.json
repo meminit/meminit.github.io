@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "tailwind": "npx @tailwindcss/cli -i ./src/app/globals.css -o ./src/app/main.css --watch",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 60243",
     "lint": "next lint"
   },
   "dependencies": {
